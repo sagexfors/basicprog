@@ -3,6 +3,6 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
       home: Scaffold(
-    appBar: AppBar(title: Text("Hello World")),
+    appBar: AppBar(title: const Text("Hello World")),
   )));
 }
