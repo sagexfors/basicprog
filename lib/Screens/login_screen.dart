@@ -1,3 +1,4 @@
+import 'package:basicprog/Widgets/background_image_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -5,9 +6,9 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
+    return const Scaffold(
+      body: Stack(
+        children: [BackgroundImage(imagePath: 'assets/login_bg.png')],
       ),
     );
   }

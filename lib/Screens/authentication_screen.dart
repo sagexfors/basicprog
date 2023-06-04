@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:basicprog/Widgets/background_image_widget.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -7,7 +8,12 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Stack(
-        children: [BackgroundImage(), AuthButtons()],
+        children: [
+          BackgroundImage(
+            imagePath: 'assets/auth_bg.png',
+          ),
+          AuthButtons()
+        ],
       ),
     );
   }
@@ -49,24 +55,6 @@ class AuthButtons extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(fontSize: 22, letterSpacing: 2),
-      ),
-    );
-  }
-}
-
-class BackgroundImage extends StatelessWidget {
-  const BackgroundImage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/auth_bg.png'),
-          fit: BoxFit.cover,
-        ),
       ),
     );
   }
