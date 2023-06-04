@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/auth',
       routes: {
         '/': (context) => const HomeScreen(),
         '/about-us': (context) => const AboutUsScreen(),
