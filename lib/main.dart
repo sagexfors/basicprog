@@ -6,6 +6,7 @@ import 'package:basicprog/Screens/about_us_screen.dart';
 import 'package:basicprog/Screens/authentication_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized;
   runApp(const MyApp());
 }
 
