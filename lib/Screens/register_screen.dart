@@ -67,11 +67,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         onPressed: () async {
                           final email = _email.text;
                           final password = _password.text;
-
-                          final userCredential = await FirebaseAuth.instance
-                              .createUserWithEmailAndPassword(
-                                  email: email, password: password);
-                          print(userCredential);
+                          try {
+                            final userCredential = await FirebaseAuth.instance
+                                .createUserWithEmailAndPassword(
+                                    email: email, password: password);
+                            print(userCredential);
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'weak-password') {
+                              print('Weak Password');
+                            } else if (e.code == 'email-already-in-use') {
+                              print('Email already in use.');
+                            } else if (e.code == 'invalid-email') {
+                              print('Invalid email.');
+                            }
+                          }
                         },
                         child: const Text('Register'),
                       ),

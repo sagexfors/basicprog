@@ -68,10 +68,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           final email = _email.text;
                           final password = _password.text;
 
-                          final userCredential = await FirebaseAuth.instance
-                              .signInWithEmailAndPassword(
-                                  email: email, password: password);
-                          print(userCredential);
+                          try {
+                            final userCredential = await FirebaseAuth.instance
+                                .signInWithEmailAndPassword(
+                                    email: email, password: password);
+                            print(userCredential);
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'user-not-found') {
+                              print('User not found.');
+                            } else if (e.code == 'wrong-password') {
+                              print('Wrong password');
+                            }
+                          }
                         },
                         child: const Text('Login'),
                       ),
