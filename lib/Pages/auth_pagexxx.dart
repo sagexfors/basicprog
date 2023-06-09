@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:basicprog/Widgets/background_image_widget.dart';
 
-class AuthScreen extends StatelessWidget {
-  const AuthScreen({super.key});
+class AuthPage extends StatelessWidget {
+  const AuthPage({super.key});
 
   @override
   Widget build(BuildContext context) {
