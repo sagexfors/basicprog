@@ -86,11 +86,14 @@ class _RegisterFormState extends State<RegisterForm> {
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
           PasswordTextField(
-              passwordController: _passwordController, labelText: 'Password'),
+            passwordController: _passwordController,
+            labelText: 'Password',
+          ),
           const SizedBox(height: 16.0),
           PasswordTextField(
-              passwordController: _confirmPasswordController,
-              labelText: 'Confirm Password'),
+            passwordController: _confirmPasswordController,
+            labelText: 'Confirm Password',
+          ),
           const SizedBox(height: 24.0),
           if (_errorText != null)
             Text(
@@ -110,7 +113,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 child: Text(
                   'Sign in here.',
                   style: TextStyle(
-                      color: Colors.blue[600], fontWeight: FontWeight.bold),
+                    color: Colors.blue[600],
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 //todo gesture app to fix login/register page redirect problem
               ),
@@ -172,9 +177,11 @@ class PasswordTextField extends StatefulWidget {
   final TextEditingController passwordController;
   final String labelText;
 
-  const PasswordTextField(
-      {required this.passwordController, Key? key, required this.labelText})
-      : super(key: key);
+  const PasswordTextField({
+    required this.passwordController,
+    Key? key,
+    required this.labelText,
+  }) : super(key: key);
 
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();

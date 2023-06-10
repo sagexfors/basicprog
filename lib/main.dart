@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:basicprog/Auth/main_page.dart';
 import 'package:basicprog/Pages/about_us_page.dart';
-import 'package:basicprog/Pages/auth_pagexxx.dart';
 
 import 'firebase_options.dart';
 
@@ -20,13 +19,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const MainPage(),
-          '/about-us': (context) => const AboutUsPage(),
-          '/auth': (context) => const AuthPage(),
-        },
-        theme: buildCustomTheme());
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MainPage(),
+        '/about-us': (context) => const AboutUsPage(),
+      },
+      theme: buildCustomTheme(),
+    );
   }
 }
 

@@ -211,15 +211,21 @@ class _LoginFormState extends State<LoginForm> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const ForgotPasswordPage();
-                    }));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const ForgotPasswordPage();
+                        },
+                      ),
+                    );
                   },
                   child: Text(
                     'Forgot your password?',
                     style: TextStyle(
-                        color: Colors.blue[600], fontWeight: FontWeight.bold),
+                      color: Colors.blue[600],
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],
@@ -237,7 +243,9 @@ class _LoginFormState extends State<LoginForm> {
                 child: Text(
                   'Register now.',
                   style: TextStyle(
-                      color: Colors.blue[600], fontWeight: FontWeight.bold),
+                    color: Colors.blue[600],
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 //todo gesture app to fix login/register page redirect problem
               ),
