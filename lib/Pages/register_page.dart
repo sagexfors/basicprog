@@ -107,7 +107,11 @@ class _RegisterFormState extends State<RegisterForm> {
               const Text("Already have an account? "),
               GestureDetector(
                 onTap: widget.showLoginPage,
-                child: const Text('Sign in here.'),
+                child: Text(
+                  'Sign in here.',
+                  style: TextStyle(
+                      color: Colors.blue[600], fontWeight: FontWeight.bold),
+                ),
                 //todo gesture app to fix login/register page redirect problem
               ),
             ],

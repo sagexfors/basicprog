@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'forgot_password_page.dart';
+
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
   const LoginPage({super.key, required this.showRegisterPage});
@@ -196,13 +198,33 @@ class _LoginFormState extends State<LoginForm> {
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
           PasswordTextField(passwordController: _passwordController),
-          const SizedBox(height: 24.0),
+          const SizedBox(height: 16.0),
           if (_errorText != null)
             Text(
               _errorText!,
               style: const TextStyle(color: Colors.red),
             ),
-          const SizedBox(height: 12.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const ForgotPasswordPage();
+                    }));
+                  },
+                  child: Text(
+                    'Forgot your password?',
+                    style: TextStyle(
+                        color: Colors.blue[600], fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ),
           LoginButton(
             onPressed: _login,
           ),
@@ -212,7 +234,11 @@ class _LoginFormState extends State<LoginForm> {
               const Text("Don't have an account? "),
               GestureDetector(
                 onTap: widget.showRegisterPage,
-                child: const Text('Register now.'),
+                child: Text(
+                  'Register now.',
+                  style: TextStyle(
+                      color: Colors.blue[600], fontWeight: FontWeight.bold),
+                ),
                 //todo gesture app to fix login/register page redirect problem
               ),
             ],
