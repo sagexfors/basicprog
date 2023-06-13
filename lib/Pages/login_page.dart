@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../Widgets/auth_button.dart';
+import '../Widgets/email_text_form_field.dart';
+import '../Widgets/password_text_form_field.dart';
 import 'forgot_password_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,107 +37,6 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class EmailTextFormField extends StatelessWidget {
-  final TextEditingController emailController;
-
-  const EmailTextFormField({required this.emailController, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: TextFormField(
-        controller: emailController,
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          labelText: 'Email',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          prefixIcon: const Icon(Icons.email),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
-        ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter an email';
-          }
-          return null;
-        },
-      ),
-    );
-  }
-}
-
-class PasswordTextField extends StatefulWidget {
-  final TextEditingController passwordController;
-
-  const PasswordTextField({required this.passwordController, Key? key})
-      : super(key: key);
-
-  @override
-  State<PasswordTextField> createState() => _PasswordTextFieldState();
-}
-
-class _PasswordTextFieldState extends State<PasswordTextField> {
-  bool _obscureText = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: TextFormField(
-        controller: widget.passwordController,
-        obscureText: _obscureText,
-        autocorrect: false,
-        enableSuggestions: false,
-        decoration: InputDecoration(
-          labelText: 'Password',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          prefixIcon: const Icon(Icons.lock),
-          suffixIcon: GestureDetector(
-            onTap: () {
-              setState(() {
-                _obscureText = !_obscureText;
-              });
-            },
-            child: Icon(
-              _obscureText ? Icons.visibility_off : Icons.visibility,
-            ),
-          ),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
-        ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter a password';
-          }
-          return null;
-        },
-      ),
-    );
-  }
-}
-
-class LoginButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const LoginButton({
-    super.key,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: const Text('Login'),
     );
   }
 }
@@ -197,7 +99,10 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
-          PasswordTextField(passwordController: _passwordController),
+          PasswordTextField(
+            passwordController: _passwordController,
+            labelText: 'Password',
+          ),
           const SizedBox(height: 16.0),
           if (_errorText != null)
             Text(
@@ -231,8 +136,9 @@ class _LoginFormState extends State<LoginForm> {
               ],
             ),
           ),
-          LoginButton(
+          AuthButton(
             onPressed: _login,
+            name: 'Login',
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

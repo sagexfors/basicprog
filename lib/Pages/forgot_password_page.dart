@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../Widgets/auth_button.dart';
+import '../Widgets/email_text_form_field.dart';
+
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
 
@@ -89,62 +92,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 _errorMessage!,
                 style: const TextStyle(color: Colors.red),
               ),
-            ForgotPasswordButton(
+            AuthButton(
               onPressed: _resetPassword,
+              name: 'Reset Password',
             )
           ],
         ),
       ),
-    );
-  }
-}
-
-class EmailTextFormField extends StatelessWidget {
-  final TextEditingController emailController;
-
-  const EmailTextFormField({required this.emailController, Key? key})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: TextFormField(
-        controller: emailController,
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          labelText: 'Email',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          prefixIcon: const Icon(Icons.email),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
-        ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter an email';
-          }
-          return null;
-        },
-      ),
-    );
-  }
-}
-
-class ForgotPasswordButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const ForgotPasswordButton({
-    Key? key,
-    required this.onPressed,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: const Text('Reset Password'),
     );
   }
 }
