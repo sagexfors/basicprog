@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../Widgets/auth_button.dart';
+import '../Widgets/circle_thingy.dart';
 import '../Widgets/email_text_form_field.dart';
 import '../Widgets/password_text_form_field.dart';
 import 'forgot_password_page.dart';
@@ -33,6 +34,21 @@ class _LoginPageState extends State<LoginPage> {
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
+            const Positioned(
+              top: -80,
+              left: -100,
+              child: CircleThing(opacity: 0.7),
+            ),
+            const Positioned(
+              top: -140,
+              left: -10,
+              child: CircleThing(opacity: 0.7),
+            ),
+            // const Positioned(
+            //   top: -80,
+            //   left: -80,
+            //   child: CircleThing(),
+            // ),
             // BackgroundImage(imagePath: 'assets/login_register_bg.png'),
             LoginForm(showRegisterPage: widget.showRegisterPage)
           ],
