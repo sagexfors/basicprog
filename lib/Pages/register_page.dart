@@ -1,3 +1,4 @@
+import 'package:basicprog/Widgets/regular_text_form_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +40,7 @@ class _RegisterFormState extends State<RegisterForm> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _nameController = TextEditingController();
   String? _errorText;
 
   @override
@@ -46,6 +48,7 @@ class _RegisterFormState extends State<RegisterForm> {
     _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
+    _nameController.dispose();
     super.dispose();
   }
 
@@ -53,6 +56,7 @@ class _RegisterFormState extends State<RegisterForm> {
     if (_formKey.currentState!.validate() && _validateConfirmPassword()) {
       final email = _emailController.text.trim();
       final password = _passwordController.text.trim();
+      final name = _nameController.text.trim();
       try {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email,
@@ -98,6 +102,12 @@ class _RegisterFormState extends State<RegisterForm> {
           const SizedBox(
             height: 64,
           ),
+          RegularTextFormField(
+            controller: _nameController,
+            labelText: 'Name',
+          ),
+          //TODO: Make registering name function
+          const SizedBox(height: 16.0),
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
           PasswordTextField(
