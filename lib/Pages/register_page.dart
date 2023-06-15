@@ -21,20 +21,31 @@ class _RegisterPageState extends State<RegisterPage> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Stack(
-          children: [
-            const Positioned(
-              top: -80,
-              left: -100,
-              child: CircleThing(opacity: 0.7),
-            ),
-            const Positioned(
-              top: -140,
-              left: -10,
-              child: CircleThing(opacity: 0.7),
-            ),
-            RegisterForm(showLoginPage: widget.showLoginPage)
-          ],
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 60),
+                    const SizedBox(height: 60),
+                    RegisterForm(showLoginPage: widget.showLoginPage),
+                  ],
+                ),
+              ),
+              const Positioned(
+                top: -80,
+                left: -100,
+                child: CircleThing(opacity: 0.7),
+              ),
+              const Positioned(
+                top: -140,
+                left: -10,
+                child: CircleThing(opacity: 0.7),
+              ),
+            ],
+          ),
         ),
       ),
     );
