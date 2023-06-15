@@ -24,42 +24,6 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MainPage(),
         '/about-us': (context) => const AboutUsPage(),
       },
-      theme: buildCustomTheme(),
     );
   }
-}
-
-ThemeData buildCustomTheme() {
-  final ColorScheme colorScheme = const ColorScheme.light().copyWith(
-    primary: Colors.deepPurple,
-    secondary: Colors.deepPurple,
-  );
-
-  final ThemeData base = ThemeData.from(colorScheme: colorScheme);
-
-  return base.copyWith(
-    useMaterial3: false,
-    colorScheme: colorScheme,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.deepPurple,
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.deepPurple),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-        ),
-      ),
-    ),
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all<Color>(Colors.deepPurple),
-      ),
-    ),
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Colors.deepPurple,
-    ),
-  );
 }
