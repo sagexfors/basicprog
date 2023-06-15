@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../Widgets/auth_button.dart';
 import '../Widgets/email_text_form_field.dart';
@@ -106,7 +107,15 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
           const SizedBox(
-            height: 64,
+            height: 36,
+          ),
+          SvgPicture.asset(
+            'assets/images/login_img.svg', // Replace with your SVG file path
+            width: 360, // Adjust the desired width
+            height: 156, // Adjust the desired height
+          ),
+          const SizedBox(
+            height: 24,
           ),
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
