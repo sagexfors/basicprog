@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../Widgets/auth_button.dart';
+import '../Widgets/circle_thingy.dart';
 import '../Widgets/email_text_form_field.dart';
 import '../Widgets/password_text_form_field.dart';
 
@@ -21,7 +22,19 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Stack(
-          children: [RegisterForm(showLoginPage: widget.showLoginPage)],
+          children: [
+            const Positioned(
+              top: -80,
+              left: -100,
+              child: CircleThing(opacity: 0.7),
+            ),
+            const Positioned(
+              top: -140,
+              left: -10,
+              child: CircleThing(opacity: 0.7),
+            ),
+            RegisterForm(showLoginPage: widget.showLoginPage)
+          ],
         ),
       ),
     );
