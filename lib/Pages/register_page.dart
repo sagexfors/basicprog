@@ -87,6 +87,17 @@ class _RegisterFormState extends State<RegisterForm> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Text(
+            'Welcome to Basic;',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2,
+            ),
+          ),
+          const SizedBox(
+            height: 64,
+          ),
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
           PasswordTextField(
@@ -98,13 +109,15 @@ class _RegisterFormState extends State<RegisterForm> {
             passwordController: _confirmPasswordController,
             labelText: 'Confirm Password',
           ),
-          const SizedBox(height: 24.0),
+          const SizedBox(
+            height: 12,
+          ),
           if (_errorText != null)
             Text(
               _errorText!,
               style: const TextStyle(color: Colors.red),
             ),
-          const SizedBox(height: 12.0),
+          const SizedBox(height: 6.0),
           AuthButton(
             onPressed: _register,
             name: 'Register',
@@ -112,7 +125,9 @@ class _RegisterFormState extends State<RegisterForm> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Already have an account? "),
+              const Text(
+                "Already have an account? ",
+              ),
               GestureDetector(
                 onTap: widget.showLoginPage,
                 child: Text(
