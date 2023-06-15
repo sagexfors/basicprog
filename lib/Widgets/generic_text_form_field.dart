@@ -28,7 +28,7 @@ class GenericTextFormField extends StatelessWidget {
         ),
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return "Please enter an $labelText";
+            return "Please enter a ${labelText.toLowerCase()}";
           }
           return null;
         },
