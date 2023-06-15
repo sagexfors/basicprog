@@ -1,4 +1,4 @@
-import 'package:basicprog/Widgets/regular_text_form_field.dart';
+import 'package:basicprog/Widgets/generic_text_form_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -102,7 +102,7 @@ class _RegisterFormState extends State<RegisterForm> {
           const SizedBox(
             height: 64,
           ),
-          RegularTextFormField(
+          GenericTextFormField(
             controller: _nameController,
             labelText: 'Name',
           ),
