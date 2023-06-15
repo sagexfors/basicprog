@@ -97,6 +97,17 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Text(
+            'Welcome Back!',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2,
+            ),
+          ),
+          const SizedBox(
+            height: 64,
+          ),
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
           PasswordTextField(
