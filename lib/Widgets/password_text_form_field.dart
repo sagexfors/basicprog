@@ -29,7 +29,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         decoration: InputDecoration(
           labelText: widget.labelText,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(12.0),
           ),
           prefixIcon: const Icon(Icons.lock),
           suffixIcon: GestureDetector(
