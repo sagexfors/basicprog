@@ -66,6 +66,10 @@ flutter:
     - assets/login_register_bg.png
     - assets/about_us_bg.png
     - assets/images/login_img.svg
+    - assets/images/temp_activities.png
+    - assets/images/temp_lessons.png
+    - assets/images/temp_quizzes.png
+    - assets/images/temp_about_us.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
