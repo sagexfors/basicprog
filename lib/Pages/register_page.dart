@@ -1,4 +1,5 @@
 import 'package:basicprog/Widgets/generic_text_form_field.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ import '../Widgets/circle_thingy.dart';
 import '../Widgets/email_text_form_field.dart';
 import '../Widgets/password_text_form_field.dart';
 
+// TODO: extract authenatication thing outside
 class RegisterPage extends StatefulWidget {
   final VoidCallback showLoginPage;
   const RegisterPage({super.key, required this.showLoginPage});
@@ -82,11 +84,17 @@ class _RegisterFormState extends State<RegisterForm> {
       final password = _passwordController.text.trim();
       final name = _nameController.text.trim();
       try {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        final userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email,
           password: password,
         );
-        // Registration successful, perform any additional actions here
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(
+              userCredential.user!.uid,
+            )
+            .set({'name': name});
       } on FirebaseAuthException catch (e) {
         setState(() {
           if (e.code == 'email-already-in-use') {
@@ -130,7 +138,6 @@ class _RegisterFormState extends State<RegisterForm> {
             controller: _nameController,
             labelText: 'Name',
           ),
-          //TODO: Make registering name function
           const SizedBox(height: 16.0),
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
@@ -171,7 +178,6 @@ class _RegisterFormState extends State<RegisterForm> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                //todo gesture app to fix login/register page redirect problem
               ),
             ],
           ),
