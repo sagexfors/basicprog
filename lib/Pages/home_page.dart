@@ -1,5 +1,9 @@
+import 'package:basicprog/Pages/quizzes_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'activities_page.dart';
+import 'lessons_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -72,28 +76,37 @@ class NavigationDrawer extends StatelessWidget {
             title: const Text('Home'),
             leading: const Icon(Icons.home),
             onTap: () {
-              // Handle home item press
+              Navigator.pop(context); // Close the drawer
             },
           ),
           ListTile(
             title: const Text('Lessons'),
             leading: const Icon(Icons.book),
             onTap: () {
-              // Handle lessons item press
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LessonsPage()),
+              );
             },
           ),
           ListTile(
             title: const Text('Activities'),
             leading: const Icon(Icons.ondemand_video),
             onTap: () {
-              // Handle activities item press
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ActivitiesPage()),
+              );
             },
           ),
           ListTile(
             title: const Text('Quizzes'),
             leading: const Icon(Icons.quiz),
             onTap: () {
-              // Handle quizzes item press
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const QuizzesPage()),
+              );
             },
           ),
           const Divider(),
