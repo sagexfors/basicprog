@@ -1,4 +1,5 @@
 import 'package:basicprog/Pages/quizzes_page.dart';
+import 'package:basicprog/Pages/reset_password_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -106,6 +107,17 @@ class NavigationDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const QuizzesPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Reset Password'),
+            leading: const Icon(Icons.lock),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ResetPasswordPage()),
               );
             },
           ),
