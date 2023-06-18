@@ -4,9 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -17,6 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String _imageUrl = '';
   final String _defaultAvatarUrl =
       'assets/default_avatar.png'; // Replace with your default avatar image path
+  final TextEditingController _nameController = TextEditingController();
 
   Future<void> _uploadImage() async {
     final user = FirebaseAuth.instance.currentUser;
@@ -55,8 +57,36 @@ class _ProfilePageState extends State<ProfilePage> {
       }
     }
 
-    // User is not logged in or doesn't have a profile picture
+    // User is not logged in or doesn't have a profile picture, return null
     return null;
+  }
+
+  Future<void> _updateProfileData() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final name = _nameController.text.trim();
+
+      try {
+        // Access the "users" collection in Firestore
+        final usersCollection = FirebaseFirestore.instance.collection('users');
+
+        // Check if the user's document exists
+        final docSnapshot = await usersCollection.doc(user.uid).get();
+        if (docSnapshot.exists) {
+          // Update the existing document
+          await usersCollection.doc(user.uid).update({
+            'name': name,
+          });
+        } else {
+          // Create a new document with the UID as the document ID
+          await usersCollection.doc(user.uid).set({
+            'name': name,
+          });
+        }
+
+        // Show a success message or perform any other actions after successful update
+      } catch (e) {}
+    }
   }
 
   @override
@@ -100,6 +130,18 @@ class _ProfilePageState extends State<ProfilePage> {
             ElevatedButton(
               onPressed: _uploadImage,
               child: const Text('Upload Picture'),
+            ),
+            const SizedBox(height: 20),
+            TextFormField(
+              controller: _nameController,
+              decoration: const InputDecoration(
+                labelText: 'Name',
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _updateProfileData,
+              child: const Text('Update Profile'),
             ),
           ],
         ),
