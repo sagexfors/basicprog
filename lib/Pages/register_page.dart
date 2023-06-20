@@ -135,6 +135,7 @@ class _RegisterFormState extends State<RegisterForm> {
             height: 64,
           ),
           GenericTextFormField(
+            icon: Icons.person,
             controller: _nameController,
             labelText: 'Name',
           ),

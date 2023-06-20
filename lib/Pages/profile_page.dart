@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:basicprog/Widgets/generic_text_form_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -132,11 +133,10 @@ class _ProfilePageState extends State<ProfilePage> {
               child: const Text('Upload Picture'),
             ),
             const SizedBox(height: 20),
-            TextFormField(
+            GenericTextFormField(
+              icon: Icons.person,
+              labelText: 'Name',
               controller: _nameController,
-              decoration: const InputDecoration(
-                labelText: 'Name',
-              ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
