@@ -8,6 +8,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+//TODO: REMOVE OLD PROFILE PIC IF UPDATED
+//TODO: ADD A BUTTON TO REMOVE PROFILE PIC AND RESET TO DEFAULT AVATAR
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
