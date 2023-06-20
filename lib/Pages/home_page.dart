@@ -196,18 +196,6 @@ class HomePage extends StatelessWidget {
         title: const Text('Home'),
       ),
       drawer: const NavigationDrawer(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Signed in ${FirebaseAuth.instance.currentUser!.email!}'),
-            ElevatedButton(
-              onPressed: () => FirebaseAuth.instance.signOut(),
-              child: const Text('Sign Out'),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

@@ -106,67 +106,71 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: const Text('Profile'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FutureBuilder<String?>(
-              future: _getUserProfilePicture(),
-              builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  // While waiting for the future to complete, show a loading indicator
-                  return const CircularProgressIndicator();
-                } else if (snapshot.hasError) {
-                  // If an error occurred while fetching the profile picture, show an error message
-                  return Text('Error: ${snapshot.error}');
-                } else {
-                  final imageUrl = snapshot.data;
-                  if (imageUrl != null) {
-                    // User has a profile picture, display it in the CircleAvatar
-                    return CircleAvatar(
-                      radius: 80,
-                      backgroundImage: NetworkImage(imageUrl),
-                    );
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FutureBuilder<String?>(
+                future: _getUserProfilePicture(),
+                builder:
+                    (BuildContext context, AsyncSnapshot<String?> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    // While waiting for the future to complete, show a loading indicator
+                    return const CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    // If an error occurred while fetching the profile picture, show an error message
+                    return Text('Error: ${snapshot.error}');
                   } else {
-                    // User is not logged in or doesn't have a profile picture, display default avatar
-                    return const CircleAvatar(
-                      radius: 80,
-                      backgroundImage: AssetImage('assets/default_avatar.png'),
-                    );
+                    final imageUrl = snapshot.data;
+                    if (imageUrl != null) {
+                      // User has a profile picture, display it in the CircleAvatar
+                      return CircleAvatar(
+                        radius: 80,
+                        backgroundImage: NetworkImage(imageUrl),
+                      );
+                    } else {
+                      // User is not logged in or doesn't have a profile picture, display default avatar
+                      return const CircleAvatar(
+                        radius: 80,
+                        backgroundImage:
+                            AssetImage('assets/default_avatar.png'),
+                      );
+                    }
                   }
-                }
-              },
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _uploadImage,
-              child: const Text('Upload Picture'),
-            ),
-            const SizedBox(height: 30),
-            GenericTextFormField(
-              icon: Icons.person,
-              labelText: 'Name',
-              controller: _nameController,
-            ),
-            const SizedBox(height: 100),
-            ElevatedButton(
-              onPressed: _updateProfileData,
-              child: const Text('Update Profile'),
-            ),
-            const SizedBox(height: 100),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ResetPasswordPage(),
-                  ),
-                );
-              },
-              child: const Text('Reset Password'),
-            ),
-            const SizedBox(width: 24),
-          ],
+                },
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _uploadImage,
+                child: const Text('Upload Picture'),
+              ),
+              const SizedBox(height: 30),
+              GenericTextFormField(
+                icon: Icons.person,
+                labelText: 'Name',
+                controller: _nameController,
+              ),
+              const SizedBox(height: 100),
+              ElevatedButton(
+                onPressed: _updateProfileData,
+                child: const Text('Update Profile'),
+              ),
+              const SizedBox(height: 100),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ResetPasswordPage(),
+                    ),
+                  );
+                },
+                child: const Text('Reset Password'),
+              ),
+              const SizedBox(width: 24),
+            ],
+          ),
         ),
       ),
     );
