@@ -8,8 +8,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-//TODO: REMOVE OLD PROFILE PIC IF UPDATED
-//TODO: ADD A BUTTON TO REMOVE PROFILE PIC AND RESET TO DEFAULT AVATAR
+// TODO: REMOVE OLD PROFILE PIC IF UPDATED
+// TODO: ADD A BUTTON TO REMOVE PROFILE PIC AND RESET TO DEFAULT AVATAR
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -63,6 +63,23 @@ class _ProfilePageState extends State<ProfilePage> {
 
     // User is not logged in or doesn't have a profile picture, return null
     return null;
+  }
+
+  Future<void> _removeProfilePicture() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final storageReference =
+          FirebaseStorage.instance.ref().child('profile_pictures/${user.uid}');
+      final listResult = await storageReference.listAll();
+
+      if (listResult.items.isNotEmpty) {
+        // User has a profile picture, delete the image in the folder
+        await listResult.items.first.delete();
+        setState(() {
+          _imageUrl = '';
+        });
+      }
+    }
   }
 
   Future<void> _updateProfileData() async {
@@ -126,9 +143,18 @@ class _ProfilePageState extends State<ProfilePage> {
                     final imageUrl = snapshot.data;
                     if (imageUrl != null) {
                       // User has a profile picture, display it in the CircleAvatar
-                      return CircleAvatar(
-                        radius: 80,
-                        backgroundImage: NetworkImage(imageUrl),
+                      return Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 80,
+                            backgroundImage: NetworkImage(imageUrl),
+                          ),
+                          const SizedBox(height: 20),
+                          ElevatedButton(
+                            onPressed: _removeProfilePicture,
+                            child: const Text('Remove Picture'),
+                          ),
+                        ],
                       );
                     } else {
                       // User is not logged in or doesn't have a profile picture, display default avatar
