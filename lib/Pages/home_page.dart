@@ -69,6 +69,123 @@ final List<Lesson> lessonList = [
   // Add more lessons as needed
 ];
 
+///quizzes
+List<Question> questions = [
+  Question(
+    question:
+        "It is the language that will serve as the medium between the human and the machine or the computer.",
+    choices: [
+      "C Language",
+      "Software Programming",
+      "Programming Language",
+      "Execution Flow"
+    ],
+    correctAnswerIndex: 2,
+  ),
+  Question(
+    question: "This language is used by the primitive machines.",
+    choices: [
+      "Procedural Programming Language",
+      "Computer Programming Language",
+      "Object-Oriented Programming Language",
+      "Machine Language"
+    ],
+    correctAnswerIndex: 3,
+  ),
+  Question(
+    question: "These are categories of programming language, except:",
+    choices: [
+      "Machine Language",
+      "High-level Language",
+      "Low-level Language",
+      "Computer Language"
+    ],
+    correctAnswerIndex: 3,
+  ),
+  Question(
+    question:
+        "It is a way of writing a computer program which is using the idea of 'objects' to represent data and methods.",
+    choices: [
+      "System Programming Language",
+      "Procedural Programming Language",
+      "Object-Oriented Programming Language",
+      "Mid-level Programming Language"
+    ],
+    correctAnswerIndex: 2,
+  ),
+];
+
+final quizOne = Quiz(
+  title: 'Quiz 1',
+  description: 'Quiz for Lesson 1',
+  questions: questions,
+);
+
+List<Question> questions2 = [
+  Question(
+    question:
+        "It translates a program written in a high-level language into machine language. It scans the entire program and translates it as a whole into machine code. Programming languages that utilize compilers are C, C++, Java, VB.Net, etc.",
+    choices: [
+      "Assembler",
+      "Compiler",
+      "Translator",
+      "Interpreter",
+    ],
+    correctAnswerIndex: 1,
+  ),
+  Question(
+    question:
+        "These are programs that are utilized by a particular programming language to translate instructions written either in a low-level language or a high-level language.",
+    choices: [
+      "Compiler",
+      "Assembler",
+      "Translator",
+      "Interpreter",
+    ],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    question: "These are translators of a programming language, except:",
+    choices: [
+      "Assembler",
+      "Compiler",
+      "Computer",
+      "Interpreter",
+    ],
+    correctAnswerIndex: 2,
+  ),
+  Question(
+    question:
+        "It is referred to as the mother language since it forms the foundation for all other programming languages.",
+    choices: [
+      "C Language",
+      "Java Programming Language",
+      "Python",
+      "Structured Programming Language",
+    ],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    question: "He was the founder of the C Language.",
+    choices: [
+      "Martin Richard",
+      "Dennis Ritchie",
+      "Ken Thompson",
+      "Linux Kernel",
+    ],
+    correctAnswerIndex: 1,
+  ),
+];
+
+Quiz quizTwo = Quiz(
+  title: 'Quiz 2',
+  description: 'Quiz for Lesson 1',
+  questions: questions2,
+);
+
+final List<Quiz> quizzes = [quizOne, quizTwo];
+
+///
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -153,7 +270,11 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const QuizzesPage()),
+                MaterialPageRoute(
+                  builder: (context) => QuizzesPage(
+                    quizzes: quizzes,
+                  ),
+                ),
               );
             },
           ),
