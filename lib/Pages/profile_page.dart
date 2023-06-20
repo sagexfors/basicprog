@@ -111,6 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 48),
               FutureBuilder<String?>(
                 future: _getUserProfilePicture(),
                 builder:
