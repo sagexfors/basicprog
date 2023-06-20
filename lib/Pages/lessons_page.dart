@@ -93,23 +93,41 @@ class LessonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lesson $lessonNumber'),
+        title: Text(lesson.title),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(12.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Title: ${lesson.title}'),
-            Text('Description: ${lesson.description}'),
-            const Text('Content:'),
-            Expanded(
-              child: ListView.builder(
-                itemCount: lesson.content.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(lesson.content[index]),
-                  );
-                },
-              ),
+            // Text(
+            //   'Title: ${lesson.title}',
+            //   style: const TextStyle(
+            //     fontSize: 24,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // ),
+            const SizedBox(height: 16),
+            // const Text(
+            //   'Content:',
+            //   style: TextStyle(
+            //     fontSize: 20,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // ),
+            const SizedBox(height: 8),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: lesson.content.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    lesson.content[index],
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                );
+              },
             ),
           ],
         ),
