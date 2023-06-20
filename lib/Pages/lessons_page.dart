@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 
+class Lesson {
+  String title;
+  String description;
+  List<String> content;
+
+  Lesson({
+    required this.title,
+    required this.description,
+    required this.content,
+  });
+}
+
 class LessonsPage extends StatelessWidget {
-  const LessonsPage({super.key});
+  final List<Lesson> lessons;
+
+  const LessonsPage({Key? key, required this.lessons}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,10 +24,14 @@ class LessonsPage extends StatelessWidget {
         title: const Text('Lessons'),
       ),
       body: ListView.builder(
-        itemCount: 10, // Number of lesson cards
+        itemCount: lessons.length,
         itemBuilder: (context, index) {
+          final lesson = lessons[index];
           final lessonNumber = index + 1;
-          return LessonCard(lessonNumber: lessonNumber);
+          return LessonCard(
+            lesson: lesson,
+            lessonNumber: lessonNumber,
+          );
         },
       ),
     );
@@ -23,7 +41,13 @@ class LessonsPage extends StatelessWidget {
 class LessonCard extends StatelessWidget {
   final int lessonNumber;
 
-  const LessonCard({super.key, required this.lessonNumber});
+  final Lesson lesson;
+
+  const LessonCard({
+    Key? key,
+    required this.lessonNumber,
+    required this.lesson,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +63,17 @@ class LessonCard extends StatelessWidget {
             ),
           ),
         ),
-        title: Text('Lesson $lessonNumber'),
-        subtitle: Text('Description of Lesson $lessonNumber'),
+        title: Text(lesson.title),
+        subtitle: Text(lesson.description),
         trailing: const Icon(Icons.arrow_forward),
         onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => LessonPage(lessonNumber: lessonNumber),
+              builder: (context) => LessonPage(
+                lessonNumber: lessonNumber,
+                lesson: lesson,
+              ),
             ),
           );
         },
@@ -57,8 +84,10 @@ class LessonCard extends StatelessWidget {
 
 class LessonPage extends StatelessWidget {
   final int lessonNumber;
+  final Lesson lesson;
 
-  const LessonPage({super.key, required this.lessonNumber});
+  const LessonPage({Key? key, required this.lessonNumber, required this.lesson})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +96,23 @@ class LessonPage extends StatelessWidget {
         title: Text('Lesson $lessonNumber'),
       ),
       body: Center(
-        child: Text('Content of Lesson $lessonNumber'),
+        child: Column(
+          children: [
+            Text('Title: ${lesson.title}'),
+            Text('Description: ${lesson.description}'),
+            const Text('Content:'),
+            Expanded(
+              child: ListView.builder(
+                itemCount: lesson.content.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(lesson.content[index]),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
