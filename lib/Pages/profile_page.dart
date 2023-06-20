@@ -70,6 +70,11 @@ class _ProfilePageState extends State<ProfilePage> {
     if (user != null) {
       final name = _nameController.text.trim();
 
+      // Check if the name is empty
+      if (name.isEmpty) {
+        return; // Return early if the name is empty
+      }
+
       try {
         // Access the "users" collection in Firestore
         final usersCollection = FirebaseFirestore.instance.collection('users');
@@ -89,7 +94,9 @@ class _ProfilePageState extends State<ProfilePage> {
         }
 
         // Show a success message or perform any other actions after successful update
-      } catch (e) {}
+      } catch (e) {
+        // Handle any errors that occur during the update
+      }
     }
   }
 
