@@ -240,6 +240,7 @@ class NavigationDrawer extends StatelessWidget {
               );
             },
           ),
+          const Divider(),
           DrawerItemWidget(
             icon: Icons.book,
             title: 'Lessons',
@@ -286,7 +287,6 @@ class NavigationDrawer extends StatelessWidget {
               Navigator.pushNamed(context, '/about-us');
             },
           ),
-          const Spacer(),
           DrawerItemWidget(
             icon: Icons.logout,
             title: 'Logout',
