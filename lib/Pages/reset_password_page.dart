@@ -1,3 +1,5 @@
+import 'package:basicprog/Widgets/auth_button.dart';
+import 'package:basicprog/Widgets/password_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -49,37 +51,21 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           builder: (context) => Form(
             key: _formKey,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextFormField(
+                PasswordTextField(
                   controller: _passwordController,
-                  decoration: const InputDecoration(labelText: 'New Password'),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter a new password';
-                    }
-                    return null;
-                  },
-                  obscureText: true,
+                  labelText: 'New Password',
                 ),
-                TextFormField(
+                const SizedBox(height: 24),
+                PasswordTextField(
                   controller: _confirmPasswordController,
-                  decoration:
-                      const InputDecoration(labelText: 'Confirm Password'),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please confirm your password';
-                    }
-                    if (value != _passwordController.text) {
-                      return 'Passwords do not match';
-                    }
-                    return null;
-                  },
-                  obscureText: true,
+                  labelText: 'Confirm Password',
                 ),
                 const SizedBox(height: 16.0),
-                ElevatedButton(
+                AuthButton(
+                  name: 'Reset Password',
                   onPressed: () => _resetPassword(context),
-                  child: const Text('Reset Password'),
                 ),
                 const SizedBox(height: 8.0),
                 Text(
