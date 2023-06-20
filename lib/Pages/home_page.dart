@@ -1,12 +1,13 @@
-import 'package:basicprog/Pages/profile_page.dart';
-import 'package:basicprog/Pages/quizzes_page.dart';
-import 'package:basicprog/Pages/reset_password_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'activities_page.dart';
 import 'lessons_page.dart';
+import 'profile_page.dart';
+import 'quizzes_page.dart';
+import 'reset_password_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -151,6 +152,26 @@ class DrawerHeaderWidget extends StatelessWidget {
     return null;
   }
 
+  Future<String?> _getUserDisplayName() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final snapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+
+      if (snapshot.exists) {
+        // Retrieve the user's name from the Firestore document
+        final data = snapshot.data() as Map<String, dynamic>;
+        final name = data['name'] as String?;
+        return name;
+      }
+    }
+
+    // User is not logged in or the name field is not available, return null
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return DrawerHeader(
@@ -197,12 +218,38 @@ class DrawerHeaderWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          Text(
-            user!.email!,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-            ),
+          FutureBuilder<String?>(
+            future: _getUserDisplayName(),
+            builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                // While waiting for the future to complete, show a loading indicator
+                return const CircularProgressIndicator();
+              } else if (snapshot.hasError) {
+                // If an error occurred while fetching the display name, show an error message
+                return Text('Error: ${snapshot.error}');
+              } else {
+                final displayName = snapshot.data;
+                if (displayName != null) {
+                  // User has a display name, display it
+                  return Text(
+                    displayName,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  );
+                } else {
+                  // User is not logged in or the display name is not available, display default text
+                  return const Text(
+                    'Unknown User',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  );
+                }
+              }
+            },
           ),
         ],
       ),
