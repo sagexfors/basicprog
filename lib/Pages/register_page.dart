@@ -143,12 +143,12 @@ class _RegisterFormState extends State<RegisterForm> {
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
           PasswordTextField(
-            passwordController: _passwordController,
+            controller: _passwordController,
             labelText: 'Password',
           ),
           const SizedBox(height: 16.0),
           PasswordTextField(
-            passwordController: _confirmPasswordController,
+            controller: _confirmPasswordController,
             labelText: 'Confirm Password',
           ),
           const SizedBox(

@@ -130,7 +130,7 @@ class _LoginFormState extends State<LoginForm> {
           EmailTextFormField(emailController: _emailController),
           const SizedBox(height: 16.0),
           PasswordTextField(
-            passwordController: _passwordController,
+            controller: _passwordController,
             labelText: 'Password',
           ),
           const SizedBox(height: 16.0),
