@@ -5,10 +5,13 @@ class GenericTextFormField extends StatelessWidget {
 
   final String labelText;
 
+  final IconData icon;
+
   const GenericTextFormField({
     required this.controller,
     required this.labelText,
     super.key,
+    required this.icon,
   });
 
   @override
@@ -22,7 +25,7 @@ class GenericTextFormField extends StatelessWidget {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),
-          prefixIcon: const Icon(Icons.person),
+          prefixIcon: Icon(icon),
           contentPadding:
               const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
         ),
