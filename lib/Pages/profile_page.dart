@@ -132,13 +132,13 @@ class _ProfilePageState extends State<ProfilePage> {
               onPressed: _uploadImage,
               child: const Text('Upload Picture'),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             GenericTextFormField(
               icon: Icons.person,
               labelText: 'Name',
               controller: _nameController,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 240),
             ElevatedButton(
               onPressed: _updateProfileData,
               child: const Text('Update Profile'),
