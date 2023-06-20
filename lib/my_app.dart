@@ -1,6 +1,6 @@
+import 'package:basicprog/Pages/getting_started.dart';
 import 'package:flutter/material.dart';
 
-import '../Auth/main_page.dart';
 import '../Pages/about_us_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => const MainPage(),
+        '/': (context) => const GettingStartedPage(),
         '/about-us': (context) => const AboutUsPage(),
       },
     );

@@ -44,12 +44,6 @@ class _LoginPageState extends State<LoginPage> {
               left: -10,
               child: CircleThing(opacity: 0.7),
             ),
-            // const Positioned(
-            //   top: -80,
-            //   left: -80,
-            //   child: CircleThing(),
-            // ),
-            // BackgroundImage(imagePath: 'assets/login_register_bg.png'),
             LoginForm(showRegisterPage: widget.showRegisterPage)
           ],
         ),
