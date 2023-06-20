@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:basicprog/Pages/reset_password_page.dart';
 import 'package:basicprog/Widgets/generic_text_form_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -138,11 +139,24 @@ class _ProfilePageState extends State<ProfilePage> {
               labelText: 'Name',
               controller: _nameController,
             ),
-            const SizedBox(height: 240),
+            const SizedBox(height: 100),
             ElevatedButton(
               onPressed: _updateProfileData,
               child: const Text('Update Profile'),
             ),
+            const SizedBox(height: 100),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ResetPasswordPage(),
+                  ),
+                );
+              },
+              child: const Text('Reset Password'),
+            ),
+            const SizedBox(width: 24),
           ],
         ),
       ),

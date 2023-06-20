@@ -7,7 +7,6 @@ import 'activities_page.dart';
 import 'lessons_page.dart';
 import 'profile_page.dart';
 import 'quizzes_page.dart';
-import 'reset_password_page.dart';
 
 final List<Lesson> lessonList = [
   Lesson(
@@ -155,18 +154,6 @@ class NavigationDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const QuizzesPage()),
-              );
-            },
-          ),
-          DrawerItemWidget(
-            icon: Icons.lock,
-            title: 'Reset Password',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ResetPasswordPage(),
-                ),
               );
             },
           ),
