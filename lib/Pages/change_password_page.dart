@@ -3,21 +3,21 @@ import 'package:basicprog/Widgets/password_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class ResetPasswordPage extends StatefulWidget {
-  const ResetPasswordPage({Key? key}) : super(key: key);
+class ChangePasswordPage extends StatefulWidget {
+  const ChangePasswordPage({Key? key}) : super(key: key);
 
   @override
-  State<ResetPasswordPage> createState() => _ResetPasswordPageState();
+  State<ChangePasswordPage> createState() => _ChangePasswordPageState();
 }
 
-class _ResetPasswordPageState extends State<ResetPasswordPage> {
+class _ChangePasswordPageState extends State<ChangePasswordPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
   String _errorMessage = '';
 
-  void _resetPassword(BuildContext context) async {
+  void _changePassword(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       final User? user = FirebaseAuth.instance.currentUser;
 
@@ -65,7 +65,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 const SizedBox(height: 16.0),
                 AuthButton(
                   name: 'Reset Password',
-                  onPressed: () => _resetPassword(context),
+                  onPressed: () => _changePassword(context),
                 ),
                 const SizedBox(height: 8.0),
                 Text(

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:basicprog/Pages/reset_password_page.dart';
+import 'package:basicprog/Pages/change_password_page.dart';
 import 'package:basicprog/Widgets/generic_text_form_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -189,11 +189,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ResetPasswordPage(),
+                      builder: (context) => const ChangePasswordPage(),
                     ),
                   );
                 },
-                child: const Text('Reset Password'),
+                child: const Text('Change Password'),
               ),
               const SizedBox(width: 24),
             ],
