@@ -14,6 +14,7 @@ final List<Lesson> lessonList = [
     title: "Lesson 1: Introduction to C Language",
     description: "An introduction to the C programming language.",
     content: [
+      "What is Programming Language?",
       "Programming language is the language that will serve as the medium between the human and the machine or the computer. It is a set of grammatical rules for instructing a computer or any computing device to perform specific tasks.",
       "There are categories of programming language, these are:",
       "- Machine Language where instructions are written in 0’s and 1’s...",
@@ -46,7 +47,16 @@ final List<Lesson> lessonList = [
       "7. Databases",
       "8. Language Interpreters",
       "9. Utilities",
-      "10. Print Spoolers"
+      "10. Print Spoolers",
+      // Add text1 here
+      "SUMMARY OF THE LESSON:",
+      "1. Programming Language is a set of grammatical rules for instructing a computer or any computing device to perform specific tasks.",
+      "2. The three categories of Programming Language are: Machine Language, Low-Level Language, and High-Level Language.",
+      "3. There are three translator programs available in Programming Language, namely: Assembler, Interpreter, and Compiler.",
+      "4. Dennis Ritchie founded the C language in 1972 at Bell Laboratories in American Telephone and Telegraph located in the United States of America.",
+      "5. C Language can be defined as: Mother Language, System Programming Language, Procedural Programming Language, Structured Programming Language, and Mid-Level Programming Language.",
+      "6. C Language was accepted as a system development language because it generates code that is nearly as fast as assembly code language.",
+      "7. There are 5 steps in the execution flow of a C program: Preprocessor, Compiler, Assembler, Linker, and Loader."
     ],
   ),
   Lesson(
