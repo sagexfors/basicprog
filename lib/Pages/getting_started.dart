@@ -1,6 +1,5 @@
 import 'package:basicprog/Auth/main_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../Widgets/auth_button.dart';
 import '../Widgets/circle_thingy.dart';
@@ -54,11 +53,6 @@ class GettingStartedPage extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-            SvgPicture.asset(
-              'assets/images/getting_started_logo.svg', // Replace with your SVG file path
-              width: 360, // Adjust the desired width
-              height: 156, // Adjust the desired height
             ),
             const Positioned(
               top: -80,
