@@ -42,7 +42,7 @@ class GettingStartedPage extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.all(20.0),
                     child: Text(
-                      '"The art of programming is the skill of controlling complexity." - Marijn Haverbeke',
+                      'Basic; your guide on learning programming languages',
                       style: TextStyle(fontSize: 15),
                       textAlign: TextAlign.center,
                     ),
