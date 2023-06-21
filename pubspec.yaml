@@ -72,6 +72,7 @@ flutter:
     - assets/images/temp_lessons.png
     - assets/images/temp_quizzes.png
     - assets/images/temp_about_us.png
+    - assets/images/home.png
     - assets/default_avatar.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
