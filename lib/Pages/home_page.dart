@@ -486,7 +486,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 96),
+                  const SizedBox(height: 160),
                   Container(
                     width: 170,
                     height: 170,
