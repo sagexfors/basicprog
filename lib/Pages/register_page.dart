@@ -1,14 +1,12 @@
 import 'package:basicprog/Widgets/generic_text_form_field.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../Auth/auth_service.dart';
 import '../Widgets/auth_button.dart';
 import '../Widgets/circle_thingy.dart';
 import '../Widgets/email_text_form_field.dart';
 import '../Widgets/password_text_form_field.dart';
 
-// TODO: extract authenatication thing outside
 class RegisterPage extends StatefulWidget {
   final VoidCallback showLoginPage;
   const RegisterPage({super.key, required this.showLoginPage});
@@ -93,33 +91,15 @@ class _RegisterFormState extends State<RegisterForm> {
       final password = _passwordController.text.trim();
       final name = _nameController.text.trim();
       try {
-        final userCredential =
-            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        final authService = AuthService();
+        await authService.registerWithEmailAndPassword(
           email: email,
           password: password,
+          name: name,
         );
-        await FirebaseFirestore.instance
-            .collection('users')
-            .doc(
-              userCredential.user!.uid,
-            )
-            .set({'name': name});
-      } on FirebaseAuthException catch (e) {
-        setState(() {
-          if (e.code == 'email-already-in-use') {
-            _errorText =
-                'The email address is already in use by another account.';
-          } else if (e.code == 'invalid-email') {
-            _errorText = 'The email address is invalid.';
-          } else if (e.code == 'weak-password') {
-            _errorText = 'The password is too weak.';
-          } else {
-            _errorText = 'Registration failed. Please try again later.';
-          }
-        });
       } catch (e) {
         setState(() {
-          _errorText = 'An error occurred. Please try again later.';
+          _errorText = e.toString();
         });
       }
     }
