@@ -6,10 +6,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../Auth/firebase_storage_service.dart';
+import '../Auth/firestore_service.dart';
 
 // TODO: REMOVE OLD PROFILE PIC IF UPDATED
+// TODO: FIREBASE_AUTH IS USED TO FETCH CURRENT USER, MAKE SURE TO PUT THAT STATE SOMEWHERE LATER
 // TODO: ADD A BUTTON TO REMOVE PROFILE PIC AND RESET TO DEFAULT AVATAR
+// PROBLEM IS IF YOU UPLOAD A PICTURE WHILE A PFP EXISTS, IT DOESN'T DELETE THE OLD PFP AND DOESN'T EVEN USE THE NEW PFP
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -18,6 +22,10 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final FirebaseStorageService _firebaseStorageService =
+      FirebaseStorageService();
+  final FirestoreService _firestoreService = FirestoreService();
+
   File? _image;
   String _imageUrl = '';
   final String _defaultAvatarUrl =
@@ -33,15 +41,18 @@ class _ProfilePageState extends State<ProfilePage> {
         setState(() {
           _image = File(pickedImage.path);
         });
-        final storageReference = FirebaseStorage.instance.ref().child(
-              'profile_pictures/${user.uid}/${DateTime.now().millisecondsSinceEpoch}',
-            );
-        final uploadTask = storageReference.putFile(_image!);
-        final snapshot = await uploadTask.whenComplete(() => null);
-        final downloadUrl = await snapshot.ref.getDownloadURL();
-        setState(() {
-          _imageUrl = downloadUrl;
-        });
+
+        final imageUrl = await _firebaseStorageService.uploadProfilePicture(
+          user.uid,
+          _image!,
+        );
+        if (imageUrl != null) {
+          setState(() {
+            _imageUrl = imageUrl;
+          });
+        } else {
+          // Handle the case when the image upload fails
+        }
       }
     }
   }
@@ -68,17 +79,10 @@ class _ProfilePageState extends State<ProfilePage> {
   Future<void> _removeProfilePicture() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
-      final storageReference =
-          FirebaseStorage.instance.ref().child('profile_pictures/${user.uid}');
-      final listResult = await storageReference.listAll();
-
-      if (listResult.items.isNotEmpty) {
-        // User has a profile picture, delete the image in the folder
-        await listResult.items.first.delete();
-        setState(() {
-          _imageUrl = '';
-        });
-      }
+      await _firebaseStorageService.deleteProfilePicture(user.uid);
+      setState(() {
+        _imageUrl = '';
+      });
     }
   }
 
@@ -86,34 +90,13 @@ class _ProfilePageState extends State<ProfilePage> {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       final name = _nameController.text.trim();
-
-      // Check if the name is empty
       if (name.isEmpty) {
-        return; // Return early if the name is empty
+        return;
       }
 
-      try {
-        // Access the "users" collection in Firestore
-        final usersCollection = FirebaseFirestore.instance.collection('users');
+      await _firestoreService.updateUserName(user.uid, name);
 
-        // Check if the user's document exists
-        final docSnapshot = await usersCollection.doc(user.uid).get();
-        if (docSnapshot.exists) {
-          // Update the existing document
-          await usersCollection.doc(user.uid).update({
-            'name': name,
-          });
-        } else {
-          // Create a new document with the UID as the document ID
-          await usersCollection.doc(user.uid).set({
-            'name': name,
-          });
-        }
-
-        // Show a success message or perform any other actions after successful update
-      } catch (e) {
-        // Handle any errors that occur during the update
-      }
+      // Show a success message or perform any other actions after successful update
     }
   }
 
