@@ -1,29 +1,7 @@
 import 'package:basicprog/Pages/quiz_page.dart';
 import 'package:flutter/material.dart';
 
-class Quiz {
-  String title;
-  String description;
-  List<Question> questions;
-
-  Quiz({
-    required this.title,
-    required this.description,
-    required this.questions,
-  });
-}
-
-class Question {
-  final String question;
-  final List<String> choices;
-  final int correctAnswerIndex;
-
-  Question({
-    required this.question,
-    required this.choices,
-    required this.correctAnswerIndex,
-  });
-}
+import '../model/quiz.dart';
 
 class QuizzesPage extends StatelessWidget {
   final List<Quiz> quizzes;

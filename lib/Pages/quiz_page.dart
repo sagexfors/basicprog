@@ -1,6 +1,6 @@
-import 'package:basicprog/Pages/quizzes_page.dart';
 import 'package:flutter/material.dart';
 import '../fuzzy_logic.dart';
+import '../model/quiz.dart';
 
 class QuizPage extends StatefulWidget {
   final Quiz quiz;
@@ -120,7 +120,8 @@ class _QuizPageState extends State<QuizPage> {
                         width: 2.0, // Adjust the border width as needed
                       ),
                       borderRadius: BorderRadius.circular(
-                          8), // Adjust the border radius as needed
+                        8,
+                      ), // Adjust the border radius as needed
                     ),
                     padding: const EdgeInsets.symmetric(
                       vertical: 12.0,

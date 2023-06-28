@@ -63,11 +63,20 @@ class RegisterForm extends StatefulWidget {
 
 class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
-  final _nameController = TextEditingController();
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController;
+  late final TextEditingController _confirmPasswordController;
+  late final TextEditingController _nameController;
   String? _errorText;
+
+  @override
+  void initState() {
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    _confirmPasswordController = TextEditingController();
+    _nameController = TextEditingController();
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -114,6 +123,20 @@ class _RegisterFormState extends State<RegisterForm> {
         });
       }
     }
+  }
+
+  bool _validateConfirmPassword() {
+    final password = _passwordController.text;
+    final confirmPassword = _confirmPasswordController.text;
+
+    if (password != confirmPassword) {
+      setState(() {
+        _errorText = 'Passwords do not match.';
+      });
+      return false;
+    }
+
+    return true;
   }
 
   @override
@@ -185,19 +208,5 @@ class _RegisterFormState extends State<RegisterForm> {
         ],
       ),
     );
-  }
-
-  bool _validateConfirmPassword() {
-    final password = _passwordController.text;
-    final confirmPassword = _confirmPasswordController.text;
-
-    if (password != confirmPassword) {
-      setState(() {
-        _errorText = 'Passwords do not match.';
-      });
-      return false;
-    }
-
-    return true;
   }
 }

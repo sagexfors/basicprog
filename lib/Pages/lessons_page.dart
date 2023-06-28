@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Lesson {
-  String title;
-  String description;
-  List<String> content;
-
-  Lesson({
-    required this.title,
-    required this.description,
-    required this.content,
-  });
-}
+import '../model/lesson.dart';
 
 class LessonsPage extends StatelessWidget {
   final List<Lesson> lessons;
