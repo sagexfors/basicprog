@@ -1,7 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../Auth/auth_service.dart';
 import '../Widgets/auth_button.dart';
 import '../Widgets/circle_thingy.dart';
 import '../Widgets/email_text_form_field.dart';
@@ -91,25 +91,14 @@ class _LoginFormState extends State<LoginForm> {
       final email = _emailController.text.trim();
       final password = _passwordController.text.trim();
       try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
+        final authService = AuthService();
+        await authService.signInWithEmailAndPassword(
           email: email,
           password: password,
         );
-      } on FirebaseAuthException catch (e) {
-        setState(() {
-          if (e.code == 'user-not-found') {
-            _errorText = 'No user found for that email.';
-          } else if (e.code == 'wrong-password') {
-            _errorText = 'Wrong password provided.';
-          } else if (e.code == 'invalid-email') {
-            _errorText = 'Invalid email address.';
-          } else {
-            _errorText = 'Login failed. Please try again later.';
-          }
-        });
       } catch (e) {
         setState(() {
-          _errorText = 'An error occurred. Please try again later.';
+          _errorText = e.toString();
         });
       }
     }
