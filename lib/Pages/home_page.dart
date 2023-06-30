@@ -76,6 +76,35 @@ class HomePage extends StatelessWidget {
         ),
       ),
       drawer: const NavigationDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.book,
+            ),
+            label: 'Lessons',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.ondemand_video,
+            ),
+            label: 'Activities',
+          ),
+        ],
+        onTap: (index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProfilePage()),
+            );
+          }
+        },
+      ),
     );
   }
 }
