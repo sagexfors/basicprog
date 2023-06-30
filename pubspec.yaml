@@ -42,6 +42,7 @@ dependencies:
   firebase_storage: ^11.2.3
   image_picker: ^0.8.9
   flutter_material_color_picker: ^1.2.0
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:

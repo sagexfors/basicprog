@@ -1,5 +1,7 @@
 import 'package:basicprog/Pages/getting_started.dart';
+import 'package:basicprog/provider/user.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../Pages/about_us_page.dart';
 
@@ -8,15 +10,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+      child: MaterialApp(
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const GettingStartedPage(),
+          '/about-us': (context) => const AboutUsPage(),
+        },
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const GettingStartedPage(),
-        '/about-us': (context) => const AboutUsPage(),
-      },
     );
   }
 }
