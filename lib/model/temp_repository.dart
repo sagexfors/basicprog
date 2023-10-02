@@ -49,7 +49,7 @@ final List<Lesson> lessonList = [
       "4. Dennis Ritchie founded the C language in 1972 at Bell Laboratories in American Telephone and Telegraph located in the United States of America.",
       "5. C Language can be defined as: Mother Language, System Programming Language, Procedural Programming Language, Structured Programming Language, and Mid-Level Programming Language.",
       "6. C Language was accepted as a system development language because it generates code that is nearly as fast as assembly code language.",
-      "7. There are 5 steps in the execution flow of a C program: Preprocessor, Compiler, Assembler, Linker, and Loader."
+      "7. There are 5 steps in the execution flow of a C program: Preprocessor, Compiler, Assembler, Linker, and Loader.",
     ],
   ),
   Lesson(
@@ -104,7 +104,7 @@ final List<Lesson> lessonList = [
       "5. Elements of programming help to solve problems using programming languages.",
       "6. The basic elements of programming are: input, output, variables, conditional, iterations, and subroutines.",
       "7. Output is the most important element of programming.",
-      "8. Input allows you to interact with the computer using input devices."
+      "8. Input allows you to interact with the computer using input devices.",
     ],
   ),
   Lesson(
@@ -119,9 +119,9 @@ final List<Lesson> lessonList = [
       "  The syntax of a programming language is the set of rules you have to follow in order to write executable source code. Just like every other programming language, C has some syntactic idiosyncrasies that programmers should be aware of.",
       "  - Semicolons: Every statement ends with a semicolon in C, regardless of whether you’re calling a function or declaring a variable.",
       "  - Curly brackets: Sets of statements are marked with an opening and closing curly bracket in C. This means that indentation isn’t necessary, unlike in other programming languages, though it does aid significantly in making your code more readable.",
-      "  - Integrating libraries: If you want to integrate a library in order to used pre-defined functions, you can use an include statement:"
+      "  - Integrating libraries: If you want to integrate a library in order to used pre-defined functions, you can use an include statement:",
     ],
-  )
+  ),
 ];
 
 ///quizzes
@@ -133,7 +133,7 @@ List<Question> questions = [
       "C Language",
       "Software Programming",
       "Programming Language",
-      "Execution Flow"
+      "Execution Flow",
     ],
     correctAnswerIndex: 2,
   ),
@@ -143,7 +143,7 @@ List<Question> questions = [
       "Procedural Programming Language",
       "Computer Programming Language",
       "Object-Oriented Programming Language",
-      "Machine Language"
+      "Machine Language",
     ],
     correctAnswerIndex: 3,
   ),
@@ -153,7 +153,7 @@ List<Question> questions = [
       "Machine Language",
       "High-level Language",
       "Low-level Language",
-      "Computer Language"
+      "Computer Language",
     ],
     correctAnswerIndex: 3,
   ),
@@ -164,7 +164,7 @@ List<Question> questions = [
       "System Programming Language",
       "Procedural Programming Language",
       "Object-Oriented Programming Language",
-      "Mid-level Programming Language"
+      "Mid-level Programming Language",
     ],
     correctAnswerIndex: 2,
   ),
@@ -460,5 +460,5 @@ final List<Quiz> quizzes = [
   quizThree,
   quizFour,
   quizFive,
-  quizSix
+  quizSix,
 ];

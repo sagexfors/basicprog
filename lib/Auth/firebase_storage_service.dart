@@ -8,7 +8,7 @@ class FirebaseStorageService {
   Future<String?> uploadProfilePicture(String userId, File image) async {
     try {
       final storageReference = _firebaseStorage.ref().child(
-          'profile_pictures/$userId/${DateTime.now().millisecondsSinceEpoch}');
+          'profile_pictures/$userId/${DateTime.now().millisecondsSinceEpoch}',);
 
       final uploadTask = storageReference.putFile(image);
       final snapshot = await uploadTask.whenComplete(() => null);

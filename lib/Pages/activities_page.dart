@@ -16,7 +16,7 @@ class ActivitiesPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-          )
+          ),
         ],
       ),
     );

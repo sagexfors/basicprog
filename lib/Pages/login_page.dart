@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
               left: -10,
               child: CircleThing(opacity: 0.7),
             ),
-            LoginForm(showRegisterPage: widget.showRegisterPage)
+            LoginForm(showRegisterPage: widget.showRegisterPage),
           ],
         ),
       ),

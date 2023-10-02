@@ -95,7 +95,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             AuthButton(
               onPressed: _resetPassword,
               name: 'Reset Password',
-            )
+            ),
           ],
         ),
       ),
