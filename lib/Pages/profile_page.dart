@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             backgroundImage: NetworkImage(imageUrl),
                           ),
                           const SizedBox(height: 20),
-                          ElevatedButton(
+                          TextButton(
                             onPressed: userState.removeProfilePicture,
                             child: const Text('Remove Picture'),
                           ),
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 },
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
+              TextButton(
                 onPressed: userState.uploadImage,
                 child: const Text('Upload Picture'),
               ),
@@ -95,7 +95,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: const Text('Update Profile'),
               ),
               const SizedBox(height: 100),
-              ElevatedButton(
+              TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
