@@ -43,7 +43,7 @@ int main() {
                 TextField(
                   controller: _inputController,
                   decoration: const InputDecoration(
-                    hintText: 'Input',
+                    hintText: 'Input (1 or 1, 2 or 1 2)',
                   ),
                 ),
                 ElevatedButton(
