@@ -1,0 +1,2221 @@
+{
+  "lessons": [
+    {
+      "title": "Lesson 1: Introduction",
+      "description": "An introduction to the C programming language.",
+      "content": [
+        { "type": "text", "text": "What is C?" },
+        {
+          "type": "text",
+          "text": "C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in 1972."
+        },
+        {
+          "type": "text",
+          "text": "It is a very popular language, despite being old. The main reason for its popularity is because it is a fundamental language in the field of computer science."
+        },
+        {
+          "type": "text",
+          "text": "C is strongly associated with UNIX, as it was developed to write the UNIX operating system."
+        }
+      ]
+    },
+    {
+      "title": "Lesson 2: Why Learn C?",
+      "description": "Benefits of learning the C programming language.",
+      "content": [
+        {
+          "type": "text",
+          "text": "It is one of the most popular programming languages in the world."
+        },
+        {
+          "type": "text",
+          "text": "If you know C, you will have no problem learning other popular programming languages such as Java, Python, C++, C#, etc, as the syntax is similar."
+        },
+        {
+          "type": "text",
+          "text": "C is very fast, compared to other programming languages, like Java and Python."
+        },
+        {
+          "type": "text",
+          "text": "C is very versatile; it can be used in both applications and technologies."
+        }
+      ]
+    },
+    {
+      "title": "Lesson 3: Hello World Breakdown",
+      "description": "An explanation of the 'Hello World' program in C.",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  return 0;\n}"
+        },
+        { "type": "text", "text": "Example explained" },
+        {
+          "type": "text",
+          "text": "Line 1: #include <stdio.h> is a header file library that lets us work with input and output functions, such as printf() (used in line 4). Header files add functionality to C programs."
+        },
+        {
+          "type": "text",
+          "text": "Don't worry if you don't understand how #include <stdio.h> works. Just think of it as something that (almost) always appears in your program."
+        },
+        {
+          "type": "text",
+          "text": "Line 2: A blank line. C ignores white space. But we use it to make the code more readable."
+        },
+        {
+          "type": "text",
+          "text": "Line 3: Another thing that always appears in a C program is main(). This is called a function. Any code inside its curly brackets {} will be executed."
+        },
+        {
+          "type": "text",
+          "text": "Line 4: printf() is a function used to output/print text to the screen. In our example, it will output 'Hello World!'."
+        },
+        {
+          "type": "text",
+          "text": "Note that: Every C statement ends with a semicolon ;"
+        },
+        {
+          "type": "text",
+          "text": "Note: The body of int main() could also have been written as: int main(){printf('Hello World!');return 0;}. Remember: The compiler ignores white spaces. However, multiple lines make the code more readable."
+        },
+        {
+          "type": "text",
+          "text": "Line 5: return 0 ends the main() function."
+        },
+        {
+          "type": "text",
+          "text": "Line 6: Do not forget to add the closing curly bracket } to actually end the main function."
+        }
+      ]
+    },
+    {
+      "title": "Lesson 4: C Output (Print Text)",
+      "description": "Printing text in C using the printf() function.",
+      "content": [
+        { "type": "text", "text": "Output (Print Text)" },
+        {
+          "type": "text",
+          "text": "To output values or print text in C, you can use the printf() function:"
+        },
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  return 0;\n}"
+        },
+        {
+          "type": "text",
+          "text": "You can use as many printf() functions as you want. However, note that it does not insert a new line at the end of the output:"
+        },
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  printf(\"I am learning C.\");\n  return 0;\n}"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 5: C New Lines",
+      "description": "Using newline characters in C for line breaks.",
+      "content": [
+        { "type": "text", "text": "New Lines" },
+        {
+          "type": "text",
+          "text": "To insert a new line, you can use the \\n character:"
+        },
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}"
+        },
+        {
+          "type": "text",
+          "text": "You can also output multiple lines with a single printf() function. However, this could make the code harder to read:"
+        },
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\nI am learning C.\\nAnd it is awesome!\");\n  return 0;\n}"
+        },
+        {
+          "type": "text",
+          "text": "Tip: Two \\n characters after each other will create a blank line:"
+        },
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}"
+        },
+        { "type": "text", "text": "What is \\n exactly?" },
+        {
+          "type": "text",
+          "text": "The newline character (\\n) is called an escape sequence, and it forces the cursor to change its position to the beginning of the next line on the screen. This results in a new line."
+        },
+        {
+          "type": "text",
+          "text": "Examples of other valid escape sequences are:"
+        },
+        { "type": "text", "text": "\\t\tCreates a horizontal tab" },
+        { "type": "text", "text": "\\\\tInserts a backslash character (\\)" },
+        { "type": "text", "text": "\\\"\\tInserts a double quote character" }
+      ]
+    },
+    {
+      "title": "Lesson 5: C New Lines",
+      "description": "Using newline characters in C for line breaks.",
+      "content": [
+        { "type": "text", "text": "New Lines" },
+        {
+          "type": "text",
+          "text": "To insert a new line, you can use the \\n character:"
+        },
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}"
+        },
+        {
+          "type": "text",
+          "text": "You can also output multiple lines with a single printf() function. However, this could make the code harder to read:"
+        },
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\nI am learning C.\\nAnd it is awesome!\");\n  return 0;\n}"
+        },
+        {
+          "type": "text",
+          "text": "Tip: Two \\n characters after each other will create a blank line:"
+        },
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}"
+        },
+        { "type": "text", "text": "What is \\n exactly?" },
+        {
+          "type": "text",
+          "text": "The newline character (\\n) is called an escape sequence, and it forces the cursor to change its position to the beginning of the next line on the screen. This results in a new line."
+        },
+        {
+          "type": "text",
+          "text": "Examples of other valid escape sequences are:"
+        },
+        { "type": "text", "text": "\\t\tCreates a horizontal tab" },
+        { "type": "text", "text": "\\\\tInserts a backslash character (\\)" },
+        { "type": "text", "text": "\\\"\\tInserts a double quote character" },
+        {
+          "type": "table",
+          "table": [
+            ["Escape Sequence", "Description"],
+            ["\\t", "Creates a horizontal tab"],
+            ["\\\\", "Inserts a backslash character (\\)"],
+            ["\\\"", "Inserts a double quote character"]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lesson 6: C Comments",
+      "description": "Explaining the use of comments in C programming.",
+      "content": [
+        { "type": "text", "text": "Comments in C" },
+        {
+          "type": "text",
+          "text": "Comments can be used to explain code, and to make it more readable. They can also be used to prevent execution when testing alternative code."
+        },
+        {
+          "type": "text",
+          "text": "Comments can be singled-lined or multi-lined."
+        },
+        { "type": "text", "text": "Single-line Comments" },
+        {
+          "type": "text",
+          "text": "Single-line comments start with two forward slashes (//)."
+        },
+        {
+          "type": "text",
+          "text": "Any text between // and the end of the line is ignored by the compiler (will not be executed)."
+        },
+        {
+          "type": "code",
+          "code": "// This is a comment\nprintf(\"Hello World!\");"
+        },
+        {
+          "type": "text",
+          "text": "This example uses a single-line comment before a line of code:"
+        },
+        {
+          "type": "code",
+          "code": "printf(\"Hello World!\"); // This is a comment"
+        },
+        { "type": "text", "text": "C Multi-line Comments" },
+        {
+          "type": "text",
+          "text": "Multi-line comments start with /* and end with */."
+        },
+        {
+          "type": "text",
+          "text": "Any text between /* and */ will be ignored by the compiler."
+        },
+        {
+          "type": "code",
+          "code": "/* The code below will print the words Hello World!\nto the screen, and it is amazing */\nprintf(\"Hello World!\");"
+        },
+        { "type": "text", "text": "Single or multi-line comments?" },
+        {
+          "type": "text",
+          "text": "It is up to you which you want to use. Normally, we use // for short comments, and /* */ for longer."
+        },
+        {
+          "type": "text",
+          "text": "Good to know: Before version C99 (released in 1999), you could only use multi-line comments in C."
+        }
+      ]
+    },
+    {
+      "title": "Lesson 7: C Variables",
+      "description": "Understanding variables in C programming.",
+      "content": [
+        {
+          "type": "text",
+          "text": "Variables are containers for storing data values, like numbers and characters."
+        },
+        {
+          "type": "text",
+          "text": "In C, there are different types of variables (defined with different keywords), for example:"
+        },
+        {
+          "type": "text",
+          "text": "int - stores integers (whole numbers), without decimals, such as 123 or -123"
+        },
+        {
+          "type": "text",
+          "text": "float - stores floating-point numbers, with decimals, such as 19.99 or -19.99"
+        },
+        {
+          "type": "text",
+          "text": "char - stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes"
+        },
+        { "type": "text", "text": "Declaring (Creating) Variables" },
+        {
+          "type": "text",
+          "text": "To create a variable, specify the type and assign it a value:"
+        },
+        { "type": "text", "text": "Syntax" },
+        { "type": "code", "code": "type variableName = value;" },
+        {
+          "type": "text",
+          "text": "Where type is one of C types (such as int), and variableName is the name of the variable (such as x or myName). The equal sign is used to assign a value to the variable."
+        },
+        { "type": "code", "code": "int myNum = 15;" },
+        {
+          "type": "text",
+          "text": "You can also declare a variable without assigning the value and assign the value later:"
+        },
+        {
+          "type": "code",
+          "code": "// Declare a variable\nint myNum;\n\n// Assign a value to the variable\nmyNum = 15;"
+        },
+        { "type": "text", "text": "Output Variables" },
+        {
+          "type": "text",
+          "text": "You learned from the output chapter that you can output values/print text with the printf() function:"
+        },
+        { "type": "code", "code": "printf(\"Hello World!\");" },
+        {
+          "type": "text",
+          "text": "In many other programming languages (like Python, Java, and C++), you would normally use a print function to display the value of a variable. However, this is not possible in C:"
+        },
+        {
+          "type": "code",
+          "code": "int myNum = 15;\nprintf(myNum);  // Nothing happens"
+        },
+        {
+          "type": "text",
+          "text": "To output variables in C, you must get familiar with something called \"format specifiers\"."
+        },
+        { "type": "text", "text": "Format Specifiers" },
+        {
+          "type": "text",
+          "text": "Format specifiers are used together with the printf() function to tell the compiler what type of data the variable is storing. It is basically a placeholder for the variable value."
+        },
+        {
+          "type": "code",
+          "code": "int myNum = 15;\nprintf(\"%d\", myNum);  // Outputs 15"
+        },
+        {
+          "type": "text",
+          "text": "To print other types, use %c for char and %f for float:"
+        },
+        {
+          "type": "code",
+          "code": "// Create variables\nint myNum = 15;            // Integer (whole number)\nfloat myFloatNum = 5.99;   // Floating-point number\nchar myLetter = 'D';       // Character\n\n// Print variables\nprintf(\"%d\\n\", myNum);\nprintf(\"%f\\n\", myFloatNum);\nprintf(\"%c\\n\", myLetter);"
+        },
+        {
+          "type": "text",
+          "text": "To combine both text and a variable, separate them with a comma inside the printf() function:"
+        },
+        {
+          "type": "code",
+          "code": "int myNum = 15;\nprintf(\"My favorite number is: %d\", myNum);"
+        },
+        {
+          "type": "text",
+          "text": "To print different types in a single printf() function, you can use the following:"
+        },
+        {
+          "type": "code",
+          "code": "int myNum = 15;\nchar myLetter = 'D';\nprintf(\"My number is %d and my letter is %c\", myNum, myLetter);"
+        },
+        {
+          "type": "text",
+          "text": "You will learn more about Data Types in the next chapter."
+        },
+        { "type": "text", "text": "Change Variable Values" },
+        {
+          "type": "text",
+          "text": "Note: If you assign a new value to an existing variable, it will overwrite the previous value:"
+        },
+        {
+          "type": "code",
+          "code": "int myNum = 15;  // myNum is 15\nmyNum = 10;  // Now myNum is 10"
+        },
+        {
+          "type": "text",
+          "text": "You can also assign the value of one variable to another:"
+        },
+        {
+          "type": "code",
+          "code": "int myNum = 15;\nint myOtherNum = 23;\n\n// Assign the value of myOtherNum (23) to myNum\nmyNum = myOtherNum;\n\n// myNum is now 23, instead of 15\nprintf(\"%d\", myNum);"
+        },
+        { "type": "text", "text": "Or copy values to empty variables:" },
+        {
+          "type": "code",
+          "code": "// Create a variable and assign the value 15 to it\nint myNum = 15;\n\n// Declare a variable without assigning it a value\nint myOtherNum;\n\n// Assign the value of myNum to myOtherNum\nmyOtherNum = myNum;\n\n// myOtherNum now has 15 as a value\nprintf(\"%d\", myOtherNum);"
+        },
+        { "type": "text", "text": "Add Variables Together" },
+        {
+          "type": "text",
+          "text": "To add a variable to another variable, you can use the + operator:"
+        },
+        {
+          "type": "code",
+          "code": "int x = 5;\nint y = 6;\nint sum = x + y;\nprintf(\"%d\", sum);"
+        },
+        { "type": "text", "text": "Declare Multiple Variables" },
+        {
+          "type": "text",
+          "text": "To declare more than one variable of the same type, use a comma-separated list:"
+        },
+        {
+          "type": "code",
+          "code": "int x = 5, y = 6, z = 50;\nprintf(\"%d\", x + y + z);"
+        },
+        {
+          "type": "text",
+          "text": "You can also assign the same value to multiple variables of the same type:"
+        },
+        {
+          "type": "code",
+          "code": "int x, y, z;\nx = y = z = 50;\nprintf(\"%d\", x + y + z);"
+        },
+        { "type": "text", "text": "C Variable Names" },
+        {
+          "type": "text",
+          "text": "All C variables must be identified with unique names."
+        },
+        {
+          "type": "text",
+          "text": "These unique names are called identifiers."
+        },
+        {
+          "type": "text",
+          "text": "Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume)."
+        },
+        {
+          "type": "text",
+          "text": "Note: It is recommended to use descriptive names in order to create understandable and maintainable code:"
+        },
+        {
+          "type": "code",
+          "code": "// Good\nint minutesPerHour = 60;\n\n// OK, but not so easy to understand what m actually is\nint m = 60;"
+        },
+        {
+          "type": "text",
+          "text": "The general rules for naming variables are:"
+        },
+        {
+          "type": "text",
+          "text": "Names can contain letters, digits, and underscores"
+        },
+        {
+          "type": "text",
+          "text": "Names must begin with a letter or an underscore (_)"
+        },
+        {
+          "type": "text",
+          "text": "Names are case-sensitive (myVar and myvar are different variables)"
+        },
+        {
+          "type": "text",
+          "text": "Names cannot contain whitespaces or special characters like !, #, %, etc."
+        },
+        {
+          "type": "text",
+          "text": "Reserved words (such as int) cannot be used as names"
+        },
+        { "type": "text", "text": "Real-Life Example" },
+        {
+          "type": "text",
+          "text": "Often in our examples, we simplify variable names to match their data type (myInt or myNum for int types, myChar for char types, etc). This is done to avoid confusion."
+        },
+        {
+          "type": "text",
+          "text": "However, if you want a real-life example on how variables can be used, take a look at the following, where we have made a program that stores different data of a college student:"
+        },
+        {
+          "type": "code",
+          "code": "// Student data\nint studentID = 15;\nint studentAge = 23;\nfloat studentFee = 75.25;\nchar studentGrade = 'B';\n\n// Print variables\nprintf(\"Student id: %d\\n\", studentID);\nprintf(\"Student age: %d\\n\", studentAge);\nprintf(\"Student fee: %f\\n\", studentFee);\nprintf(\"Student grade: %c\", studentGrade);"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 8: C Data Types",
+      "description": "Understanding data types in C programming.",
+      "content": [
+        { "type": "text", "text": "Data Types" },
+        {
+          "type": "text",
+          "text": "As explained in the Variables chapter, a variable in C must be a specified data type, and you must use a format specifier inside the printf() function to display it:"
+        },
+        {
+          "type": "code",
+          "code": "// Create variables\nint myNum = 5;             // Integer (whole number)\nfloat myFloatNum = 5.99;   // Floating point number\nchar myLetter = 'D';       // Character\n\n// Print variables\nprintf(\"%d\\n\", myNum);\nprintf(\"%f\\n\", myFloatNum);\nprintf(\"%c\\n\", myLetter);"
+        },
+        { "type": "text", "text": "Basic Data Types" },
+        {
+          "type": "text",
+          "text": "The data type specifies the size and type of information the variable will store."
+        },
+        {
+          "type": "text",
+          "text": "In this tutorial, we will focus on the most basic ones:"
+        },
+        {
+          "type": "table",
+          "table": [
+            ["Data Type", "Size", "Description"],
+            ["int", "2 or 4 bytes", "Stores whole numbers, without decimals"],
+            [
+              "float",
+              "4 bytes",
+              "Stores fractional numbers, containing one or more decimals. Sufficient for storing 6-7 decimal digits"
+            ],
+            [
+              "double",
+              "8 bytes",
+              "Stores fractional numbers, containing one or more decimals. Sufficient for storing 15 decimal digits"
+            ],
+            [
+              "char",
+              "1 byte",
+              "Stores a single character/letter/number, or ASCII values"
+            ]
+          ]
+        },
+        { "type": "text", "text": "Basic Format Specifiers" },
+        {
+          "type": "text",
+          "text": "There are different format specifiers for each data type. Here are some of them:"
+        },
+        {
+          "type": "table",
+          "table": [
+            ["Format Specifier", "Data Type"],
+            ["%d or %i", "int"],
+            ["%f", "float"],
+            ["%lf", "double"],
+            ["%c", "char"],
+            [
+              "%s",
+              "Used for strings (text), which you will learn more about in a later chapter"
+            ]
+          ]
+        },
+        { "type": "text", "text": "Set Decimal Precision" },
+        {
+          "type": "text",
+          "text": "You have probably already noticed that if you print a floating-point number, the output will show many digits after the decimal point:"
+        },
+        {
+          "type": "code",
+          "code": "float myFloatNum = 3.5;\ndouble myDoubleNum = 19.99;\n\nprintf(\"%f\\n\", myFloatNum); // Outputs 3.500000\nprintf(\"%lf\", myDoubleNum); // Outputs 19.990000"
+        },
+        {
+          "type": "text",
+          "text": "If you want to remove the extra zeros (set decimal precision), you can use a dot (.) followed by a number that specifies how many digits should be shown after the decimal point:"
+        },
+        {
+          "type": "code",
+          "code": "float myFloatNum = 3.5;\n\nprintf(\"%f\\n\", myFloatNum); // Default will show 6 digits after the decimal point\nprintf(\"%.1f\\n\", myFloatNum); // Only show 1 digit\nprintf(\"%.2f\\n\", myFloatNum); // Only show 2 digits\nprintf(\"%.4f\", myFloatNum);   // Only show 4 digits"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 9: C Type Conversion",
+      "description": "Understanding type conversion in C programming.",
+      "content": [
+        { "type": "text", "text": "Type Conversion" },
+        {
+          "type": "text",
+          "text": "Sometimes, you have to convert the value of one data type to another type. This is known as type conversion."
+        },
+        {
+          "type": "text",
+          "text": "For example, if you try to divide two integers, 5 by 2, you would expect the result to be 2.5. But since we are working with integers (and not floating-point values), the following example will just output 2:"
+        },
+        {
+          "type": "code",
+          "code": "int x = 5;\nint y = 2;\nint sum = 5 / 2;\n\nprintf(\"%d\", sum); // Outputs 2"
+        },
+        {
+          "type": "text",
+          "text": "To get the right result, you need to know how type conversion works."
+        },
+        { "type": "text", "text": "There are two types of conversion in C:" },
+        { "type": "text", "text": "Implicit Conversion (automatically)" },
+        { "type": "text", "text": "Explicit Conversion (manually)" },
+        { "type": "text", "text": "Implicit Conversion" },
+        {
+          "type": "text",
+          "text": "Implicit conversion is done automatically by the compiler when you assign a value of one type to another."
+        },
+        {
+          "type": "code",
+          "code": "// Automatic conversion: int to float\nfloat myFloat = 9;\n\nprintf(\"%f\", myFloat); // 9.000000"
+        },
+        {
+          "type": "text",
+          "text": "As you can see, the compiler automatically converts the int value 9 to a float value of 9.000000."
+        },
+        {
+          "type": "text",
+          "text": "This can be risky, as you might lose control over specific values in certain situations."
+        },
+        {
+          "type": "text",
+          "text": "Especially if it was the other way around - the following example automatically converts the float value 9.99 to an int value of 9:"
+        },
+        {
+          "type": "code",
+          "code": "// Automatic conversion: float to int\nint myInt = 9.99;\n\nprintf(\"%d\", myInt); // 9"
+        },
+        {
+          "type": "text",
+          "text": "What happened to .99? We might want that data in our program! So be careful. It is important that you know how the compiler works in these situations to avoid unexpected results."
+        },
+        {
+          "type": "text",
+          "text": "As another example, if you divide two integers: 5 by 2, you know that the sum is 2.5. And as you know from the beginning of this page, if you store the sum as an integer, the result will only display the number 2. Therefore, it would be better to store the sum as a float or a double, right?"
+        },
+        {
+          "type": "code",
+          "code": "float sum = 5 / 2;\n\nprintf(\"%f\", sum); // 2.000000"
+        },
+        {
+          "type": "text",
+          "text": "Why is the result 2.00000 and not 2.5? Well, it is because 5 and 2 are still integers in the division. In this case, you need to manually convert the integer values to floating-point values. (see below)."
+        },
+        { "type": "text", "text": "Explicit Conversion" },
+        {
+          "type": "text",
+          "text": "Explicit conversion is done manually by placing the type in parentheses () in front of the value."
+        },
+        {
+          "type": "code",
+          "code": "// Manual conversion: int to float\nfloat sum = (float) 5 / 2;\n\nprintf(\"%f\", sum); // 2.500000"
+        },
+        {
+          "type": "code",
+          "code": "int num1 = 5;\nint num2 = 2;\nfloat sum = (float) num1 / num2;\n\nprintf(\"%f\", sum); // 2.500000"
+        },
+        {
+          "type": "text",
+          "text": "And since you learned about \"decimal precision\" in the previous chapter, you could make the output even cleaner by removing the extra zeros (if you like):"
+        },
+        {
+          "type": "code",
+          "code": "int num1 = 5;\nint num2 = 2;\nfloat sum = (float) num1 / num2;\n\nprintf(\"%.1f\", sum); // 2.5"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 10: C Constants",
+      "description": "Understanding constants in C programming.",
+      "content": [
+        { "type": "text", "text": "Constants" },
+        {
+          "type": "text",
+          "text": "If you don't want others (or yourself) to change existing variable values, you can use the const keyword."
+        },
+        {
+          "type": "text",
+          "text": "This will declare the variable as \"constant\", which means unchangeable and read-only:"
+        },
+        {
+          "type": "code",
+          "code": "const int myNum = 15;  // myNum will always be 15\nmyNum = 10;  // error: assignment of read-only variable 'myNum'"
+        },
+        {
+          "type": "text",
+          "text": "You should always declare the variable as constant when you have values that are unlikely to change:"
+        },
+        {
+          "type": "code",
+          "code": "const int minutesPerHour = 60;\nconst float PI = 3.14;"
+        },
+        { "type": "text", "text": "Notes On Constants" },
+        {
+          "type": "text",
+          "text": "When you declare a constant variable, it must be assigned with a value:"
+        },
+        {
+          "type": "code",
+          "code": "Like this:\n\nconst int minutesPerHour = 60;"
+        },
+        { "type": "text", "text": "This, however, will not work:" },
+        {
+          "type": "code",
+          "code": "const int minutesPerHour;\nminutesPerHour = 60; // error"
+        },
+        { "type": "text", "text": "Good Practice" },
+        {
+          "type": "text",
+          "text": "Another thing about constant variables is that it is considered good practice to declare them with uppercase. It is not required but useful for code readability and common for C programmers."
+        }
+      ]
+    },
+    {
+      "title": "Lesson 11: C Operators",
+      "description": "Understanding operators in C programming.",
+      "content": [
+        { "type": "text", "text": "Operators" },
+        {
+          "type": "text",
+          "text": "Operators are used to perform operations on variables and values."
+        },
+        {
+          "type": "text",
+          "text": "In the example below, we use the + operator to add together two values:"
+        },
+        { "type": "code", "code": "int myNum = 100 + 50;" },
+        {
+          "type": "text",
+          "text": "Although the + operator is often used to add together two values, like in the example above, it can also be used to add together a variable and a value, or a variable and another variable:"
+        },
+        {
+          "type": "code",
+          "code": "int sum1 = 100 + 50;        // 150 (100 + 50)\nint sum2 = sum1 + 250;      // 400 (150 + 250)\nint sum3 = sum2 + sum2;     // 800 (400 + 400)"
+        },
+        {
+          "type": "text",
+          "text": "C divides the operators into the following groups:"
+        },
+        { "type": "text", "text": "Arithmetic operators" },
+        { "type": "text", "text": "Assignment operators" },
+        { "type": "text", "text": "Comparison operators" },
+        { "type": "text", "text": "Logical operators" },
+        { "type": "text", "text": "Bitwise operators" },
+        { "type": "text", "text": "Arithmetic Operators" },
+        {
+          "type": "text",
+          "text": "Arithmetic operators are used to perform common mathematical operations."
+        },
+        {
+          "type": "code",
+          "code": "Operator\\tName\\tDescription\\tExample\\tTry it\\n+\\tAddition\\tAdds together two values\\tx + y\\n-\\tSubtraction\\tSubtracts one value from another\\tx - y\\n*\\tMultiplication\\tMultiplies two values\\tx * y\\n/\\tDivision\\tDivides one value by another\\tx / y\\n%\\tModulus\\tReturns the division remainder\\tx % y\\n++\\tIncrement\\tIncreases the value of a variable by 1\\t++x\\n--\\tDecrement\\tDecreases the value of a variable by 1\\t--x"
+        },
+        { "type": "text", "text": "Assignment Operators" },
+        {
+          "type": "text",
+          "text": "Assignment operators are used to assign values to variables."
+        },
+        {
+          "type": "code",
+          "code": "Operator\\tExample\\tSame As\\tTry it\\n=\\tx = 5\\tx = 5\\n+=\\tx += 3\\tx = x + 3\\n-=\\tx -= 3\\tx = x - 3\\n*=\\tx *= 3\\tx = x * 3\\n/=\\tx /= 3\\tx = x / 3\\n%=\\tx %= 3\\tx = x % 3\\n&=\\tx &= 3\\tx = x & 3\\n|=\\tx |= 3\\tx = x | 3\\n^=\\tx ^= 3\\tx = x ^ 3\\n>>=\\tx >>= 3\\tx = x >> 3\\n<<=\\tx <<= 3\\tx = x << 3"
+        },
+        { "type": "text", "text": "Comparison Operators" },
+        {
+          "type": "text",
+          "text": "Comparison operators are used to compare two values (or variables). This is important in programming because it helps us to find answers and make decisions."
+        },
+        {
+          "type": "code",
+          "code": "Operator\\tName\\tExample\\tTry it\\n==\\tEqual to\\tx == y\\n!=\\tNot equal\\tx != y\\n>\\tGreater than\\tx > y\\n<\\tLess than\\tx < y\\n>=\\tGreater than or equal to\\tx >= y\\n<=\\tLess than or equal to\\tx <= y"
+        },
+        { "type": "text", "text": "Logical Operators" },
+        {
+          "type": "text",
+          "text": "You can also test for true or false values with logical operators."
+        },
+        {
+          "type": "text",
+          "text": "Logical operators are used to determine the logic between variables or values:"
+        },
+        {
+          "type": "code",
+          "code": "Operator\\tName\\tDescription\\tExample\\tTry it\\n&&\\tLogical and\\tReturns true if both statements are true\\tx < 5 &&  x < 10\\n||\\tLogical or\\tReturns true if one of the statements is true\\tx < 5 || x < 4\\n!\\tLogical not\\tReverse the result, returns false if the result is true\\t!(x < 5 && x < 10)"
+        },
+        { "type": "text", "text": "Sizeof Operator" },
+        {
+          "type": "text",
+          "text": "The memory size (in bytes) of a data type or a variable can be found with the sizeof operator:"
+        },
+        {
+          "type": "code",
+          "code": "int myInt;\nfloat myFloat;\ndouble myDouble;\nchar myChar;\n\nprintf(\"%lu\\n\", sizeof(myInt));\nprintf(\"%lu\\n\", sizeof(myFloat));\nprintf(\"%lu\\n\", sizeof(myDouble));\nprintf(\"%lu\\n\", sizeof(myChar));"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 11: C Operators",
+      "description": "Understanding operators in C programming.",
+      "content": [
+        { "type": "text", "text": "Operators" },
+        {
+          "type": "text",
+          "text": "Operators are used to perform operations on variables and values."
+        },
+        {
+          "type": "text",
+          "text": "In the example below, we use the + operator to add together two values:"
+        },
+        { "type": "code", "code": "int myNum = 100 + 50;" },
+        {
+          "type": "text",
+          "text": "Although the + operator is often used to add together two values, like in the example above, it can also be used to add together a variable and a value, or a variable and another variable:"
+        },
+        {
+          "type": "code",
+          "code": "int sum1 = 100 + 50;        // 150 (100 + 50)\nint sum2 = sum1 + 250;      // 400 (150 + 250)\nint sum3 = sum2 + sum2;     // 800 (400 + 400)"
+        },
+        {
+          "type": "text",
+          "text": "C divides the operators into the following groups:"
+        },
+        { "type": "text", "text": "Arithmetic operators" },
+        {
+          "type": "table",
+          "table": [
+            {
+              "Operator": "+",
+              "Name": "Addition",
+              "Description": "Adds together two values",
+              "Example": "x + y"
+            },
+            {
+              "Operator": "-",
+              "Name": "Subtraction",
+              "Description": "Subtracts one value from another",
+              "Example": "x - y"
+            },
+            {
+              "Operator": "*",
+              "Name": "Multiplication",
+              "Description": "Multiplies two values",
+              "Example": "x * y"
+            },
+            {
+              "Operator": "/",
+              "Name": "Division",
+              "Description": "Divides one value by another",
+              "Example": "x / y"
+            },
+            {
+              "Operator": "%",
+              "Name": "Modulus",
+              "Description": "Returns the division remainder",
+              "Example": "x % y"
+            },
+            {
+              "Operator": "++",
+              "Name": "Increment",
+              "Description": "Increases the value of a variable by 1",
+              "Example": "++x"
+            },
+            {
+              "Operator": "--",
+              "Name": "Decrement",
+              "Description": "Decreases the value of a variable by 1",
+              "Example": "--x"
+            }
+          ]
+        },
+        { "type": "text", "text": "Assignment Operators" },
+        {
+          "type": "table",
+          "table": [
+            { "Operator": "=", "Example": "x = 5", "Same As": "x = 5" },
+            { "Operator": "+=", "Example": "x += 3", "Same As": "x = x + 3" },
+            { "Operator": "-=", "Example": "x -= 3", "Same As": "x = x - 3" },
+            { "Operator": "*=", "Example": "x *= 3", "Same As": "x = x * 3" },
+            { "Operator": "/=", "Example": "x /= 3", "Same As": "x = x / 3" },
+            { "Operator": "%=", "Example": "x %= 3", "Same As": "x = x % 3" },
+            { "Operator": "&=", "Example": "x &= 3", "Same As": "x = x & 3" },
+            { "Operator": "|=", "Example": "x |= 3", "Same As": "x = x | 3" },
+            { "Operator": "^=", "Example": "x ^= 3", "Same As": "x = x ^ 3" },
+            {
+              "Operator": ">>=",
+              "Example": "x >>= 3",
+              "Same As": "x = x >> 3"
+            },
+            { "Operator": "<<=", "Example": "x <<= 3", "Same As": "x = x << 3" }
+          ]
+        },
+        { "type": "text", "text": "Comparison Operators" },
+        {
+          "type": "table",
+          "table": [
+            { "Operator": "==", "Name": "Equal to", "Example": "x == y" },
+            { "Operator": "!=", "Name": "Not equal", "Example": "x != y" },
+            { "Operator": ">", "Name": "Greater than", "Example": "x > y" },
+            { "Operator": "<", "Name": "Less than", "Example": "x < y" },
+            {
+              "Operator": ">=",
+              "Name": "Greater than or equal to",
+              "Example": "x >= y"
+            },
+            {
+              "Operator": "<=",
+              "Name": "Less than or equal to",
+              "Example": "x <= y"
+            }
+          ]
+        },
+        { "type": "text", "text": "Logical Operators" },
+        {
+          "type": "table",
+          "table": [
+            {
+              "Operator": "&&",
+              "Name": "Logical and",
+              "Description": "Returns true if both statements are true",
+              "Example": "x < 5 &&  x < 10"
+            },
+            {
+              "Operator": "||",
+              "Name": "Logical or",
+              "Description": "Returns true if one of the statements is true",
+              "Example": "x < 5 || x < 4"
+            },
+            {
+              "Operator": "!",
+              "Name": "Logical not",
+              "Description": "Reverse the result, returns false if the result is true",
+              "Example": "!(x < 5 && x < 10)"
+            }
+          ]
+        },
+        { "type": "text", "text": "Sizeof Operator" },
+        {
+          "type": "text",
+          "text": "The memory size (in bytes) of a data type or a variable can be found with the sizeof operator:"
+        },
+        {
+          "type": "code",
+          "code": "int myInt;\nfloat myFloat;\ndouble myDouble;\nchar myChar;\n\nprintf(\"%lu\\n\", sizeof(myInt));\nprintf(\"%lu\\n\", sizeof(myFloat));\nprintf(\"%lu\\n\", sizeof(myDouble));\nprintf(\"%lu\\n\", sizeof(myChar));"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 12: C Booleans",
+      "description": "Introduction to Boolean data types in C.",
+      "content": [
+        { "type": "text", "text": "Booleans" },
+        {
+          "type": "text",
+          "text": "Very often, in programming, you will need a data type that can only have one of two values, like:"
+        },
+        { "type": "text", "text": "YES / NO\nON / OFF\nTRUE / FALSE" },
+        {
+          "type": "text",
+          "text": "For this, C has a bool data type, which is known as booleans."
+        },
+        { "type": "text", "text": "Boolean Variables" },
+        {
+          "type": "text",
+          "text": "In C, the bool type is not a built-in data type, like int or char."
+        },
+        {
+          "type": "text",
+          "text": "It was introduced in C99, and you must import the following header file to use it:"
+        },
+        { "type": "code", "code": "#include <stdbool.h>" },
+        {
+          "type": "text",
+          "text": "A boolean variable is declared with the bool keyword and can only take the values true or false:"
+        },
+        {
+          "type": "code",
+          "code": "bool isProgrammingFun = true;\nbool isFishTasty = false;"
+        },
+        {
+          "type": "text",
+          "text": "Before trying to print the boolean variables, you should know that boolean values are returned as integers:"
+        },
+        {
+          "type": "text",
+          "text": "1 (or any other number that is not 0) represents true\n0 represents false"
+        },
+        {
+          "type": "text",
+          "text": "Therefore, you must use the %d format specifier to print a boolean value:"
+        },
+        {
+          "type": "code",
+          "code": "// Create boolean variables\nbool isProgrammingFun = true;\nbool isFishTasty = false;\n\n// Return boolean values\nprintf(\"%d\", isProgrammingFun);   // Returns 1 (true)\nprintf(\"%d\", isFishTasty);        // Returns 0 (false)"
+        },
+        {
+          "type": "text",
+          "text": "However, it is more common to return a boolean value by comparing values and variables."
+        },
+        { "type": "text", "text": "Comparing Values and Variables" },
+        {
+          "type": "text",
+          "text": "Comparing values are useful in programming, because it helps us to find answers and make decisions."
+        },
+        {
+          "type": "code",
+          "code": "// Create boolean variables\nbool isProgrammingFun = true;\nbool isFishTasty = false;"
+        },
+        {
+          "type": "text",
+          "text": "From the example above, you can see that the return value is a boolean value (1)."
+        },
+        {
+          "type": "code",
+          "code": "int x = 10;\nint y = 9;\nprintf(\"%d\", x > y);"
+        },
+        { "type": "text", "text": "You can also compare two variables:" },
+        {
+          "type": "code",
+          "code": "int x = 10;\nint y = 9;\nprintf(\"%d\", x > y);"
+        },
+        {
+          "type": "text",
+          "text": "In the example below, we use the equal to (==) operator to compare different values:"
+        },
+        {
+          "type": "code",
+          "code": "printf(\"%d\", 10 == 10); // Returns 1 (true), because 10 is equal to 10\nprintf(\"%d\", 10 == 15); // Returns 0 (false), because 10 is not equal to 15\nprintf(\"%d\", 5 == 55);  // Returns 0 (false) because 5 is not equal to 55"
+        },
+        {
+          "type": "text",
+          "text": "You are not limited to only compare numbers. You can also compare boolean variables, or even special structures, like arrays (which you will learn more about in a later chapter):"
+        },
+        {
+          "type": "code",
+          "code": "bool isHamburgerTasty = true;\nbool isPizzaTasty = true;\n\n// Find out if both hamburger and pizza is tasty\nprintf(\"%d\", isHamburgerTasty == isPizzaTasty);"
+        },
+        {
+          "type": "text",
+          "text": "Remember to include the <stdbool.h> header file when working with bool variables."
+        },
+        { "type": "text", "text": "Real Life Example" },
+        {
+          "type": "text",
+          "text": "Let's think of a \"real life example\" where we need to find out if a person is old enough to vote."
+        },
+        {
+          "type": "code",
+          "code": "int myAge = 25;\nint votingAge = 18;\n\nprintf(\"%d\", myAge >= votingAge); // Returns 1 (true), meaning 25 year olds are allowed to vote!"
+        },
+        {
+          "type": "text",
+          "text": "Cool, right? An even better approach (since we are on a roll now), would be to wrap the code above in an if...else statement, so we can perform different actions depending on the result:"
+        },
+        {
+          "type": "code",
+          "code": "int myAge = 25;\nint votingAge = 18;\n\nif (myAge >= votingAge) {\n  printf(\"Old enough to vote!\");\n} else {\n  printf(\"Not old enough to vote.\");\n}"
+        },
+        {
+          "type": "text",
+          "text": "Booleans are the basis for all comparisons and conditions."
+        },
+        {
+          "type": "text",
+          "text": "You will learn more about conditions (if...else) in the next chapter."
+        }
+      ]
+    },
+    {
+      "title": "Lesson 13: C If ... Else",
+      "description": "Introduction to conditional statements and if...else in C.",
+      "content": [
+        { "type": "text", "text": "Conditions and If Statements" },
+        {
+          "type": "text",
+          "text": "You have already learned that C supports the usual logical conditions from mathematics:"
+        },
+        {
+          "type": "table",
+          "table": [
+            ["Condition", "Description"],
+            ["a < b", "Less than"],
+            ["a <= b", "Less than or equal to"],
+            ["a > b", "Greater than"],
+            ["a >= b", "Greater than or equal to"],
+            ["a == b", "Equal to"],
+            ["a != b", "Not Equal to"]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "You can use these conditions to perform different actions for different decisions."
+        },
+        {
+          "type": "text",
+          "text": "C has the following conditional statements:"
+        },
+        {
+          "type": "text",
+          "text": "Use if to specify a block of code to be executed, if a specified condition is true"
+        },
+        {
+          "type": "text",
+          "text": "Use else to specify a block of code to be executed, if the same condition is false"
+        },
+        {
+          "type": "text",
+          "text": "Use else if to specify a new condition to test, if the first condition is false"
+        },
+        {
+          "type": "text",
+          "text": "Use switch to specify many alternative blocks of code to be executed"
+        },
+        { "type": "text", "text": "The if Statement" },
+        {
+          "type": "text",
+          "text": "Use the if statement to specify a block of code to be executed if a condition is true."
+        },
+        {
+          "type": "code",
+          "code": "if (condition) {\n  // block of code to be executed if the condition is true\n}"
+        },
+        {
+          "type": "text",
+          "text": "Note that if is in lowercase letters. Uppercase letters (If or IF) will generate an error."
+        },
+        {
+          "type": "code",
+          "code": "if (20 > 18) {\n  printf(\"20 is greater than 18\");\n}"
+        },
+        { "type": "text", "text": "We can also test variables:" },
+        {
+          "type": "code",
+          "code": "int x = 20;\nint y = 18;\nif (x > y) {\n  printf(\"x is greater than y\");\n}"
+        },
+        { "type": "text", "text": "The else Statement" },
+        {
+          "type": "text",
+          "text": "Use the else statement to specify a block of code to be executed if the condition is false."
+        },
+        {
+          "type": "code",
+          "code": "int time = 20;\nif (time < 18) {\n  printf(\"Good day.\");\n} else {\n  printf(\"Good evening.\");\n}"
+        },
+        { "type": "text", "text": "Example explained" },
+        {
+          "type": "text",
+          "text": "In the example above, time (20) is greater than 18, so the condition is false. Because of this, we move on to the else condition and print to the screen \"Good evening\". If the time was less than 18, the program would print \"Good day\"."
+        },
+        { "type": "text", "text": "The else if Statement" },
+        {
+          "type": "text",
+          "text": "Use the else if statement to specify a new condition if the first condition is false."
+        },
+        {
+          "type": "code",
+          "code": "int time = 22;\nif (time < 10) {\n  printf(\"Good morning.\");\n} else if (time < 20) {\n  printf(\"Good day.\");\n} else {\n  printf(\"Good evening.\");\n}"
+        },
+        { "type": "text", "text": "Example explained" },
+        {
+          "type": "text",
+          "text": "In the example above, time (22) is greater than 10, so the first condition is false. The next condition, in the else if statement, is also false, so we move on to the else condition since condition1 and condition2 are both false - and print to the screen \"Good evening\". However, if the time was 14, our program would print \"Good day.\""
+        },
+        { "type": "text", "text": "Another Example" },
+        {
+          "type": "code",
+          "code": "int myNum = 10; // Is this a positive or negative number?\n\nif (myNum > 0) {\n  printf(\"The value is a positive number.\");\n} else if (myNum < 0) {\n  printf(\"The value is a negative number.\");\n} else {\n  printf(\"The value is 0.\");\n}"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 14: C Short Hand If Else (Ternary Operator)",
+      "description": "Learn how to use the ternary operator for short-hand if-else statements in C.",
+      "content": [
+        { "type": "text", "text": "Short Hand If...Else (Ternary Operator)" },
+        {
+          "type": "text",
+          "text": "There is also a short-hand if else, which is known as the ternary operator because it consists of three operands. It can be used to replace multiple lines of code with a single line. It is often used to replace simple if else statements:"
+        },
+        { "type": "text", "text": "Syntax" },
+        {
+          "type": "code",
+          "code": "variable = (condition) ? expressionTrue : expressionFalse;"
+        },
+        { "type": "text", "text": "Instead of writing:" },
+        {
+          "type": "code",
+          "code": "int time = 20;\nif (time < 18) {\n  printf(\"Good day.\");\n} else {\n  printf(\"Good evening.\");\n}"
+        },
+        { "type": "text", "text": "You can simply write:" },
+        {
+          "type": "code",
+          "code": "int time = 20;\n(time < 18) ? printf(\"Good day.\") : printf(\"Good evening.\");"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 15: C Switch Statement",
+      "description": "Learn how to use the switch statement in C for conditional branching.",
+      "content": [
+        { "type": "text", "text": "Switch Statement" },
+        {
+          "type": "text",
+          "text": "Instead of writing many if..else statements, you can use the switch statement."
+        },
+        {
+          "type": "text",
+          "text": "The switch statement selects one of many code blocks to be executed:"
+        },
+        { "type": "text", "text": "Syntax" },
+        {
+          "type": "code",
+          "code": "switch(expression) {\n  case x:\n    // code block\n    break;\n  case y:\n    // code block\n    break;\n  default:\n    // code block\n}"
+        },
+        { "type": "text", "text": "This is how it works:" },
+        { "type": "text", "text": "The switch expression is evaluated once" },
+        {
+          "type": "text",
+          "text": "The value of the expression is compared with the values of each case"
+        },
+        {
+          "type": "text",
+          "text": "If there is a match, the associated block of code is executed"
+        },
+        {
+          "type": "text",
+          "text": "The break statement breaks out of the switch block and stops the execution"
+        },
+        {
+          "type": "text",
+          "text": "The default statement is optional, and specifies some code to run if there is no case match"
+        },
+        {
+          "type": "text",
+          "text": "The example below uses the weekday number to calculate the weekday name:"
+        },
+        {
+          "type": "code",
+          "code": "int day = 4;\n\nswitch (day) {\n  case 1:\n    printf(\"Monday\");\n    break;\n  case 2:\n    printf(\"Tuesday\");\n    break;\n  case 3:\n    printf(\"Wednesday\");\n    break;\n  case 4:\n    printf(\"Thursday\");\n    break;\n  case 5:\n    printf(\"Friday\");\n    break;\n  case 6:\n    printf(\"Saturday\");\n    break;\n  case 7:\n    printf(\"Sunday\");\n    break;\n}\n\n// Outputs \"Thursday\" (day 4)"
+        },
+        { "type": "text", "text": "The break Keyword" },
+        {
+          "type": "text",
+          "text": "When C reaches a break keyword, it breaks out of the switch block."
+        },
+        {
+          "type": "text",
+          "text": "This will stop the execution of more code and case testing inside the block."
+        },
+        {
+          "type": "text",
+          "text": "When a match is found, and the job is done, it's time for a break. There is no need for more testing."
+        },
+        {
+          "type": "text",
+          "text": "A break can save a lot of execution time because it \"ignores\" the execution of all the rest of the code in the switch block."
+        },
+        { "type": "text", "text": "The default Keyword" },
+        {
+          "type": "text",
+          "text": "The default keyword specifies some code to run if there is no case match:"
+        },
+        {
+          "type": "code",
+          "code": "int day = 4;\n\nswitch (day) {\n  case 6:\n    printf(\"Today is Saturday\");\n    break;\n  case 7:\n    printf(\"Today is Sunday\");\n    break;\n  default:\n    printf(\"Looking forward to the Weekend\");\n}\n\n// Outputs \"Looking forward to the Weekend\""
+        }
+      ]
+    },
+    {
+      "title": "Lesson 16: C While Loop",
+      "description": "Learn how to use the while loop in C for repetitive execution.",
+      "content": [
+        { "type": "text", "text": "Loops" },
+        {
+          "type": "text",
+          "text": "Loops can execute a block of code as long as a specified condition is reached."
+        },
+        {
+          "type": "text",
+          "text": "Loops are handy because they save time, reduce errors, and they make code more readable."
+        },
+        { "type": "text", "text": "While Loop" },
+        {
+          "type": "text",
+          "text": "The while loop loops through a block of code as long as a specified condition is true:"
+        },
+        { "type": "text", "text": "Syntax" },
+        {
+          "type": "code",
+          "code": "while (condition) {\n  // code block to be executed\n}"
+        },
+        {
+          "type": "text",
+          "text": "In the example below, the code in the loop will run, over and over again, as long as a variable (i) is less than 5:"
+        },
+        {
+          "type": "code",
+          "code": "int i = 0;\n\nwhile (i < 5) {\n  printf(\"%d\\n\", i);\n  i++;\n}"
+        },
+        {
+          "type": "text",
+          "text": "Note: Do not forget to increase the variable used in the condition (i++), otherwise the loop will never end!"
+        },
+        { "type": "text", "text": "The Do/While Loop" },
+        {
+          "type": "text",
+          "text": "The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true."
+        },
+        { "type": "text", "text": "Syntax" },
+        {
+          "type": "code",
+          "code": "do {\n  // code block to be executed\n}\nwhile (condition);"
+        },
+        {
+          "type": "text",
+          "text": "The example below uses a do/while loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:"
+        },
+        {
+          "type": "code",
+          "code": "int i = 0;\n\ndo {\n  printf(\"%d\\n\", i);\n  i++;\n}\nwhile (i < 5);"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 17: C For Loop",
+      "description": "Learn how to use the for loop in C for precise repetitive execution.",
+      "content": [
+        { "type": "text", "text": "For Loop" },
+        {
+          "type": "text",
+          "text": "When you know exactly how many times you want to loop through a block of code, use the for loop instead of a while loop:"
+        },
+        { "type": "text", "text": "Syntax" },
+        {
+          "type": "code",
+          "code": "for (statement 1; statement 2; statement 3) {\n  // code block to be executed\n}"
+        },
+        {
+          "type": "text",
+          "text": "Statement 1 is executed (one time) before the execution of the code block."
+        },
+        {
+          "type": "text",
+          "text": "Statement 2 defines the condition for executing the code block."
+        },
+        {
+          "type": "text",
+          "text": "Statement 3 is executed (every time) after the code block has been executed."
+        },
+        {
+          "type": "text",
+          "text": "The example below will print the numbers 0 to 4:"
+        },
+        {
+          "type": "code",
+          "code": "int i;\n\nfor (i = 0; i < 5; i++) {\n  printf(\"%d\\n\", i);\n}"
+        },
+        { "type": "text", "text": "Example explained" },
+        {
+          "type": "text",
+          "text": "Statement 1 sets a variable before the loop starts (int i = 0)."
+        },
+        {
+          "type": "text",
+          "text": "Statement 2 defines the condition for the loop to run (i must be less than 5). If the condition is true, the loop will start over again, if it is false, the loop will end."
+        },
+        {
+          "type": "text",
+          "text": "Statement 3 increases a value (i++) each time the code block in the loop has been executed."
+        },
+        { "type": "text", "text": "Another Example" },
+        {
+          "type": "code",
+          "code": "This example will only print even values between 0 and 10:"
+        },
+        {
+          "type": "code",
+          "code": "for (i = 0; i <= 10; i = i + 2) {\n  printf(\"%d\\n\", i);\n}"
+        },
+        { "type": "text", "text": "Nested Loops" },
+        {
+          "type": "text",
+          "text": "It is also possible to place a loop inside another loop. This is called a nested loop."
+        },
+        {
+          "type": "text",
+          "text": "The \"inner loop\" will be executed one time for each iteration of the \"outer loop\":"
+        },
+        {
+          "type": "code",
+          "code": "int i, j;\n\n// Outer loop\nfor (i = 1; i <= 2; ++i) {\n  printf(\"Outer: %d\\n\", i);  // Executes 2 times\n\n  // Inner loop\n  for (j = 1; j <= 3; ++j) {\n    printf(\" Inner: %d\\n\", j);  // Executes 6 times (2 * 3)\n  }\n}"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 18: C Break and Continue",
+      "description": "Learn how to use the break and continue statements in C to control loops.",
+      "content": [
+        { "type": "text", "text": "Break" },
+        {
+          "type": "text",
+          "text": "You have already seen the break statement used in an earlier chapter of this tutorial. It was used to \"jump out\" of a switch statement."
+        },
+        {
+          "type": "text",
+          "text": "The break statement can also be used to jump out of a loop."
+        },
+        {
+          "type": "code",
+          "code": "This example jumps out of the for loop when i is equal to 4:"
+        },
+        {
+          "type": "code",
+          "code": "int i;\n\nfor (i = 0; i < 10; i++) {\n  if (i == 4) {\n    break;\n  }\n  printf(\"%d\\n\", i);\n}"
+        },
+        { "type": "text", "text": "Continue" },
+        {
+          "type": "text",
+          "text": "The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop."
+        },
+        { "type": "code", "code": "This example skips the value of 4:" },
+        {
+          "type": "code",
+          "code": "int i;\n\nfor (i = 0; i < 10; i++) {\n  if (i == 4) {\n    continue;\n  }\n  printf(\"%d\\n\", i);\n}"
+        },
+        { "type": "text", "text": "Break and Continue in While Loop" },
+        {
+          "type": "text",
+          "text": "You can also use break and continue in while loops:"
+        },
+        { "type": "text", "text": "Break Example" },
+        {
+          "type": "code",
+          "code": "int i = 0;\n\nwhile (i < 10) {\n  if (i == 4) {\n    break;\n  }\n  printf(\"%d\\n\", i);\n  i++;\n}"
+        },
+        { "type": "text", "text": "Continue Example" },
+        {
+          "type": "code",
+          "code": "int i = 0;\n\nwhile (i < 10) {\n  if (i == 4) {\n    i++;\n    continue;\n  }\n  printf(\"%d\\n\", i);\n  i++;\n}"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 19: C Arrays",
+      "description": "Learn how to work with arrays in C to store multiple values in a single variable.",
+      "content": [
+        { "type": "text", "text": "Arrays" },
+        {
+          "type": "text",
+          "text": "Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value."
+        },
+        {
+          "type": "text",
+          "text": "To create an array, define the data type (like int) and specify the name of the array followed by square brackets []."
+        },
+        {
+          "type": "text",
+          "text": "To insert values into it, use a comma-separated list inside curly braces:"
+        },
+        { "type": "code", "code": "int myNumbers[] = {25, 50, 75, 100};" },
+        {
+          "type": "text",
+          "text": "We have now created a variable that holds an array of four integers."
+        },
+        { "type": "text", "text": "Access the Elements of an Array" },
+        {
+          "type": "text",
+          "text": "To access an array element, refer to its index number."
+        },
+        {
+          "type": "text",
+          "text": "Array indexes start with 0: [0] is the first element. [1] is the second element, etc."
+        },
+        {
+          "type": "code",
+          "code": "This statement accesses the value of the first element [0] in myNumbers:"
+        },
+        {
+          "type": "code",
+          "code": "int myNumbers[] = {25, 50, 75, 100};\nprintf(\"%d\", myNumbers[0]);\n// Outputs 25"
+        },
+        { "type": "text", "text": "Change an Array Element" },
+        {
+          "type": "text",
+          "text": "To change the value of a specific element, refer to the index number:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "myNumbers[0] = 33;" },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "int myNumbers[] = {25, 50, 75, 100};\nmyNumbers[0] = 33;\nprintf(\"%d\", myNumbers[0]);\n// Now outputs 33 instead of 25"
+        },
+        { "type": "text", "text": "Loop Through an Array" },
+        {
+          "type": "text",
+          "text": "You can loop through the array elements with the for loop."
+        },
+        {
+          "type": "text",
+          "text": "The following example outputs all elements in the myNumbers array:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "int myNumbers[] = {25, 50, 75, 100};\nint i;\n\nfor (i = 0; i < 4; i++) {\n  printf(\"%d\\n\", myNumbers[i]);\n}"
+        },
+        { "type": "text", "text": "Set Array Size" },
+        {
+          "type": "text",
+          "text": "Another common way to create arrays is to specify the size of the array and add elements later:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "// Declare an array of four integers:\nint myNumbers[4];\n\n// Add elements\nmyNumbers[0] = 25;\nmyNumbers[1] = 50;\nmyNumbers[2] = 75;\nmyNumbers[3] = 100;"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 20: C Strings",
+      "description": "Learn how to work with strings in C for storing and manipulating text.",
+      "content": [
+        { "type": "text", "text": "Strings" },
+        {
+          "type": "text",
+          "text": "Strings are used for storing text/characters."
+        },
+        {
+          "type": "text",
+          "text": "For example, \"Hello World\" is a string of characters."
+        },
+        {
+          "type": "text",
+          "text": "Unlike many other programming languages, C does not have a String type to easily create string variables. Instead, you must use the char type and create an array of characters to make a string in C:"
+        },
+        { "type": "code", "code": "char greetings[] = \"Hello World!\";" },
+        {
+          "type": "text",
+          "text": "Note that you have to use double quotes (\"\")."
+        },
+        {
+          "type": "text",
+          "text": "To output the string, you can use the printf() function together with the format specifier %s to tell C that we are now working with strings:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char greetings[] = \"Hello World!\";\nprintf(\"%s\", greetings);"
+        },
+        { "type": "text", "text": "Access Strings" },
+        {
+          "type": "text",
+          "text": "Since strings are actually arrays in C, you can access a string by referring to its index number inside square brackets []."
+        },
+        {
+          "type": "code",
+          "code": "This example prints the first character (0) in greetings:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char greetings[] = \"Hello World!\";\nprintf(\"%c\", greetings[0]);"
+        },
+        {
+          "type": "text",
+          "text": "Note that we have to use the %c format specifier to print a single character."
+        },
+        { "type": "text", "text": "Modify Strings" },
+        {
+          "type": "text",
+          "text": "To change the value of a specific character in a string, refer to the index number and use single quotes:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char greetings[] = \"Hello World!\";\ngreetings[0] = 'J';\nprintf(\"%s\", greetings);"
+        },
+        {
+          "type": "code",
+          "code": "// Outputs Jello World! instead of Hello World!"
+        },
+        { "type": "text", "text": "Loop Through a String" },
+        {
+          "type": "text",
+          "text": "You can also loop through the characters of a string using a for loop:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char carName[] = \"Volvo\";\nint i;\n\nfor (i = 0; i < 5; ++i) {\n  printf(\"%c\\n\", carName[i]);\n}"
+        },
+        { "type": "text", "text": "Another Way Of Creating Strings" },
+        {
+          "type": "text",
+          "text": "In the examples above, we used a \"string literal\" to create a string variable. This is the easiest way to create a string in C."
+        },
+        {
+          "type": "text",
+          "text": "You should also note that you can create a string with a set of characters. This example will produce the same result as the example at the beginning of this page:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};"
+        },
+        { "type": "code", "code": "printf(\"%s\", greetings);" },
+        {
+          "type": "text",
+          "text": "Why do we include the \\0 character at the end? This is known as the \"null-terminating character\" and must be included when creating strings using this method. It tells C that this is the end of the string."
+        },
+        { "type": "text", "text": "Differences" },
+        {
+          "type": "text",
+          "text": "The difference between the two ways of creating strings is that the first method is easier to write, and you do not have to include the \\0 character as C will do it for you."
+        },
+        {
+          "type": "text",
+          "text": "You should note that the size of both arrays is the same: They both have 13 characters (space also counts as a character, by the way), including the \\0 character:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};"
+        },
+        { "type": "code", "code": "char greetings2[] = \"Hello World!\";" },
+        {
+          "type": "code",
+          "code": "printf(\"%lu\\n\", sizeof(greetings));   // Outputs 13"
+        },
+        {
+          "type": "code",
+          "code": "printf(\"%lu\\n\", sizeof(greetings2));  // Outputs 13"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 21: C Special Characters",
+      "description": "Learn how to use special characters in C strings.",
+      "content": [
+        { "type": "text", "text": "Strings - Special Characters" },
+        {
+          "type": "text",
+          "text": "Because strings must be written within quotes, C will misunderstand this string and generate an error:"
+        },
+        {
+          "type": "code",
+          "code": "char txt[] = \"We are the so-called \"Vikings\" from the north.\";"
+        },
+        {
+          "type": "text",
+          "text": "The solution to avoid this problem is to use the backslash escape character."
+        },
+        {
+          "type": "text",
+          "text": "The backslash (\\) escape character turns special characters into string characters:"
+        },
+        {
+          "type": "table",
+          "table": {
+            "headers": ["Escape Character", "Result", "Description"],
+            "rows": [
+              ["\\'", "'", "Single quote"],
+              ["\\\"", "\"", "Double quote"],
+              ["\\\\", "\\", "Backslash"]
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The sequence \\\" inserts a double quote in a string:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char txt[] = \"We are the so-called \\\"Vikings\\\" from the north.\";"
+        },
+        {
+          "type": "text",
+          "text": "The sequence \\' inserts a single quote in a string:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "char txt[] = \"It\\'s alright.\";" },
+        {
+          "type": "text",
+          "text": "The sequence \\\\ inserts a single backslash in a string:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char txt[] = \"The character \\\\ is called backslash.\";"
+        },
+        { "type": "text", "text": "Other popular escape characters in C are:" },
+        {
+          "type": "table",
+          "table": {
+            "headers": ["Escape Character", "Result", "Try it"],
+            "rows": [
+              ["\\n", "New Line", ""],
+              ["\\t", "Tab", ""],
+              ["\\0", "Null", ""]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Lesson 22: C String Functions",
+      "description": "Learn about useful string functions in C and how to perform various string operations.",
+      "content": [
+        { "type": "text", "text": "String Functions" },
+        {
+          "type": "text",
+          "text": "C also has many useful string functions, which can be used to perform certain operations on strings."
+        },
+        {
+          "type": "text",
+          "text": "To use them, you must include the <string.h> header file in your program:"
+        },
+        { "type": "code", "code": "#include <string.h>" },
+        { "type": "text", "text": "String Length" },
+        {
+          "type": "text",
+          "text": "For example, to get the length of a string, you can use the strlen() function:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char alphabet[] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";"
+        },
+        { "type": "code", "code": "printf(\"%d\", strlen(alphabet));" },
+        {
+          "type": "text",
+          "text": "In the Strings chapter, we used sizeof to get the size of a string/array. Note that sizeof and strlen behaves differently, as sizeof also includes the \\0 character when counting:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char alphabet[] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";"
+        },
+        { "type": "code", "code": "printf(\"%d\", strlen(alphabet));   // 26" },
+        { "type": "code", "code": "printf(\"%d\", sizeof(alphabet));   // 27" },
+        {
+          "type": "text",
+          "text": "It is also important that you know that sizeof will always return the memory size (in bytes), and not the actual string length:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "char alphabet[50] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";"
+        },
+        { "type": "code", "code": "printf(\"%d\", strlen(alphabet));   // 26" },
+        { "type": "code", "code": "printf(\"%d\", sizeof(alphabet));   // 50" },
+        { "type": "text", "text": "Concatenate Strings" },
+        {
+          "type": "text",
+          "text": "To concatenate (combine) two strings, you can use the strcat() function:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "char str1[20] = \"Hello \";" },
+        { "type": "code", "code": "char str2[] = \"World!\";" },
+        {
+          "type": "code",
+          "code": "// Concatenate str2 to str1 (result is stored in str1)"
+        },
+        { "type": "code", "code": "strcat(str1, str2);" },
+        { "type": "code", "code": "// Print str1" },
+        { "type": "code", "code": "printf(\"%s\", str1);" },
+        {
+          "type": "text",
+          "text": "Note that the size of str1 should be large enough to store the result of the two strings combined (20 in our example)."
+        },
+        { "type": "text", "text": "Copy Strings" },
+        {
+          "type": "text",
+          "text": "To copy the value of one string to another, you can use the strcpy() function:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "char str1[20] = \"Hello World!\";" },
+        { "type": "code", "code": "char str2[20];" },
+        { "type": "code", "code": "// Copy str1 to str2" },
+        { "type": "code", "code": "strcpy(str2, str1);" },
+        { "type": "code", "code": "// Print str2" },
+        { "type": "code", "code": "printf(\"%s\", str2);" },
+        {
+          "type": "text",
+          "text": "Note that the size of str2 should be large enough to store the copied string (20 in our example)."
+        },
+        { "type": "text", "text": "Compare Strings" },
+        {
+          "type": "text",
+          "text": "To compare two strings, you can use the strcmp() function."
+        },
+        {
+          "type": "text",
+          "text": "It returns 0 if the two strings are equal, otherwise a value that is not 0:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "char str1[] = \"Hello\";" },
+        { "type": "code", "code": "char str2[] = \"Hello\";" },
+        { "type": "code", "code": "char str3[] = \"Hi\";" },
+        {
+          "type": "code",
+          "code": "// Compare str1 and str2, and print the result"
+        },
+        {
+          "type": "code",
+          "code": "printf(\"%d\\n\", strcmp(str1, str2));  // Returns 0 (the strings are equal)"
+        },
+        {
+          "type": "code",
+          "code": "// Compare str1 and str3, and print the result"
+        },
+        {
+          "type": "code",
+          "code": "printf(\"%d\\n\", strcmp(str1, str3));  // Returns -4 (the strings are not equal)"
+        }
+      ]
+    },
+    {
+      "title": "Lesson 23: User Input",
+      "description": "Learn how to get user input in C using the scanf() function.",
+      "content": [
+        { "type": "text", "text": "User Input" },
+        {
+          "type": "text",
+          "text": "You have already learned that printf() is used to output values in C."
+        },
+        {
+          "type": "text",
+          "text": "To get user input, you can use the scanf() function:"
+        },
+        { "type": "code", "code": "Example" },
+        {
+          "type": "code",
+          "code": "// Create an integer variable that will store the number we get from the user"
+        },
+        { "type": "code", "code": "int myNum;" },
+        { "type": "code", "code": "// Ask the user to type a number" },
+        { "type": "code", "code": "printf(\"Type a number: \\n\");" },
+        { "type": "code", "code": "// Get and save the number the user types" },
+        { "type": "code", "code": "scanf(\"%d\", &myNum);" },
+        { "type": "code", "code": "// Output the number the user typed" },
+        { "type": "code", "code": "printf(\"Your number is: %d\", myNum);" },
+        {
+          "type": "text",
+          "text": "The scanf() function takes two arguments: the format specifier of the variable (%d in the example above) and the reference operator (&myNum), which stores the memory address of the variable."
+        },
+        {
+          "type": "text",
+          "text": "Tip: You will learn more about memory addresses and functions in the next chapter."
+        },
+        { "type": "text", "text": "Multiple Inputs" },
+        {
+          "type": "text",
+          "text": "The scanf() function also allows multiple inputs (an integer and a character in the following example):"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "// Create an int and a char variable" },
+        { "type": "code", "code": "int myNum;" },
+        { "type": "code", "code": "char myChar;" },
+        {
+          "type": "code",
+          "code": "// Ask the user to type a number AND a character"
+        },
+        {
+          "type": "code",
+          "code": "printf(\"Type a number AND a character and press enter: \\n\");"
+        },
+        {
+          "type": "code",
+          "code": "// Get and save the number AND character the user types"
+        },
+        { "type": "code", "code": "scanf(\"%d %c\", &myNum, &myChar);" },
+        { "type": "code", "code": "// Print the number" },
+        { "type": "code", "code": "printf(\"Your number is: %d\\n\", myNum);" },
+        { "type": "code", "code": "// Print the character" },
+        {
+          "type": "code",
+          "code": "printf(\"Your character is: %c\\n\", myChar);"
+        },
+        { "type": "text", "text": "Take String Input" },
+        {
+          "type": "text",
+          "text": "You can also get a string entered by the user:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "// Create a string" },
+        { "type": "code", "code": "char firstName[30];" },
+        { "type": "code", "code": "// Ask the user to input some text" },
+        { "type": "code", "code": "printf(\"Enter your first name: \\n\");" },
+        { "type": "code", "code": "// Get and save the text" },
+        { "type": "code", "code": "scanf(\"%s\", firstName);" },
+        { "type": "code", "code": "// Output the text" },
+        { "type": "code", "code": "printf(\"Hello %s\", firstName);" },
+        {
+          "type": "text",
+          "text": "Note: When working with strings in scanf(), you must specify the size of the string/array (we used a very high number, 30 in our example, but at least then we are certain it will store enough characters for the first name), and you don't have to use the reference operator (&)."
+        },
+        {
+          "type": "text",
+          "text": "However, the scanf() function has some limitations: it considers space (whitespace, tabs, etc) as a terminating character, which means that it can only display a single word (even if you type many words). For example:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "char fullName[30];" },
+        { "type": "code", "code": "printf(\"Type your full name: \\n\");" },
+        { "type": "code", "code": "scanf(\"%s\", &fullName);" },
+        { "type": "code", "code": "printf(\"Hello %s\", fullName);" },
+        {
+          "type": "text",
+          "text": "From the example above, you would expect the program to print \"John Doe\", but it only prints \"John\"."
+        },
+        {
+          "type": "text",
+          "text": "That's why, when working with strings, we often use the fgets() function to read a line of text. Note that you must include the following arguments: the name of the string variable, sizeof(string_name), and stdin:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "char fullName[30];" },
+        { "type": "code", "code": "printf(\"Type your full name: \\n\");" },
+        { "type": "code", "code": "fgets(fullName, sizeof(fullName), stdin);" },
+        { "type": "code", "code": "printf(\"Hello %s\", fullName);" }
+      ]
+    },
+    {
+      "title": "Lesson 24: Functions",
+      "description": "Learn how to create and call functions in C.",
+      "content": [
+        {
+          "type": "text",
+          "text": "A function is a block of code which only runs when it is called."
+        },
+        {
+          "type": "text",
+          "text": "You can pass data, known as parameters, into a function."
+        },
+        {
+          "type": "text",
+          "text": "Functions are used to perform certain actions, and they are important for reusing code: Define the code once, and use it many times."
+        },
+        { "type": "text", "text": "Predefined Functions" },
+        {
+          "type": "text",
+          "text": "So it turns out you already know what a function is. You have been using it the whole time while studying this tutorial!"
+        },
+        {
+          "type": "text",
+          "text": "For example, main() is a function, which is used to execute code, and printf() is a function; used to output/print text to the screen:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  printf(\"Hello World!\");" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "text", "text": "Create a Function" },
+        {
+          "type": "text",
+          "text": "To create (often referred to as declare) your own function, specify the name of the function, followed by parentheses () and curly brackets {}:"
+        },
+        { "type": "code", "code": "Syntax" },
+        { "type": "code", "code": "void myFunction() {" },
+        { "type": "code", "code": "  // code to be executed" },
+        { "type": "code", "code": "}" },
+        { "type": "text", "text": "Example Explained" },
+        { "type": "text", "text": "myFunction() is the name of the function" },
+        {
+          "type": "text",
+          "text": "void means that the function does not have a return value. You will learn more about return values later in the next chapter"
+        },
+        {
+          "type": "text",
+          "text": "Inside the function (the body), add code that defines what the function should do"
+        },
+        { "type": "text", "text": "Call a Function" },
+        {
+          "type": "text",
+          "text": "Declared functions are not executed immediately. They are \"saved for later use\", and will be executed when they are called."
+        },
+        {
+          "type": "text",
+          "text": "To call a function, write the function's name followed by two parentheses () and a semicolon ;"
+        },
+        {
+          "type": "text",
+          "text": "In the following example, myFunction() is used to print a text (the action), when it is called:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "Inside main, call myFunction():" },
+        { "type": "code", "code": "// Create a function" },
+        { "type": "code", "code": "void myFunction() {" },
+        { "type": "code", "code": "  printf(\"I just got executed!\");" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  myFunction(); // call the function" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Outputs \"I just got executed!\"" },
+        { "type": "text", "text": "A function can be called multiple times:" },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "void myFunction() {" },
+        { "type": "code", "code": "  printf(\"I just got executed!\");" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  myFunction();" },
+        { "type": "code", "code": "  myFunction();" },
+        { "type": "code", "code": "  myFunction();" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// I just got executed!" },
+        { "type": "code", "code": "// I just got executed!" },
+        { "type": "code", "code": "// I just got executed!" }
+      ]
+    },
+    {
+      "title": "Lesson 25: Function Parameters",
+      "description": "Learn how to pass parameters to functions in C.",
+      "content": [
+        { "type": "text", "text": "Parameters and Arguments" },
+        {
+          "type": "text",
+          "text": "Information can be passed to functions as a parameter. Parameters act as variables inside the function."
+        },
+        {
+          "type": "text",
+          "text": "Parameters are specified after the function name, inside the parentheses. You can add as many parameters as you want, just separate them with a comma:"
+        },
+        { "type": "code", "code": "Syntax" },
+        {
+          "type": "code",
+          "code": "returnType functionName(parameter1, parameter2, parameter3) {"
+        },
+        { "type": "code", "code": "  // code to be executed" },
+        { "type": "code", "code": "}" },
+        {
+          "type": "text",
+          "text": "The following function that takes a string of characters with name as a parameter. When the function is called, we pass along a name, which is used inside the function to print \"Hello\" and the name of each person."
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "void myFunction(char name[]) {" },
+        { "type": "code", "code": "  printf(\"Hello %s\\n\", name);" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  myFunction(\"Liam\");" },
+        { "type": "code", "code": "  myFunction(\"Jenny\");" },
+        { "type": "code", "code": "  myFunction(\"Anja\");" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Hello Liam" },
+        { "type": "code", "code": "// Hello Jenny" },
+        { "type": "code", "code": "// Hello Anja" },
+        {
+          "type": "text",
+          "text": "When a parameter is passed to the function, it is called an argument. So, from the example above: name is a parameter, while Liam, Jenny, and Anja are arguments."
+        },
+        { "type": "text", "text": "Multiple Parameters" },
+        {
+          "type": "text",
+          "text": "Inside the function, you can add as many parameters as you want:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "void myFunction(char name[], int age) {" },
+        {
+          "type": "code",
+          "code": "  printf(\"Hello %s. You are %d years old.\\n\", name, age);"
+        },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  myFunction(\"Liam\", 3);" },
+        { "type": "code", "code": "  myFunction(\"Jenny\", 14);" },
+        { "type": "code", "code": "  myFunction(\"Anja\", 30);" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Hello Liam. You are 3 years old." },
+        { "type": "code", "code": "// Hello Jenny. You are 14 years old." },
+        { "type": "code", "code": "// Hello Anja. You are 30 years old." },
+        {
+          "type": "text",
+          "text": "Note that when you are working with multiple parameters, the function call must have the same number of arguments as there are parameters, and the arguments must be passed in the same order."
+        },
+        { "type": "text", "text": "Pass Arrays as Function Parameters" },
+        { "type": "text", "text": "You can also pass arrays to a function:" },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "void myFunction(int myNumbers[5]) {" },
+        { "type": "code", "code": "  for (int i = 0; i < 5; i++) {" },
+        { "type": "code", "code": "    printf(\"%d\\n\", myNumbers[i]);" },
+        { "type": "code", "code": "  }" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        {
+          "type": "code",
+          "code": "  int myNumbers[5] = {10, 20, 30, 40, 50};"
+        },
+        { "type": "code", "code": "  myFunction(myNumbers);" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "text", "text": "Example Explained" },
+        {
+          "type": "text",
+          "text": "The function (myFunction) takes an array as its parameter (int myNumbers[5]), and loops through the array elements with the for loop."
+        },
+        {
+          "type": "text",
+          "text": "When the function is called inside main(), we pass along the myNumbers array, which outputs the array elements."
+        },
+        {
+          "type": "text",
+          "text": "Note that when you call the function, you only need to use the name of the array when passing it as an argument myFunction(myNumbers). However, the full declaration of the array is needed in the function parameter (int myNumbers[5])."
+        },
+        { "type": "text", "text": "Return Values" },
+        {
+          "type": "text",
+          "text": "The void keyword, used in the previous examples, indicates that the function should not return a value. If you want the function to return a value, you can use a data type (such as int or float, etc.) instead of void, and use the return keyword inside the function:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "int myFunction(int x) {" },
+        { "type": "code", "code": "  return 5 + x;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        {
+          "type": "code",
+          "code": "  printf(\"Result is: %d\", myFunction(3));"
+        },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Outputs 8 (5 + 3)" },
+        {
+          "type": "text",
+          "text": "This example returns the sum of a function with two parameters:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "int myFunction(int x, int y) {" },
+        { "type": "code", "code": "  return x + y;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        {
+          "type": "code",
+          "code": "  printf(\"Result is: %d\", myFunction(5, 3));"
+        },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Outputs 8 (5 + 3)" },
+        {
+          "type": "text",
+          "text": "You can also store the result in a variable:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "int myFunction(int x, int y) {" },
+        { "type": "code", "code": "  return x + y;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  int result = myFunction(5, 3);" },
+        { "type": "code", "code": "  printf(\"Result is = %d\", result);" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Outputs 8 (5 + 3)" }
+      ]
+    },
+    {
+      "title": "Lesson 26: Function Declaration and Definition",
+      "description": "Learn about separating function declaration and definition in C.",
+      "content": [
+        { "type": "text", "text": "Function Declaration and Definition" },
+        {
+          "type": "text",
+          "text": "You just learned from the previous chapters that you can create and call a function in the following way:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "// Create a function" },
+        { "type": "code", "code": "void myFunction() {" },
+        { "type": "code", "code": "  printf(\"I just got executed!\");" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  myFunction(); // call the function" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "text", "text": "A function consists of two parts:" },
+        {
+          "type": "text",
+          "text": "Declaration: the function's name, return type, and parameters (if any)"
+        },
+        {
+          "type": "text",
+          "text": "Definition: the body of the function (code to be executed)"
+        },
+        { "type": "code", "code": "void myFunction() { // declaration" },
+        {
+          "type": "code",
+          "code": "  // the body of the function (definition)"
+        },
+        { "type": "code", "code": "}" },
+        {
+          "type": "text",
+          "text": "For code optimization, it is recommended to separate the declaration and the definition of the function."
+        },
+        {
+          "type": "text",
+          "text": "You will often see C programs that have function declaration above main(), and function definition below main(). This will make the code better organized and easier to read:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "// Function declaration" },
+        { "type": "code", "code": "void myFunction();" },
+        { "type": "code", "code": "// The main method" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  myFunction();  // call the function" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Function definition" },
+        { "type": "code", "code": "void myFunction() {" },
+        { "type": "code", "code": "  printf(\"I just got executed!\");" },
+        { "type": "code", "code": "}" },
+        { "type": "text", "text": "Another Example" },
+        {
+          "type": "text",
+          "text": "If we use the example from the previous chapter regarding function parameters and return values:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "int myFunction(int x, int y) {" },
+        { "type": "code", "code": "  return x + y;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "int main() {" },
+        { "type": "code", "code": "  int result = myFunction(5, 3);" },
+        { "type": "code", "code": "  printf(\"Result is = %d\", result);" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Outputs 8 (5 + 3)" },
+        {
+          "type": "text",
+          "text": "It is considered good practice to write it like this instead:"
+        },
+        { "type": "code", "code": "Example" },
+        { "type": "code", "code": "// Function declaration" },
+        { "type": "code", "code": "int myFunction(int, int);" },
+        { "type": "code", "code": "// The main method" },
+        { "type": "code", "code": "int main() {" },
+        {
+          "type": "code",
+          "code": "  int result = myFunction(5, 3); // call the function"
+        },
+        { "type": "code", "code": "  printf(\"Result is = %d\", result);" },
+        { "type": "code", "code": "  return 0;" },
+        { "type": "code", "code": "}" },
+        { "type": "code", "code": "// Function definition" },
+        { "type": "code", "code": "int myFunction(int x, int y) {" },
+        { "type": "code", "code": "  return x + y;" },
+        { "type": "code", "code": "}" }
+      ]
+    }
+  ]
+}
