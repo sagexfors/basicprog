@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:basicprog/model/lesson.dart';
 import 'package:basicprog/pages/compiler_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,6 +14,41 @@ import 'activities_page.dart';
 import 'lessons_page.dart';
 import 'profile_page.dart';
 import 'quizzes_page.dart';
+
+List<Lesson> parseLessonsFromJsonFile(String filePath) {
+  // Read the JSON file into a String
+  final jsonString = File(filePath).readAsStringSync();
+
+  // Parse the JSON data
+  final jsonData = json.decode(jsonString);
+
+  // Extract and parse lessons
+  final lessonsData = jsonData['lessons'] as List<dynamic>;
+  final lessons = lessonsData.map((lessonData) {
+    final contentData = lessonData['content'] as List<dynamic>;
+    final content = contentData.map((contentItem) {
+      if (contentItem['type'] == 'text') {
+        return Content(type: 'text', text: contentItem['text']);
+      } else if (contentItem['type'] == 'code') {
+        return Content(type: 'code', code: contentItem['code']);
+      }
+      return Content(type: 'text', text: '');
+    }).toList();
+
+    return Lesson(
+      title: lessonData['title'],
+      description: lessonData['description'],
+      content: content,
+    );
+  }).toList();
+
+  return lessons;
+}
+
+final lessonList =
+    parseLessonsFromJsonFile('/lib/model/temp_repo_lessons.json');
+
+//TODO: FIND A WAY TO SAVE THIS .JSON FILE SOMEWHERE AND PARSE IT
 
 ///
 class HomePage extends StatelessWidget {

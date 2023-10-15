@@ -41,6 +41,8 @@ class LessonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var title = lesson.title;
+    var description = lesson.description;
     return Card(
       child: ListTile(
         leading: CircleAvatar(
@@ -53,8 +55,8 @@ class LessonCard extends StatelessWidget {
             ),
           ),
         ),
-        title: Text(lesson.title),
-        subtitle: Text(lesson.description),
+        title: Text(title!),
+        subtitle: Text(description!),
         trailing: const Icon(Icons.arrow_forward),
         onTap: () {
           Navigator.push(
@@ -81,9 +83,10 @@ class LessonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var title = lesson.title;
     return Scaffold(
       appBar: AppBar(
-        title: Text(lesson.title),
+        title: Text(title!),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(12.0),
@@ -109,11 +112,11 @@ class LessonPage extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: lesson.content.length,
+              itemCount: lesson.content?.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
-                    lesson.content[index],
+                    lesson.content?[index] as String,
                     style: const TextStyle(fontSize: 18),
                   ),
                 );
