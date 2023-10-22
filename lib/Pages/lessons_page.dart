@@ -1,5 +1,8 @@
+import 'package:basicprog/pages/compiler_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_code_editor/flutter_code_editor.dart';
+import 'package:flutter_highlight/themes/monokai-sublime.dart';
+import 'package:highlight/languages/cpp.dart';
 import '../model/lesson.dart';
 
 class LessonsPage extends StatelessWidget {
@@ -74,7 +77,7 @@ class LessonCard extends StatelessWidget {
   }
 }
 
-class LessonPage extends StatelessWidget {
+class LessonPage extends StatefulWidget {
   final int lessonNumber;
   final Lesson lesson;
 
@@ -82,8 +85,17 @@ class LessonPage extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<LessonPage> createState() => _LessonPageState();
+}
+
+class _LessonPageState extends State<LessonPage> {
+  @override
   Widget build(BuildContext context) {
-    var title = lesson.title;
+    var title = widget.lesson.title;
+    final controller = CodeController(
+      text: '', // Initial co
+      language: cpp,
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(title!),
@@ -98,17 +110,51 @@ class LessonPage extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: lesson.content?.length,
+              itemCount: widget.lesson.content?.length,
               itemBuilder: (context, index) {
-                final contentItem = lesson.content?[index];
+                final contentItem = widget.lesson.content?[index];
                 final contentType = contentItem?.type;
                 final contentItemText = contentItem?.text ?? '';
-                return ListTile(
-                  title: Text(
-                    contentItemText,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                );
+
+                if (contentType == "text") {
+                  // Render a Text widget for "text" type
+                  return ListTile(
+                    title: Text(
+                      contentItemText,
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  );
+                } else if (contentType == "code") {
+                  // Render a CodeField widget for "code" type
+                  controller.text = contentItemText;
+                  return CodeTheme(
+                    data: CodeThemeData(styles: monokaiSublimeTheme),
+                    child: Column(
+                      children: [
+                        CodeField(
+                          controller: controller,
+                          enabled: false,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CompilerPage(
+                                  code: contentItemText,
+                                ),
+                              ),
+                            );
+                          },
+                          child: const Text('Try it out'),
+                        ),
+                      ],
+                    ),
+                  );
+                } else {
+                  // Handle other content types here
+                  return const SizedBox();
+                }
               },
             ),
           ],

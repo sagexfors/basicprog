@@ -5,7 +5,8 @@ import 'package:flutter_highlight/themes/monokai-sublime.dart';
 import 'package:highlight/languages/cpp.dart';
 
 class CompilerPage extends StatefulWidget {
-  const CompilerPage({super.key});
+  final String? code;
+  const CompilerPage({super.key, this.code});
 
   @override
   State<CompilerPage> createState() => _CompilerPageState();
@@ -23,10 +24,19 @@ int main() {
 ''', // Initial co
     language: cpp,
   );
+
   var output = '';
   var error = '';
 
   final TextEditingController _inputController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.code != null) {
+      controller.text = widget.code!;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,5 +81,6 @@ int main() {
     );
   }
 }
+
 
 //TODO: ADD TAB WITH OUTPUT  RESULT and proper error display
