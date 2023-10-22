@@ -135,19 +135,19 @@ class _LessonPageState extends State<LessonPage> {
                           controller: controller,
                           enabled: false,
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CompilerPage(
-                                  code: contentItemText,
-                                ),
-                              ),
-                            );
-                          },
-                          child: const Text('Try it out'),
-                        ),
+                        // // ElevatedButton(
+                        // //   onPressed: () {
+                        // //     Navigator.push(
+                        // //       context,
+                        // //       MaterialPageRoute(
+                        // //         builder: (context) => CompilerPage(
+                        // //           code: contentItemText,
+                        // //         ),
+                        // //       ),
+                        // //     );
+                        // //   },
+                        // //   child: const Text('Try it out'),
+                        // ),
                       ],
                     ),
                   );
