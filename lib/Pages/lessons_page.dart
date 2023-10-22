@@ -92,10 +92,7 @@ class _LessonPageState extends State<LessonPage> {
   @override
   Widget build(BuildContext context) {
     var title = widget.lesson.title;
-    final controller = CodeController(
-      text: '', // Initial co
-      language: cpp,
-    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title!),
@@ -125,7 +122,10 @@ class _LessonPageState extends State<LessonPage> {
                     ),
                   );
                 } else if (contentType == "code") {
-                  // Render a CodeField widget for "code" type
+                  final controller = CodeController(
+                    text: '', // Initial co
+                    language: cpp,
+                  );
                   controller.text = contentItemText;
                   return CodeTheme(
                     data: CodeThemeData(styles: monokaiSublimeTheme),
@@ -133,7 +133,8 @@ class _LessonPageState extends State<LessonPage> {
                       children: [
                         CodeField(
                           controller: controller,
-                          enabled: false,
+                          // enabled: false,
+                          readOnly: true,
                         ),
                         // // ElevatedButton(
                         // //   onPressed: () {
