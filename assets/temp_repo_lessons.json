@@ -1219,8 +1219,8 @@
         },
         { "type": "text", "text": "Another Example" },
         {
-          "type": "code",
-          "code": "This example will only print even values between 0 and 10:"
+          "type": "text",
+          "text": "This example will only print even values between 0 and 10:"
         },
         {
           "type": "code",
@@ -1255,8 +1255,8 @@
           "text": "The break statement can also be used to jump out of a loop."
         },
         {
-          "type": "code",
-          "code": "This example jumps out of the for loop when i is equal to 4:"
+          "type": "text",
+          "text": "This example jumps out of the for loop when i is equal to 4:"
         },
         {
           "type": "code",
@@ -1267,7 +1267,7 @@
           "type": "text",
           "text": "The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop."
         },
-        { "type": "code", "code": "This example skips the value of 4:" },
+        { "type": "text", "text": "This example skips the value of 4:" },
         {
           "type": "code",
           "code": "int i;\n\nfor (i = 0; i < 10; i++) {\n  if (i == 4) {\n    continue;\n  }\n  printf(\"%d\\n\", i);\n}"
@@ -1321,8 +1321,8 @@
           "text": "Array indexes start with 0: [0] is the first element. [1] is the second element, etc."
         },
         {
-          "type": "code",
-          "code": "This statement accesses the value of the first element [0] in myNumbers:"
+          "type": "text",
+          "text": "This statement accesses the value of the first element [0] in myNumbers:"
         },
         {
           "type": "code",
@@ -1333,9 +1333,9 @@
           "type": "text",
           "text": "To change the value of a specific element, refer to the index number:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         { "type": "code", "code": "myNumbers[0] = 33;" },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
           "code": "int myNumbers[] = {25, 50, 75, 100};\nmyNumbers[0] = 33;\nprintf(\"%d\", myNumbers[0]);\n// Now outputs 33 instead of 25"
@@ -1349,7 +1349,7 @@
           "type": "text",
           "text": "The following example outputs all elements in the myNumbers array:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
           "code": "int myNumbers[] = {25, 50, 75, 100};\nint i;\n\nfor (i = 0; i < 4; i++) {\n  printf(\"%d\\n\", myNumbers[i]);\n}"
@@ -1359,7 +1359,7 @@
           "type": "text",
           "text": "Another common way to create arrays is to specify the size of the array and add elements later:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
           "code": "// Declare an array of four integers:\nint myNumbers[4];\n\n// Add elements\nmyNumbers[0] = 25;\nmyNumbers[1] = 50;\nmyNumbers[2] = 75;\nmyNumbers[3] = 100;"
@@ -1392,7 +1392,7 @@
           "type": "text",
           "text": "To output the string, you can use the printf() function together with the format specifier %s to tell C that we are now working with strings:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
           "code": "char greetings[] = \"Hello World!\";\nprintf(\"%s\", greetings);"
@@ -1403,10 +1403,10 @@
           "text": "Since strings are actually arrays in C, you can access a string by referring to its index number inside square brackets []."
         },
         {
-          "type": "code",
-          "code": "This example prints the first character (0) in greetings:"
+          "type": "text",
+          "text": "This example prints the first character (0) in greetings:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
           "code": "char greetings[] = \"Hello World!\";\nprintf(\"%c\", greetings[0]);"
@@ -1420,21 +1420,17 @@
           "type": "text",
           "text": "To change the value of a specific character in a string, refer to the index number and use single quotes:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "char greetings[] = \"Hello World!\";\ngreetings[0] = 'J';\nprintf(\"%s\", greetings);"
-        },
-        {
-          "type": "code",
-          "code": "// Outputs Jello World! instead of Hello World!"
+          "code": "char greetings[] = \"Hello World!\";\ngreetings[0] = 'J';\nprintf(\"%s\", greetings);\n// Outputs Jello World! instead of Hello World!"
         },
         { "type": "text", "text": "Loop Through a String" },
         {
           "type": "text",
           "text": "You can also loop through the characters of a string using a for loop:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
           "code": "char carName[] = \"Volvo\";\nint i;\n\nfor (i = 0; i < 5; ++i) {\n  printf(\"%c\\n\", carName[i]);\n}"
@@ -1448,12 +1444,11 @@
           "type": "text",
           "text": "You should also note that you can create a string with a set of characters. This example will produce the same result as the example at the beginning of this page:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};"
+          "code": "char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};\nprintf(\"%s\", greetings);"
         },
-        { "type": "code", "code": "printf(\"%s\", greetings);" },
         {
           "type": "text",
           "text": "Why do we include the \\0 character at the end? This is known as the \"null-terminating character\" and must be included when creating strings using this method. It tells C that this is the end of the string."
@@ -1467,19 +1462,10 @@
           "type": "text",
           "text": "You should note that the size of both arrays is the same: They both have 13 characters (space also counts as a character, by the way), including the \\0 character:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};"
-        },
-        { "type": "code", "code": "char greetings2[] = \"Hello World!\";" },
-        {
-          "type": "code",
-          "code": "printf(\"%lu\\n\", sizeof(greetings));   // Outputs 13"
-        },
-        {
-          "type": "code",
-          "code": "printf(\"%lu\\n\", sizeof(greetings2));  // Outputs 13"
+          "code": "char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};\nchar greetings2[] = \"Hello World!\";\nprintf(\"%lu\\n\", sizeof(greetings));   // Outputs 13\nprintf(\"%lu\\n\", sizeof(greetings2));  // Outputs 13"
         }
       ]
     },
@@ -1519,7 +1505,7 @@
           "type": "text",
           "text": "The sequence \\\" inserts a double quote in a string:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
           "code": "char txt[] = \"We are the so-called \\\"Vikings\\\" from the north.\";"
@@ -1528,13 +1514,13 @@
           "type": "text",
           "text": "The sequence \\' inserts a single quote in a string:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         { "type": "code", "code": "char txt[] = \"It\\'s alright.\";" },
         {
           "type": "text",
           "text": "The sequence \\\\ inserts a single backslash in a string:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
           "code": "char txt[] = \"The character \\\\ is called backslash.\";"
@@ -1572,49 +1558,39 @@
           "type": "text",
           "text": "For example, to get the length of a string, you can use the strlen() function:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "char alphabet[] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";"
+          "code": "char alphabet[] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\nprintf(\"%d\", strlen(alphabet));"
         },
-        { "type": "code", "code": "printf(\"%d\", strlen(alphabet));" },
         {
           "type": "text",
           "text": "In the Strings chapter, we used sizeof to get the size of a string/array. Note that sizeof and strlen behaves differently, as sizeof also includes the \\0 character when counting:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "char alphabet[] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";"
+          "code": "char alphabet[] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\nprintf(\"%d\", strlen(alphabet));   // 26\nprintf(\"%d\", sizeof(alphabet));   // 27"
         },
-        { "type": "code", "code": "printf(\"%d\", strlen(alphabet));   // 26" },
-        { "type": "code", "code": "printf(\"%d\", sizeof(alphabet));   // 27" },
         {
           "type": "text",
           "text": "It is also important that you know that sizeof will always return the memory size (in bytes), and not the actual string length:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "char alphabet[50] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";"
+          "code": "char alphabet[50] = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\nprintf(\"%d\", strlen(alphabet));   // 26\nprintf(\"%d\", sizeof(alphabet));   // 50"
         },
-        { "type": "code", "code": "printf(\"%d\", strlen(alphabet));   // 26" },
-        { "type": "code", "code": "printf(\"%d\", sizeof(alphabet));   // 50" },
         { "type": "text", "text": "Concatenate Strings" },
         {
           "type": "text",
           "text": "To concatenate (combine) two strings, you can use the strcat() function:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "char str1[20] = \"Hello \";" },
-        { "type": "code", "code": "char str2[] = \"World!\";" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "// Concatenate str2 to str1 (result is stored in str1)"
+          "code": "char str1[20] = \"Hello \";\nchar str2[] = \"World!\";\n// Concatenate str2 to str1 (result is stored in str1)\nstrcat(str1, str2);\n// Print str1\nprintf(\"%s\", str1);printf(\"%s\", str1);"
         },
-        { "type": "code", "code": "strcat(str1, str2);" },
-        { "type": "code", "code": "// Print str1" },
-        { "type": "code", "code": "printf(\"%s\", str1);" },
         {
           "type": "text",
           "text": "Note that the size of str1 should be large enough to store the result of the two strings combined (20 in our example)."
@@ -1624,13 +1600,11 @@
           "type": "text",
           "text": "To copy the value of one string to another, you can use the strcpy() function:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "char str1[20] = \"Hello World!\";" },
-        { "type": "code", "code": "char str2[20];" },
-        { "type": "code", "code": "// Copy str1 to str2" },
-        { "type": "code", "code": "strcpy(str2, str1);" },
-        { "type": "code", "code": "// Print str2" },
-        { "type": "code", "code": "printf(\"%s\", str2);" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "char str1[20] = \"Hello World!\";\nchar str2[20];\n// Copy str1 to str2\nstrcpy(str2, str1);\n// Print str2\nprintf(\"%s\", str2);"
+        },
         {
           "type": "text",
           "text": "Note that the size of str2 should be large enough to store the copied string (20 in our example)."
@@ -1644,25 +1618,10 @@
           "type": "text",
           "text": "It returns 0 if the two strings are equal, otherwise a value that is not 0:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "char str1[] = \"Hello\";" },
-        { "type": "code", "code": "char str2[] = \"Hello\";" },
-        { "type": "code", "code": "char str3[] = \"Hi\";" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "// Compare str1 and str2, and print the result"
-        },
-        {
-          "type": "code",
-          "code": "printf(\"%d\\n\", strcmp(str1, str2));  // Returns 0 (the strings are equal)"
-        },
-        {
-          "type": "code",
-          "code": "// Compare str1 and str3, and print the result"
-        },
-        {
-          "type": "code",
-          "code": "printf(\"%d\\n\", strcmp(str1, str3));  // Returns -4 (the strings are not equal)"
+          "code": "char str1[] = \"Hello\";\nchar str2[] = \"Hello\";\nchar str3[] = \"Hi\";\n// Compare str1 and str2, and print the result\nprintf(\"%d\\n\", strcmp(str1, str2));  // Returns 0 (the strings are equal)\n// Compare str1 and str3, and print the result\nprintf(\"%d\\n\", strcmp(str1, str3));  // Returns -4 (the strings are not equal)"
         }
       ]
     },
@@ -1679,18 +1638,11 @@
           "type": "text",
           "text": "To get user input, you can use the scanf() function:"
         },
-        { "type": "code", "code": "Example" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "// Create an integer variable that will store the number we get from the user"
+          "code": "// Create an integer variable that will store the number we get from the user\nint myNum;\n// Ask the user to type a number\nprintf(\"Type a number: \\n\");\n// Get and save the number the user types\nscanf(\"%d\", &myNum);\n// Output the number the user typed\nprintf(\"Your number is: %d\", myNum);"
         },
-        { "type": "code", "code": "int myNum;" },
-        { "type": "code", "code": "// Ask the user to type a number" },
-        { "type": "code", "code": "printf(\"Type a number: \\n\");" },
-        { "type": "code", "code": "// Get and save the number the user types" },
-        { "type": "code", "code": "scanf(\"%d\", &myNum);" },
-        { "type": "code", "code": "// Output the number the user typed" },
-        { "type": "code", "code": "printf(\"Your number is: %d\", myNum);" },
         {
           "type": "text",
           "text": "The scanf() function takes two arguments: the format specifier of the variable (%d in the example above) and the reference operator (&myNum), which stores the memory address of the variable."
@@ -1704,44 +1656,21 @@
           "type": "text",
           "text": "The scanf() function also allows multiple inputs (an integer and a character in the following example):"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "// Create an int and a char variable" },
-        { "type": "code", "code": "int myNum;" },
-        { "type": "code", "code": "char myChar;" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "// Ask the user to type a number AND a character"
-        },
-        {
-          "type": "code",
-          "code": "printf(\"Type a number AND a character and press enter: \\n\");"
-        },
-        {
-          "type": "code",
-          "code": "// Get and save the number AND character the user types"
-        },
-        { "type": "code", "code": "scanf(\"%d %c\", &myNum, &myChar);" },
-        { "type": "code", "code": "// Print the number" },
-        { "type": "code", "code": "printf(\"Your number is: %d\\n\", myNum);" },
-        { "type": "code", "code": "// Print the character" },
-        {
-          "type": "code",
-          "code": "printf(\"Your character is: %c\\n\", myChar);"
+          "code": "// Create an int and a char variable\nint myNum;\nchar myChar;\n// Ask the user to type a number AND a character\nprintf(\"Type a number AND a character and press enter: \\n\");\n// Get and save the number AND character the user types\nscanf(\"%d %c\", &myNum, &myChar);\n// Print the number\nprintf(\"Your number is: %d\\n\", myNum);\n// Print the character\nprintf(\"Your character is: %c\\n\", myChar);"
         },
         { "type": "text", "text": "Take String Input" },
         {
           "type": "text",
           "text": "You can also get a string entered by the user:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "// Create a string" },
-        { "type": "code", "code": "char firstName[30];" },
-        { "type": "code", "code": "// Ask the user to input some text" },
-        { "type": "code", "code": "printf(\"Enter your first name: \\n\");" },
-        { "type": "code", "code": "// Get and save the text" },
-        { "type": "code", "code": "scanf(\"%s\", firstName);" },
-        { "type": "code", "code": "// Output the text" },
-        { "type": "code", "code": "printf(\"Hello %s\", firstName);" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "// Create a string\nchar firstName[30];\n// Ask the user to input some text\nprintf(\"Enter your first name: \\n\");\n// Get and save the text\nscanf(\"%s\", firstName);\n// Output the text\nprintf(\"Hello %s\", firstName);"
+        },
         {
           "type": "text",
           "text": "Note: When working with strings in scanf(), you must specify the size of the string/array (we used a very high number, 30 in our example, but at least then we are certain it will store enough characters for the first name), and you don't have to use the reference operator (&)."
@@ -1750,11 +1679,11 @@
           "type": "text",
           "text": "However, the scanf() function has some limitations: it considers space (whitespace, tabs, etc) as a terminating character, which means that it can only display a single word (even if you type many words). For example:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "char fullName[30];" },
-        { "type": "code", "code": "printf(\"Type your full name: \\n\");" },
-        { "type": "code", "code": "scanf(\"%s\", &fullName);" },
-        { "type": "code", "code": "printf(\"Hello %s\", fullName);" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "char fullName[30];\nprintf(\"Type your full name: \\n\");\nscanf(\"%s\", fullName);\nprintf(\"Hello %s\", fullName);"
+        },
         {
           "type": "text",
           "text": "From the example above, you would expect the program to print \"John Doe\", but it only prints \"John\"."
@@ -1763,11 +1692,11 @@
           "type": "text",
           "text": "That's why, when working with strings, we often use the fgets() function to read a line of text. Note that you must include the following arguments: the name of the string variable, sizeof(string_name), and stdin:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "char fullName[30];" },
-        { "type": "code", "code": "printf(\"Type your full name: \\n\");" },
-        { "type": "code", "code": "fgets(fullName, sizeof(fullName), stdin);" },
-        { "type": "code", "code": "printf(\"Hello %s\", fullName);" }
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "char fullName[30];\nprintf(\"Type your full name: \\n\");\nfgets(fullName, sizeof(fullName), stdin);\nprintf(\"Hello %s\", fullName);"
+        }
       ]
     },
     {
@@ -1795,19 +1724,21 @@
           "type": "text",
           "text": "For example, main() is a function, which is used to execute code, and printf() is a function; used to output/print text to the screen:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  printf(\"Hello World!\");" },
-        { "type": "code", "code": "  return 0;" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "int main() {\n  printf(\"Hello World!\");\n  return 0;\n}"
+        },
         { "type": "text", "text": "Create a Function" },
         {
           "type": "text",
           "text": "To create (often referred to as declare) your own function, specify the name of the function, followed by parentheses () and curly brackets {}:"
         },
-        { "type": "code", "code": "Syntax" },
-        { "type": "code", "code": "void myFunction() {" },
-        { "type": "code", "code": "  // code to be executed" },
-        { "type": "code", "code": "}" },
+        { "type": "text", "text": "Syntax" },
+        {
+          "type": "code",
+          "code": "void myFunction() {\n  // code to be executed\n}"
+        },
         { "type": "text", "text": "Example Explained" },
         { "type": "text", "text": "myFunction() is the name of the function" },
         {
@@ -1831,31 +1762,17 @@
           "type": "text",
           "text": "In the following example, myFunction() is used to print a text (the action), when it is called:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "Inside main, call myFunction():" },
-        { "type": "code", "code": "// Create a function" },
-        { "type": "code", "code": "void myFunction() {" },
-        { "type": "code", "code": "  printf(\"I just got executed!\");" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  myFunction(); // call the function" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Outputs \"I just got executed!\"" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "Inside main, call myFunction():\n// Create a function\nvoid myFunction() {\n  printf(\"I just got executed!\");\n}\nint main() {\n  myFunction(); // call the function\n  return 0;\n}\n// Outputs \"I just got executed!\""
+        },
         { "type": "text", "text": "A function can be called multiple times:" },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "void myFunction() {" },
-        { "type": "code", "code": "  printf(\"I just got executed!\");" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  myFunction();" },
-        { "type": "code", "code": "  myFunction();" },
-        { "type": "code", "code": "  myFunction();" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// I just got executed!" },
-        { "type": "code", "code": "// I just got executed!" },
-        { "type": "code", "code": "// I just got executed!" }
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "void myFunction() {\n  printf(\"I just got executed!\");\n}\nint main() {\n  myFunction(); myFunction(); myFunction();\n  return 0;\n}\n// I just got executed!\n// I just got executed!\n// I just got executed!"
+        }
       ]
     },
     {
@@ -1871,30 +1788,20 @@
           "type": "text",
           "text": "Parameters are specified after the function name, inside the parentheses. You can add as many parameters as you want, just separate them with a comma:"
         },
-        { "type": "code", "code": "Syntax" },
+        { "type": "text", "text": "Syntax" },
         {
           "type": "code",
-          "code": "returnType functionName(parameter1, parameter2, parameter3) {"
+          "code": "returnType functionName(parameter1, parameter2, parameter3) {\n  // code to be executed\n}"
         },
-        { "type": "code", "code": "  // code to be executed" },
-        { "type": "code", "code": "}" },
         {
           "type": "text",
           "text": "The following function that takes a string of characters with name as a parameter. When the function is called, we pass along a name, which is used inside the function to print \"Hello\" and the name of each person."
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "void myFunction(char name[]) {" },
-        { "type": "code", "code": "  printf(\"Hello %s\\n\", name);" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  myFunction(\"Liam\");" },
-        { "type": "code", "code": "  myFunction(\"Jenny\");" },
-        { "type": "code", "code": "  myFunction(\"Anja\");" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Hello Liam" },
-        { "type": "code", "code": "// Hello Jenny" },
-        { "type": "code", "code": "// Hello Anja" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "void myFunction(char name[]) {\n  printf(\"Hello %s\\n\", name);\n}\nint main() {\n  myFunction(\"Liam\"); myFunction(\"Jenny\"); myFunction(\"Anja\");\n  return 0;\n}\n// Hello Liam\n// Hello Jenny\n// Hello Anja"
+        },
         {
           "type": "text",
           "text": "When a parameter is passed to the function, it is called an argument. So, from the example above: name is a parameter, while Liam, Jenny, and Anja are arguments."
@@ -1904,42 +1811,22 @@
           "type": "text",
           "text": "Inside the function, you can add as many parameters as you want:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "void myFunction(char name[], int age) {" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "  printf(\"Hello %s. You are %d years old.\\n\", name, age);"
+          "code": "void myFunction(char name[], int age) {\n  printf(\"Hello %s. You are %d years old.\\n\", name, age);\n}\nint main() {\n  myFunction(\"Liam\", 3); myFunction(\"Jenny\", 14); myFunction(\"Anja\", 30);\n  return 0;\n}\n// Hello Liam. You are 3 years old.\n// Hello Jenny. You are 14 years old.\n// Hello Anja. You are 30 years old."
         },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  myFunction(\"Liam\", 3);" },
-        { "type": "code", "code": "  myFunction(\"Jenny\", 14);" },
-        { "type": "code", "code": "  myFunction(\"Anja\", 30);" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Hello Liam. You are 3 years old." },
-        { "type": "code", "code": "// Hello Jenny. You are 14 years old." },
-        { "type": "code", "code": "// Hello Anja. You are 30 years old." },
         {
           "type": "text",
           "text": "Note that when you are working with multiple parameters, the function call must have the same number of arguments as there are parameters, and the arguments must be passed in the same order."
         },
         { "type": "text", "text": "Pass Arrays as Function Parameters" },
         { "type": "text", "text": "You can also pass arrays to a function:" },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "void myFunction(int myNumbers[5]) {" },
-        { "type": "code", "code": "  for (int i = 0; i < 5; i++) {" },
-        { "type": "code", "code": "    printf(\"%d\\n\", myNumbers[i]);" },
-        { "type": "code", "code": "  }" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "  int myNumbers[5] = {10, 20, 30, 40, 50};"
+          "code": "void myFunction(int myNumbers[5]) {\n  for (int i = 0; i < 5; i++) {\n    printf(\"%d\\n\", myNumbers[i]);\n  }\n}\nint main() {\n  int myNumbers[5] = {10, 20, 30, 40, 50};\n  myFunction(myNumbers);\n  return 0;\n}"
         },
-        { "type": "code", "code": "  myFunction(myNumbers);" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
         { "type": "text", "text": "Example Explained" },
         {
           "type": "text",
@@ -1958,48 +1845,29 @@
           "type": "text",
           "text": "The void keyword, used in the previous examples, indicates that the function should not return a value. If you want the function to return a value, you can use a data type (such as int or float, etc.) instead of void, and use the return keyword inside the function:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "int myFunction(int x) {" },
-        { "type": "code", "code": "  return 5 + x;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "  printf(\"Result is: %d\", myFunction(3));"
+          "code": "int myFunction(int x) {\n  return 5 + x;\n}\nint main() {\n  printf(\"Result is: %d\", myFunction(3));\n  return 0;\n}\n// Outputs 8 (5 + 3)"
         },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Outputs 8 (5 + 3)" },
         {
           "type": "text",
           "text": "This example returns the sum of a function with two parameters:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "int myFunction(int x, int y) {" },
-        { "type": "code", "code": "  return x + y;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "  printf(\"Result is: %d\", myFunction(5, 3));"
+          "code": "int myFunction(int x, int y) {\n  return x + y;\n}\nint main() {\n  printf(\"Result is: %d\", myFunction(5, 3));\n  return 0;\n}\n// Outputs 8 (5 + 3)"
         },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Outputs 8 (5 + 3)" },
         {
           "type": "text",
           "text": "You can also store the result in a variable:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "int myFunction(int x, int y) {" },
-        { "type": "code", "code": "  return x + y;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  int result = myFunction(5, 3);" },
-        { "type": "code", "code": "  printf(\"Result is = %d\", result);" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Outputs 8 (5 + 3)" }
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "int myFunction(int x, int y) {\n  return x + y;\n}\nint main() {\n  int result = myFunction(5, 3);\n  printf(\"Result is = %d\", result);\n  return 0;\n}\n// Outputs 8 (5 + 3)"
+        }
       ]
     },
     {
@@ -2011,15 +1879,11 @@
           "type": "text",
           "text": "You just learned from the previous chapters that you can create and call a function in the following way:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "// Create a function" },
-        { "type": "code", "code": "void myFunction() {" },
-        { "type": "code", "code": "  printf(\"I just got executed!\");" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  myFunction(); // call the function" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "// Create a function\nvoid myFunction() {\n  printf(\"I just got executed!\");\n}\nint main() {\n  myFunction(); // call the function\n  return 0;\n}"
+        },
         { "type": "text", "text": "A function consists of two parts:" },
         {
           "type": "text",
@@ -2029,12 +1893,10 @@
           "type": "text",
           "text": "Definition: the body of the function (code to be executed)"
         },
-        { "type": "code", "code": "void myFunction() { // declaration" },
         {
           "type": "code",
-          "code": "  // the body of the function (definition)"
+          "code": "void myFunction() { // declaration\n  // the body of the function (definition)\n}"
         },
-        { "type": "code", "code": "}" },
         {
           "type": "text",
           "text": "For code optimization, it is recommended to separate the declaration and the definition of the function."
@@ -2043,53 +1905,30 @@
           "type": "text",
           "text": "You will often see C programs that have function declaration above main(), and function definition below main(). This will make the code better organized and easier to read:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "// Function declaration" },
-        { "type": "code", "code": "void myFunction();" },
-        { "type": "code", "code": "// The main method" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  myFunction();  // call the function" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Function definition" },
-        { "type": "code", "code": "void myFunction() {" },
-        { "type": "code", "code": "  printf(\"I just got executed!\");" },
-        { "type": "code", "code": "}" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "// Function declaration\nvoid myFunction();\n// The main method\nint main() {\n  myFunction();  // call the function\n  return 0;\n}\n// Function definition\nvoid myFunction() {\n  printf(\"I just got executed!\");\n}"
+        },
         { "type": "text", "text": "Another Example" },
         {
           "type": "text",
           "text": "If we use the example from the previous chapter regarding function parameters and return values:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "int myFunction(int x, int y) {" },
-        { "type": "code", "code": "  return x + y;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "int main() {" },
-        { "type": "code", "code": "  int result = myFunction(5, 3);" },
-        { "type": "code", "code": "  printf(\"Result is = %d\", result);" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Outputs 8 (5 + 3)" },
+        { "type": "text", "text": "Example" },
+        {
+          "type": "code",
+          "code": "int myFunction(int x, int y) {\n  return x + y;\n}\nint main() {\n  int result = myFunction(5, 3);\n  printf(\"Result is = %d\", result);\n  return 0;\n}\n// Outputs 8 (5 + 3)"
+        },
         {
           "type": "text",
           "text": "It is considered good practice to write it like this instead:"
         },
-        { "type": "code", "code": "Example" },
-        { "type": "code", "code": "// Function declaration" },
-        { "type": "code", "code": "int myFunction(int, int);" },
-        { "type": "code", "code": "// The main method" },
-        { "type": "code", "code": "int main() {" },
+        { "type": "text", "text": "Example" },
         {
           "type": "code",
-          "code": "  int result = myFunction(5, 3); // call the function"
-        },
-        { "type": "code", "code": "  printf(\"Result is = %d\", result);" },
-        { "type": "code", "code": "  return 0;" },
-        { "type": "code", "code": "}" },
-        { "type": "code", "code": "// Function definition" },
-        { "type": "code", "code": "int myFunction(int x, int y) {" },
-        { "type": "code", "code": "  return x + y;" },
-        { "type": "code", "code": "}" }
+          "code": "// Function declaration\nint myFunction(int, int);\n// The main method\nint main() {\n  int result = myFunction(5, 3); // call the function\n  printf(\"Result is = %d\", result);\n  return 0;\n}\n// Function definition\nint myFunction(int x, int y) {\n  return x + y;\n}"
+        }
       ]
     }
   ]
