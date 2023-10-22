@@ -101,6 +101,7 @@ class LessonPage extends StatelessWidget {
               itemCount: lesson.content?.length,
               itemBuilder: (context, index) {
                 final contentItem = lesson.content?[index];
+                final contentType = contentItem?.type;
                 final contentItemText = contentItem?.text ?? '';
                 return ListTile(
                   title: Text(

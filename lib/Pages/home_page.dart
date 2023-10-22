@@ -31,18 +31,16 @@ Future<List<Lesson>> parseLessonsFromJsonFile() async {
       if (contentItem['type'] == 'text') {
         return Content(type: 'text', text: contentItem['text']);
       } else if (contentItem['type'] == 'code') {
-        return Content(type: 'code', code: contentItem['code']);
+        return Content(type: 'code', text: contentItem['code']);
       }
       return Content(type: 'text', text: '');
     }).toList();
-
     return Lesson(
       title: lessonData['title'],
       description: lessonData['description'],
       content: content,
     );
   }).toList();
-
   return lessons;
 }
 
