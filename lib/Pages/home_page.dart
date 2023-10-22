@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:basicprog/model/lesson.dart';
 import 'package:basicprog/pages/compiler_page.dart';
@@ -7,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../Widgets/circle_thingy.dart';
 import '../model/temp_repository.dart';
@@ -15,12 +15,13 @@ import 'lessons_page.dart';
 import 'profile_page.dart';
 import 'quizzes_page.dart';
 
-List<Lesson> parseLessonsFromJsonFile(String filePath) {
+Future<List<Lesson>> parseLessonsFromJsonFile() async {
   // Read the JSON file into a String
-  final jsonString = File(filePath).readAsStringSync();
+  final jsonString =
+      await rootBundle.loadString('assets/temp_repo_lessons.json');
 
   // Parse the JSON data
-  final jsonData = json.decode(jsonString);
+  final jsonData = await json.decode(jsonString);
 
   // Extract and parse lessons
   final lessonsData = jsonData['lessons'] as List<dynamic>;
@@ -44,11 +45,6 @@ List<Lesson> parseLessonsFromJsonFile(String filePath) {
 
   return lessons;
 }
-
-final lessonList =
-    parseLessonsFromJsonFile('/lib/model/temp_repo_lessons.json');
-
-//TODO: FIND A WAY TO SAVE THIS .JSON FILE SOMEWHERE AND PARSE IT
 
 ///
 class HomePage extends StatelessWidget {
@@ -181,7 +177,9 @@ class NavigationDrawer extends StatelessWidget {
           DrawerItemWidget(
             icon: Icons.book,
             title: 'Lessons',
-            onTap: () {
+            onTap: () async {
+              var lessonList = await parseLessonsFromJsonFile();
+              if (!context.mounted) return;
               Navigator.push(
                 context,
                 MaterialPageRoute(

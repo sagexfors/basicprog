@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:basicprog/Pages/getting_started.dart';
 import 'package:basicprog/provider/user.dart';

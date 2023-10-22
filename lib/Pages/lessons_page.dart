@@ -93,30 +93,18 @@ class LessonPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Text(
-            //   'Title: ${lesson.title}',
-            //   style: const TextStyle(
-            //     fontSize: 24,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            // ),
             const SizedBox(height: 16),
-            // const Text(
-            //   'Content:',
-            //   style: TextStyle(
-            //     fontSize: 20,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            // ),
             const SizedBox(height: 8),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: lesson.content?.length,
               itemBuilder: (context, index) {
+                final contentItem = lesson.content?[index];
+                final contentItemText = contentItem?.text ?? '';
                 return ListTile(
                   title: Text(
-                    lesson.content?[index] as String,
+                    contentItemText,
                     style: const TextStyle(fontSize: 18),
                   ),
                 );

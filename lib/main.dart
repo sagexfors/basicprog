@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -13,3 +11,6 @@ void main() async {
   );
   runApp(const MyApp());
 }
+
+//TODO: ADD CODE FOR THE TYPE CODE, AND ADD TABLE FOR THE TYPE TABLE.
+//TODO: CLEAN UP THE COMPILER BY ADDING TABS
