@@ -151,49 +151,6 @@
         },
         { "type": "text", "text": "\\t\tCreates a horizontal tab" },
         { "type": "text", "text": "\\\\tInserts a backslash character (\\)" },
-        { "type": "text", "text": "\\\"\\tInserts a double quote character" }
-      ]
-    },
-    {
-      "title": "Lesson 5: C New Lines",
-      "description": "Using newline characters in C for line breaks.",
-      "content": [
-        { "type": "text", "text": "New Lines" },
-        {
-          "type": "text",
-          "text": "To insert a new line, you can use the \\n character:"
-        },
-        {
-          "type": "code",
-          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}"
-        },
-        {
-          "type": "text",
-          "text": "You can also output multiple lines with a single printf() function. However, this could make the code harder to read:"
-        },
-        {
-          "type": "code",
-          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\nI am learning C.\\nAnd it is awesome!\");\n  return 0;\n}"
-        },
-        {
-          "type": "text",
-          "text": "Tip: Two \\n characters after each other will create a blank line:"
-        },
-        {
-          "type": "code",
-          "code": "#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}"
-        },
-        { "type": "text", "text": "What is \\n exactly?" },
-        {
-          "type": "text",
-          "text": "The newline character (\\n) is called an escape sequence, and it forces the cursor to change its position to the beginning of the next line on the screen. This results in a new line."
-        },
-        {
-          "type": "text",
-          "text": "Examples of other valid escape sequences are:"
-        },
-        { "type": "text", "text": "\\t\tCreates a horizontal tab" },
-        { "type": "text", "text": "\\\\tInserts a backslash character (\\)" },
         { "type": "text", "text": "\\\"\\tInserts a double quote character" },
         {
           "type": "table",
@@ -684,88 +641,6 @@
         {
           "type": "text",
           "text": "Another thing about constant variables is that it is considered good practice to declare them with uppercase. It is not required but useful for code readability and common for C programmers."
-        }
-      ]
-    },
-    {
-      "title": "Lesson 11: C Operators",
-      "description": "Understanding operators in C programming.",
-      "content": [
-        { "type": "text", "text": "Operators" },
-        {
-          "type": "text",
-          "text": "Operators are used to perform operations on variables and values."
-        },
-        {
-          "type": "text",
-          "text": "In the example below, we use the + operator to add together two values:"
-        },
-        { "type": "code", "code": "int myNum = 100 + 50;" },
-        {
-          "type": "text",
-          "text": "Although the + operator is often used to add together two values, like in the example above, it can also be used to add together a variable and a value, or a variable and another variable:"
-        },
-        {
-          "type": "code",
-          "code": "int sum1 = 100 + 50;        // 150 (100 + 50)\nint sum2 = sum1 + 250;      // 400 (150 + 250)\nint sum3 = sum2 + sum2;     // 800 (400 + 400)"
-        },
-        {
-          "type": "text",
-          "text": "C divides the operators into the following groups:"
-        },
-        { "type": "text", "text": "Arithmetic operators" },
-        { "type": "text", "text": "Assignment operators" },
-        { "type": "text", "text": "Comparison operators" },
-        { "type": "text", "text": "Logical operators" },
-        { "type": "text", "text": "Bitwise operators" },
-        { "type": "text", "text": "Arithmetic Operators" },
-        {
-          "type": "text",
-          "text": "Arithmetic operators are used to perform common mathematical operations."
-        },
-        {
-          "type": "code",
-          "code": "Operator\\tName\\tDescription\\tExample\\tTry it\\n+\\tAddition\\tAdds together two values\\tx + y\\n-\\tSubtraction\\tSubtracts one value from another\\tx - y\\n*\\tMultiplication\\tMultiplies two values\\tx * y\\n/\\tDivision\\tDivides one value by another\\tx / y\\n%\\tModulus\\tReturns the division remainder\\tx % y\\n++\\tIncrement\\tIncreases the value of a variable by 1\\t++x\\n--\\tDecrement\\tDecreases the value of a variable by 1\\t--x"
-        },
-        { "type": "text", "text": "Assignment Operators" },
-        {
-          "type": "text",
-          "text": "Assignment operators are used to assign values to variables."
-        },
-        {
-          "type": "code",
-          "code": "Operator\\tExample\\tSame As\\tTry it\\n=\\tx = 5\\tx = 5\\n+=\\tx += 3\\tx = x + 3\\n-=\\tx -= 3\\tx = x - 3\\n*=\\tx *= 3\\tx = x * 3\\n/=\\tx /= 3\\tx = x / 3\\n%=\\tx %= 3\\tx = x % 3\\n&=\\tx &= 3\\tx = x & 3\\n|=\\tx |= 3\\tx = x | 3\\n^=\\tx ^= 3\\tx = x ^ 3\\n>>=\\tx >>= 3\\tx = x >> 3\\n<<=\\tx <<= 3\\tx = x << 3"
-        },
-        { "type": "text", "text": "Comparison Operators" },
-        {
-          "type": "text",
-          "text": "Comparison operators are used to compare two values (or variables). This is important in programming because it helps us to find answers and make decisions."
-        },
-        {
-          "type": "code",
-          "code": "Operator\\tName\\tExample\\tTry it\\n==\\tEqual to\\tx == y\\n!=\\tNot equal\\tx != y\\n>\\tGreater than\\tx > y\\n<\\tLess than\\tx < y\\n>=\\tGreater than or equal to\\tx >= y\\n<=\\tLess than or equal to\\tx <= y"
-        },
-        { "type": "text", "text": "Logical Operators" },
-        {
-          "type": "text",
-          "text": "You can also test for true or false values with logical operators."
-        },
-        {
-          "type": "text",
-          "text": "Logical operators are used to determine the logic between variables or values:"
-        },
-        {
-          "type": "code",
-          "code": "Operator\\tName\\tDescription\\tExample\\tTry it\\n&&\\tLogical and\\tReturns true if both statements are true\\tx < 5 &&  x < 10\\n||\\tLogical or\\tReturns true if one of the statements is true\\tx < 5 || x < 4\\n!\\tLogical not\\tReverse the result, returns false if the result is true\\t!(x < 5 && x < 10)"
-        },
-        { "type": "text", "text": "Sizeof Operator" },
-        {
-          "type": "text",
-          "text": "The memory size (in bytes) of a data type or a variable can be found with the sizeof operator:"
-        },
-        {
-          "type": "code",
-          "code": "int myInt;\nfloat myFloat;\ndouble myDouble;\nchar myChar;\n\nprintf(\"%lu\\n\", sizeof(myInt));\nprintf(\"%lu\\n\", sizeof(myFloat));\nprintf(\"%lu\\n\", sizeof(myDouble));\nprintf(\"%lu\\n\", sizeof(myChar));"
         }
       ]
     },
