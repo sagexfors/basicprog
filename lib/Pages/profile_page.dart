@@ -60,7 +60,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           const SizedBox(height: 20),
                           TextButton(
-                            onPressed: userState.removeProfilePicture,
+                            onPressed: () async {
+                              await userState.removeProfilePicture();
+                            },
                             child: const Text('Remove Picture'),
                           ),
                         ],
@@ -78,7 +80,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               const SizedBox(height: 20),
               TextButton(
-                onPressed: userState.uploadImage,
+                onPressed: () async {
+                  await userState.uploadImage();
+                },
                 child: const Text('Upload Picture'),
               ),
               const SizedBox(height: 30),
@@ -89,8 +93,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               const SizedBox(height: 100),
               ElevatedButton(
-                onPressed: () =>
-                    userState.updateProfileData(_nameController.text),
+                onPressed: () async {
+                  await userState.updateProfileData(_nameController.text);
+                },
                 child: const Text('Update Profile'),
               ),
               const SizedBox(height: 100),
