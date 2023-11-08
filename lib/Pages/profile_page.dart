@@ -1,4 +1,3 @@
-import 'package:basicprog/Pages/change_password_page.dart';
 import 'package:basicprog/Widgets/generic_text_form_field.dart';
 import 'package:basicprog/provider/user.dart';
 import 'package:flutter/material.dart';
@@ -97,12 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 100),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ChangePasswordPage(),
-                    ),
-                  );
+                  Navigator.of(context).pushNamed('/change-password');
                 },
                 child: const Text('Change Password'),
               ),

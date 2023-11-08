@@ -1,4 +1,3 @@
-import 'package:basicprog/Auth/main_page.dart';
 import 'package:flutter/material.dart';
 
 import '../Widgets/auth_button.dart';
@@ -51,12 +50,7 @@ class GettingStartedPage extends StatelessWidget {
                   AuthButton(
                     name: 'Get Started',
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MainPage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/main');
                     },
                   ),
                 ],

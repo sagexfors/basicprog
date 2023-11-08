@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:basicprog/model/lesson.dart';
-import 'package:basicprog/pages/compiler_page.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -10,9 +10,9 @@ import 'package:flutter/services.dart';
 
 import '../Widgets/circle_thingy.dart';
 import '../model/temp_repository.dart';
-import 'activities_page.dart';
+
 import 'lessons_page.dart';
-import 'profile_page.dart';
+
 import 'quizzes_page.dart';
 
 Future<List<Lesson>> parseLessonsFromJsonFile() async {
@@ -132,10 +132,7 @@ class HomePage extends StatelessWidget {
         ],
         onTap: (index) {
           if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()),
-            );
+            Navigator.of(context).pushNamed('/profile');
           }
         },
       ),
@@ -165,10 +162,7 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.person,
             title: 'Profile',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfilePage()),
-              );
+              Navigator.of(context).pushNamed('/profile');
             },
           ),
           const Divider(),
@@ -192,10 +186,7 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.ondemand_video,
             title: 'Activities',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ActivitiesPage()),
-              );
+              Navigator.of(context).pushNamed('/activities');
             },
           ),
           DrawerItemWidget(
@@ -216,12 +207,7 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.computer,
             title: 'Code Editor',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const CompilerPage(),
-                ),
-              );
+              Navigator.of(context).pushNamed('/compiler');
             },
           ),
           const Divider(),
@@ -229,7 +215,7 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.info,
             title: 'About Us',
             onTap: () {
-              Navigator.pushNamed(context, '/about-us');
+              Navigator.of(context).pushNamed('/about-us');
             },
           ),
           DrawerItemWidget(
@@ -237,7 +223,7 @@ class NavigationDrawer extends StatelessWidget {
             title: 'Logout',
             onTap: () {
               FirebaseAuth.instance.signOut();
-              Navigator.pop(context);
+              Navigator.of(context).pop();
             },
           ),
         ],

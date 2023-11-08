@@ -6,7 +6,6 @@ import '../Widgets/auth_button.dart';
 import '../Widgets/circle_thingy.dart';
 import '../Widgets/email_text_form_field.dart';
 import '../Widgets/password_text_form_field.dart';
-import 'forgot_password_page.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
@@ -149,14 +148,7 @@ class _LoginFormState extends State<LoginForm> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const ForgotPasswordPage();
-                        },
-                      ),
-                    );
+                    Navigator.of(context).pushNamed('/forgot-password');
                   },
                   child: Text(
                     'Forgot your password?',
