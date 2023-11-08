@@ -1,5 +1,5 @@
 import 'package:basicprog/Widgets/generic_text_form_field.dart';
-import 'package:basicprog/provider/user.dart';
+import 'package:basicprog/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
