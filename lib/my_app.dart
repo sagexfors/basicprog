@@ -1,4 +1,3 @@
-
 import 'package:basicprog/Pages/getting_started.dart';
 import 'package:basicprog/provider/user.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => UserProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        ),
+      ],
       child: MaterialApp(
         theme: ThemeData(
           useMaterial3: true,
