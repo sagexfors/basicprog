@@ -1,7 +1,3 @@
-import 'dart:convert';
-
-import 'package:basicprog/model/lesson.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -11,38 +7,7 @@ import 'package:flutter/services.dart';
 import '../Widgets/circle_thingy.dart';
 import '../model/temp_repository.dart';
 
-import 'lessons_page.dart';
-
 import 'quizzes_page.dart';
-
-Future<List<Lesson>> parseLessonsFromJsonFile() async {
-  // Read the JSON file into a String
-  final jsonString =
-      await rootBundle.loadString('assets/temp_repo_lessons.json');
-
-  // Parse the JSON data
-  final jsonData = await json.decode(jsonString);
-
-  // Extract and parse lessons
-  final lessonsData = jsonData['lessons'] as List<dynamic>;
-  final lessons = lessonsData.map((lessonData) {
-    final contentData = lessonData['content'] as List<dynamic>;
-    final content = contentData.map((contentItem) {
-      if (contentItem['type'] == 'text') {
-        return Content(type: 'text', text: contentItem['text']);
-      } else if (contentItem['type'] == 'code') {
-        return Content(type: 'code', text: contentItem['code']);
-      }
-      return Content(type: 'text', text: '');
-    }).toList();
-    return Lesson(
-      title: lessonData['title'],
-      description: lessonData['description'],
-      content: content,
-    );
-  }).toList();
-  return lessons;
-}
 
 ///
 class HomePage extends StatelessWidget {
@@ -161,8 +126,8 @@ class NavigationDrawer extends StatelessWidget {
           DrawerItemWidget(
             icon: Icons.person,
             title: 'Profile',
-            onTap: () {
-              Navigator.of(context).pushNamed('/profile');
+            onTap: () async {
+              await Navigator.of(context).pushNamed('/profile');
             },
           ),
           const Divider(),
@@ -170,23 +135,14 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.book,
             title: 'Lessons',
             onTap: () async {
-              var lessonList = await parseLessonsFromJsonFile();
-              if (!context.mounted) return;
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LessonsPage(
-                    lessons: lessonList,
-                  ),
-                ),
-              );
+              await Navigator.of(context).pushNamed('/lessons');
             },
           ),
           DrawerItemWidget(
             icon: Icons.ondemand_video,
             title: 'Activities',
-            onTap: () {
-              Navigator.of(context).pushNamed('/activities');
+            onTap: () async {
+              await Navigator.of(context).pushNamed('/activities');
             },
           ),
           DrawerItemWidget(
@@ -206,16 +162,16 @@ class NavigationDrawer extends StatelessWidget {
           DrawerItemWidget(
             icon: Icons.computer,
             title: 'Code Editor',
-            onTap: () {
-              Navigator.of(context).pushNamed('/compiler');
+            onTap: () async {
+              await Navigator.of(context).pushNamed('/compiler');
             },
           ),
           const Divider(),
           DrawerItemWidget(
             icon: Icons.info,
             title: 'About Us',
-            onTap: () {
-              Navigator.of(context).pushNamed('/about-us');
+            onTap: () async {
+              await Navigator.of(context).pushNamed('/about-us');
             },
           ),
           DrawerItemWidget(
