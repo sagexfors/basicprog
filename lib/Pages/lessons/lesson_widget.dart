@@ -6,7 +6,7 @@ import 'package:highlight/languages/cpp.dart';
 
 import 'package:flutter_highlight/themes/monokai-sublime.dart';
 
-class LessonWidget extends StatelessWidget {
+class LessonWidget extends StatefulWidget {
   final int lessonNumber;
   final Lesson lesson;
 
@@ -17,8 +17,13 @@ class LessonWidget extends StatelessWidget {
   });
 
   @override
+  State<LessonWidget> createState() => _LessonWidgetState();
+}
+
+class _LessonWidgetState extends State<LessonWidget> {
+  @override
   Widget build(BuildContext context) {
-    var title = lesson.title;
+    var title = widget.lesson.title;
 
     return Scaffold(
       appBar: AppBar(
@@ -34,9 +39,9 @@ class LessonWidget extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: lesson.content?.length,
+              itemCount: widget.lesson.content?.length,
               itemBuilder: (context, index) {
-                final contentItem = lesson.content?[index];
+                final contentItem = widget.lesson.content?[index];
                 final contentType = contentItem?.type;
                 final contentItemText = contentItem?.text ?? '';
 
