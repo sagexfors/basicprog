@@ -48,13 +48,21 @@ class Content {
   String? _type;
   String? _text;
   String? _code;
+  List<List<dynamic>>? table;
 
-  Content({String? type, String? text, String? code}) {
+  Content(
+      {String? type, String? text, String? code, List<List<dynamic>>? table}) {
     if (type != null) {
       _type = type;
     }
     if (text != null) {
       _text = text;
+    }
+    if (code != null) {
+      _code = code;
+    }
+    if (table != null) {
+      this.table = table;
     }
   }
 

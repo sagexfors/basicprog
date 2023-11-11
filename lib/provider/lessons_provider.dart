@@ -35,6 +35,11 @@ class LessonsProvider with ChangeNotifier {
           return Content(type: 'text', text: contentItem['text']);
         } else if (contentItem['type'] == 'code') {
           return Content(type: 'code', text: contentItem['code']);
+        } else if (contentItem['type'] == 'table') {
+          return Content(
+            type: 'table',
+            table: List<List<dynamic>>.from(contentItem['table']),
+          );
         }
         return Content(type: 'text', text: '');
       }).toList();

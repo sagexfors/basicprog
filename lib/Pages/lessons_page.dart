@@ -1,3 +1,4 @@
+import 'package:basicprog/Widgets/table_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_highlight/themes/monokai-sublime.dart';
@@ -135,24 +136,16 @@ class _LessonPageState extends State<LessonPage> {
                           // enabled: false,
                           readOnly: true,
                         ),
-                        // // ElevatedButton(
-                        // //   onPressed: () {
-                        // //     Navigator.push(
-                        // //       context,
-                        // //       MaterialPageRoute(
-                        // //         builder: (context) => CompilerPage(
-                        // //           code: contentItemText,
-                        // //         ),
-                        // //       ),
-                        // //     );
-                        // //   },
-                        // //   child: const Text('Try it out'),
-                        // ),
                       ],
                     ),
                   );
+                } else if (contentType == "table") {
+                  List<dynamic> tableData = contentItem?.table ?? [];
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: JsonTableWidget(data: tableData),
+                  );
                 } else {
-                  // Handle other content types here
                   return const SizedBox();
                 }
               },
