@@ -51,7 +51,7 @@ class Content {
   List<List<dynamic>>? table;
 
   Content(
-      {String? type, String? text, String? code, List<List<dynamic>>? table}) {
+      {String? type, String? text, String? code, List<List<dynamic>>? table,}) {
     if (type != null) {
       _type = type;
     }
