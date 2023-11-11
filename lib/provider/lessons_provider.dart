@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:basicprog/model/lesson.dart';
+import 'package:basicprog/model/lesson/content.dart';
+import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

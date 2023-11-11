@@ -1,7 +1,6 @@
+import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:basicprog/pages/lessons/lesson_tile.dart';
 import 'package:flutter/material.dart';
-
-import '../../model/lesson.dart';
 
 class LessonsPage extends StatelessWidget {
   final List<Lesson> lessons;

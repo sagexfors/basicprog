@@ -1,5 +1,5 @@
 import 'package:basicprog/Widgets/table_widget.dart';
-import 'package:basicprog/model/lesson.dart';
+import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:highlight/languages/cpp.dart';
@@ -23,11 +23,12 @@ class LessonWidget extends StatefulWidget {
 class _LessonWidgetState extends State<LessonWidget> {
   @override
   Widget build(BuildContext context) {
-    var title = widget.lesson.title;
+    final lesson = widget.lesson;
+    final title = lesson.title;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title!),
+        title: Text(title),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(12.0),
@@ -39,14 +40,13 @@ class _LessonWidgetState extends State<LessonWidget> {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: widget.lesson.content?.length,
+              itemCount: lesson.content.length,
               itemBuilder: (context, index) {
-                final contentItem = widget.lesson.content?[index];
-                final contentType = contentItem?.type;
-                final contentItemText = contentItem?.text ?? '';
+                final contentItem = lesson.content[index];
+                final contentType = contentItem.type;
+                final contentItemText = contentItem.text ?? '';
 
                 if (contentType == "text") {
-                  // Render a Text widget for "text" type
                   return ListTile(
                     title: Text(
                       contentItemText,
@@ -72,7 +72,7 @@ class _LessonWidgetState extends State<LessonWidget> {
                     ),
                   );
                 } else if (contentType == "table") {
-                  List<dynamic> tableData = contentItem?.table ?? [];
+                  List<dynamic> tableData = contentItem.table ?? [];
                   return SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: JsonTableWidget(data: tableData),

@@ -1,4 +1,4 @@
-import 'package:basicprog/model/lesson.dart';
+import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:basicprog/pages/lessons/lesson_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -29,8 +29,8 @@ class LessonTile extends StatelessWidget {
             ),
           ),
         ),
-        title: Text(title!),
-        subtitle: Text(description!),
+        title: Text(title),
+        subtitle: Text(description),
         trailing: const Icon(Icons.arrow_forward),
         onTap: () async {
           await Navigator.of(context).push(
