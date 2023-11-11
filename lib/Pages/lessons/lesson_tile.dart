@@ -32,9 +32,8 @@ class LessonTile extends StatelessWidget {
         title: Text(title!),
         subtitle: Text(description!),
         trailing: const Icon(Icons.arrow_forward),
-        onTap: () {
-          Navigator.push(
-            context,
+        onTap: () async {
+          await Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => LessonWidget(
                 lessonNumber: lessonNumber,
