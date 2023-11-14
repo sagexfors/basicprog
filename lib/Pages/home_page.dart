@@ -5,9 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import '../Widgets/circle_thingy.dart';
-import '../model/temp_repository.dart';
 
-import 'quizzes_page.dart';
 
 ///
 class HomePage extends StatelessWidget {
