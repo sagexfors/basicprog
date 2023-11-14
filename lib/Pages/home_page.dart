@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 import '../Widgets/circle_thingy.dart';
 
-
 ///
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -90,12 +89,15 @@ class HomePage extends StatelessWidget {
             icon: Icon(
               Icons.ondemand_video,
             ),
-            label: 'Activities',
+            label: 'Code Editor',
           ),
         ],
         onTap: (index) {
           if (index == 1) {
-            Navigator.of(context).pushNamed('/profile');
+            Navigator.of(context).pushNamed(lessonsRoute);
+          }
+          if (index == 2) {
+            Navigator.of(context).pushNamed(compilerRoute);
           }
         },
       ),
