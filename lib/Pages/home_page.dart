@@ -1,3 +1,4 @@
+import 'package:basicprog/constants/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -126,7 +127,7 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.person,
             title: 'Profile',
             onTap: () async {
-              await Navigator.of(context).pushNamed('/profile');
+              await Navigator.of(context).pushNamed(profileRoute);
             },
           ),
           const Divider(),
@@ -134,28 +135,28 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.book,
             title: 'Lessons',
             onTap: () async {
-              await Navigator.of(context).pushNamed('/lessons');
+              await Navigator.of(context).pushNamed(lessonsRoute);
             },
           ),
           DrawerItemWidget(
             icon: Icons.ondemand_video,
             title: 'Activities',
             onTap: () async {
-              await Navigator.of(context).pushNamed('/activities');
+              await Navigator.of(context).pushNamed(activitiesRoute);
             },
           ),
           DrawerItemWidget(
             icon: Icons.quiz,
             title: 'Quizzes',
             onTap: () async {
-              await Navigator.of(context).pushNamed('/quizzes');
+              await Navigator.of(context).pushNamed(quizzesRoute);
             },
           ),
           DrawerItemWidget(
             icon: Icons.computer,
             title: 'Code Editor',
             onTap: () async {
-              await Navigator.of(context).pushNamed('/compiler');
+              await Navigator.of(context).pushNamed(compilerRoute);
             },
           ),
           const Divider(),
@@ -163,7 +164,7 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.info,
             title: 'About Us',
             onTap: () async {
-              await Navigator.of(context).pushNamed('/about-us');
+              await Navigator.of(context).pushNamed(aboutUsRoute);
             },
           ),
           DrawerItemWidget(
