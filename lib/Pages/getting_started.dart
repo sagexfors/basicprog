@@ -30,7 +30,7 @@ class GettingStartedPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 32),
                   const Text(
-                    'Welcome to Basic',
+                    'Welcome to BasiC',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class GettingStartedPage extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.all(20.0),
                     child: Text(
-                      'Basic; your guide on learning programming languages',
+                      'BasiC; your guide on basic C programming language.',
                       style: TextStyle(fontSize: 15),
                       textAlign: TextAlign.center,
                     ),
