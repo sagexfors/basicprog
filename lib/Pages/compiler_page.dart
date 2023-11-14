@@ -64,14 +64,27 @@ int main() {
                     );
                     output = response['output'];
                     error = response['error'];
-                    print(output);
-                    print(error);
+                    setState(() {
+                      if (output == '') {
+                        output = error;
+                      }
+                    });
                   },
                   child: const Text('Run'),
                 ),
                 CodeField(
                   controller: controller,
-                  minLines: 28,
+                  minLines: 22,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text('Output: $output'),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
               ],
             ),
