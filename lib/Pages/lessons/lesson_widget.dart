@@ -6,7 +6,7 @@ import 'package:highlight/languages/cpp.dart';
 
 import 'package:flutter_highlight/themes/monokai-sublime.dart';
 
-class LessonWidget extends StatefulWidget {
+class LessonWidget extends StatelessWidget {
   final int lessonNumber;
   final Lesson lesson;
 
@@ -17,13 +17,7 @@ class LessonWidget extends StatefulWidget {
   });
 
   @override
-  State<LessonWidget> createState() => _LessonWidgetState();
-}
-
-class _LessonWidgetState extends State<LessonWidget> {
-  @override
   Widget build(BuildContext context) {
-    final lesson = widget.lesson;
     final title = lesson.title;
 
     return Scaffold(
@@ -47,36 +41,16 @@ class _LessonWidgetState extends State<LessonWidget> {
                 final contentItemText = contentItem.text ?? '';
 
                 if (contentType == "text") {
-                  return ListTile(
-                    title: Text(
-                      contentItemText,
-                      style: const TextStyle(fontSize: 18),
-                    ),
-                  );
+                  return ParagraphWidget(contentItemText: contentItemText);
                 } else if (contentType == "code") {
                   final controller = CodeController(
-                    text: '', // Initial co
+                    text: contentItemText, // Initial co
                     language: cpp,
                   );
-                  controller.text = contentItemText;
-                  return CodeTheme(
-                    data: CodeThemeData(styles: monokaiSublimeTheme),
-                    child: Column(
-                      children: [
-                        CodeField(
-                          controller: controller,
-                          // enabled: false,
-                          readOnly: true,
-                        ),
-                      ],
-                    ),
-                  );
+                  return StaticCodeEditor(controller: controller);
                 } else if (contentType == "table") {
                   List<dynamic> tableData = contentItem.table ?? [];
-                  return SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: JsonTableWidget(data: tableData),
-                  );
+                  return LessonTable(tableData: tableData);
                 } else {
                   return const SizedBox();
                 }
@@ -84,6 +58,67 @@ class _LessonWidgetState extends State<LessonWidget> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class LessonTable extends StatelessWidget {
+  const LessonTable({
+    super.key,
+    required this.tableData,
+  });
+
+  final List tableData;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: JsonTableWidget(data: tableData),
+    );
+  }
+}
+
+class StaticCodeEditor extends StatelessWidget {
+  const StaticCodeEditor({
+    super.key,
+    required this.controller,
+  });
+
+  final CodeController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return CodeTheme(
+      data: CodeThemeData(styles: monokaiSublimeTheme),
+      child: Column(
+        children: [
+          CodeField(
+            controller: controller,
+            // enabled: false,
+            readOnly: true,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ParagraphWidget extends StatelessWidget {
+  const ParagraphWidget({
+    super.key,
+    required this.contentItemText,
+  });
+
+  final String contentItemText;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        contentItemText,
+        style: const TextStyle(fontSize: 18),
       ),
     );
   }
