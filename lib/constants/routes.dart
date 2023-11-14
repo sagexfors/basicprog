@@ -3,6 +3,7 @@ const aboutUsRoute = '/about-us';
 const mainRoute = '/main';
 const profileRoute = '/profile';
 const lessonsRoute = '/lessons';
+const quizzesRoute = '/quizzes';
 const activitiesRoute = '/activities';
 const compilerRoute = '/compiler';
 const changePasswordRoute = '/change-password';

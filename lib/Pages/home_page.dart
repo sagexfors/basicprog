@@ -147,15 +147,8 @@ class NavigationDrawer extends StatelessWidget {
           DrawerItemWidget(
             icon: Icons.quiz,
             title: 'Quizzes',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => QuizzesPage(
-                    quizzes: quizzes,
-                  ),
-                ),
-              );
+            onTap: () async {
+              await Navigator.of(context).pushNamed('/quizzes');
             },
           ),
           DrawerItemWidget(

@@ -54,7 +54,7 @@ class QuizCard extends StatelessWidget {
           ),
         ),
         title: Text(quiz.title),
-        subtitle: Text(quiz.description),
+        subtitle: quiz.description == '' ? null : Text(quiz.description),
         trailing: const Icon(Icons.arrow_forward),
         onTap: () {
           Navigator.push(
