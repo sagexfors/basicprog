@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../Widgets/circle_thingy.dart';
 
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 160),
+                  const SizedBox(height: 120),
                   Container(
                     width: 170,
                     height: 170,
@@ -34,37 +35,92 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 32),
-                  const Text(
-                    'Welcome to Basic',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 90, 96, 179),
+                  const SizedBox(height: 400),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 340,
+              child: Column(
+                children: [
+                  TextButton(
+                    onPressed: () async {
+                      await Navigator.of(context).pushNamed(lessonsRoute);
+                    },
+                    child: const Text(
+                      'Lessons',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 24),
-                  const Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Text(
-                      '"The art of programming is the skill of controlling complexity." -Marijn Haverbeke',
-                      style: TextStyle(fontSize: 15),
-                      textAlign: TextAlign.center,
+                  const SizedBox(height: 6),
+                  LinearPercentIndicator(
+                    width: 390,
+                    lineHeight: 30.0,
+                    percent: 1,
+                    center: const Text('100.0%'),
+                    backgroundColor: Colors.grey,
+                    progressColor: Colors.blue,
+                  ),
+                  const SizedBox(height: 6),
+                  TextButton(
+                    onPressed: () async {
+                      await Navigator.of(context).pushNamed(activitiesRoute);
+                    },
+                    child: const Text(
+                      'Quizzes',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 120),
+                  const SizedBox(height: 6),
+                  LinearPercentIndicator(
+                    width: 390,
+                    lineHeight: 30.0,
+                    percent: 0.3,
+                    center: const Text('30.0%'),
+                    backgroundColor: Colors.grey,
+                    progressColor: Colors.blue,
+                  ),
+                  const SizedBox(height: 6),
+                  TextButton(
+                    onPressed: () async {
+                      await Navigator.of(context).pushNamed(activitiesRoute);
+                    },
+                    child: const Text(
+                      'Assessment',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  LinearPercentIndicator(
+                    width: 390,
+                    lineHeight: 30.0,
+                    percent: 0.1,
+                    center: const Text('10.0%'),
+                    backgroundColor: Colors.grey,
+                    progressColor: Colors.blue,
+                  ),
+                  const SizedBox(height: 6),
                 ],
               ),
             ),
             const Positioned(
               top: -80,
               left: -100,
-              child: CircleThing(opacity: 0.7),
+              child: CircleThing(opacity: 0.3),
             ),
             const Positioned(
               top: -140,
               left: -10,
-              child: CircleThing(opacity: 0.7),
+              child: CircleThing(opacity: 0.4),
             ),
 
             // LoginForm(showRegisterPage: widget.showRegisterPage)
@@ -139,17 +195,17 @@ class NavigationDrawer extends StatelessWidget {
             },
           ),
           DrawerItemWidget(
-            icon: Icons.ondemand_video,
-            title: 'Activities',
-            onTap: () async {
-              await Navigator.of(context).pushNamed(activitiesRoute);
-            },
-          ),
-          DrawerItemWidget(
             icon: Icons.quiz,
             title: 'Quizzes',
             onTap: () async {
               await Navigator.of(context).pushNamed(quizzesRoute);
+            },
+          ),
+          DrawerItemWidget(
+            icon: Icons.ondemand_video,
+            title: 'Assessment',
+            onTap: () async {
+              await Navigator.of(context).pushNamed(activitiesRoute);
             },
           ),
           DrawerItemWidget(
@@ -172,6 +228,11 @@ class NavigationDrawer extends StatelessWidget {
             title: 'Logout',
             onTap: () {
               FirebaseAuth.instance.signOut();
+              SnackBar snackBar = const SnackBar(
+                content: Text('Logged out successfully!'),
+                duration: Duration(seconds: 2),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
               Navigator.of(context).pop();
             },
           ),

@@ -46,6 +46,7 @@ dependencies:
   flutter_code_editor: ^0.2.9
   flutter_highlight: ^0.7.0
   highlight: ^0.7.0
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:
