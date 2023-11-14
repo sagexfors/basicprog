@@ -1,9 +1,10 @@
+import 'package:basicprog/provider/compiler_provider.dart';
 import 'package:basicprog/services/codexapi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_highlight/themes/androidstudio.dart';
-import 'package:flutter_highlight/themes/default.dart';
 import 'package:highlight/languages/cpp.dart';
+import 'package:provider/provider.dart';
 
 class CompilerPage extends StatefulWidget {
   final String? code;
@@ -14,29 +15,34 @@ class CompilerPage extends StatefulWidget {
 }
 
 class _CompilerPageState extends State<CompilerPage> {
-  final controller = CodeController(
-    text: '''
-#include <stdio.h>
-
-int main() {
-    printf("Hello, World!");
-    return 0;
-}
-''', // Initial co
-    language: cpp,
-  );
-
+  late CodeController controller;
   var output = '';
   var error = '';
-
   final TextEditingController _inputController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    if (widget.code != null) {
-      controller.text = widget.code!;
-    }
+
+    String initialCode = widget.code ?? context.read<CompilerProvider>().code;
+    controller = CodeController(
+      text: initialCode,
+      language: cpp,
+    );
+
+    // Adding a listener to the CodeController
+    controller.addListener(() {
+      // This function gets called every time the text changes
+      String currentCode = controller.text;
+      context.read<CompilerProvider>().code = currentCode;
+    });
+  }
+
+  @override
+  void dispose() {
+    // Don't forget to dispose the controller
+    controller.dispose();
+    super.dispose();
   }
 
   @override

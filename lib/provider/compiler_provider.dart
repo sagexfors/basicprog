@@ -6,7 +6,14 @@
 import 'package:flutter/material.dart';
 
 class CompilerProvider extends ChangeNotifier {
-  String _code = '';
+  String _code = '''
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+''';
 
   String get code => _code;
 

@@ -8,6 +8,7 @@ import 'package:basicprog/pages/forgot_password_page.dart';
 import 'package:basicprog/pages/lessons/lessons_page.dart';
 import 'package:basicprog/pages/profile_page.dart';
 import 'package:basicprog/pages/quizzes_page.dart';
+import 'package:basicprog/provider/compiler_provider.dart';
 import 'package:basicprog/provider/lessons_provider.dart';
 import 'package:basicprog/provider/quizzes_provider.dart';
 import 'package:basicprog/provider/user_provider.dart';
@@ -31,6 +32,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => QuizzesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CompilerProvider(),
         ),
       ],
       child: MaterialApp(
@@ -58,7 +62,13 @@ class MyApp extends StatelessWidget {
                 },
               ),
           activitiesRoute: (context) => const ActivitiesPage(),
-          compilerRoute: (context) => const CompilerPage(),
+          compilerRoute: (context) => Consumer<CompilerProvider>(
+                builder: (context, value, child) {
+                  return CompilerPage(
+                    code: value.code,
+                  );
+                },
+              ),
           changePasswordRoute: (context) => const ChangePasswordPage(),
           forgotPasswordRoute: (context) => const ForgotPasswordPage(),
         },
