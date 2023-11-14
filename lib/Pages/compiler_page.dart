@@ -67,9 +67,15 @@ int main() {
                     ),
                   ),
                 ),
+                const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Text('Output:'),
+                ),
                 Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text('Output: $output'),
+                  padding: const EdgeInsets.all(2.0),
+                  child: Text(
+                    output,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -90,6 +96,8 @@ int main() {
           setState(() {
             if (output == '') {
               output = error;
+              RegExp regex = RegExp(r"/app/codes/[0-9a-fA-F-]+.c:");
+              output = output.replaceAll(regex, "");
             }
           });
         },
