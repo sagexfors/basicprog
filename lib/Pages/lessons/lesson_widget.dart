@@ -2,6 +2,7 @@ import 'package:basicprog/Widgets/table_widget.dart';
 import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
+import 'package:flutter_highlight/themes/default.dart';
 import 'package:highlight/languages/cpp.dart';
 
 import 'package:flutter_highlight/themes/monokai-sublime.dart';
@@ -91,7 +92,7 @@ class StaticCodeEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CodeTheme(
-      data: CodeThemeData(styles: monokaiSublimeTheme),
+      data: CodeThemeData(styles: defaultTheme),
       child: Column(
         children: [
           CodeField(

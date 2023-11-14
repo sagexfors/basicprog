@@ -1,7 +1,8 @@
 import 'package:basicprog/services/codexapi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
-import 'package:flutter_highlight/themes/monokai-sublime.dart';
+import 'package:flutter_highlight/themes/androidstudio.dart';
+import 'package:flutter_highlight/themes/default.dart';
 import 'package:highlight/languages/cpp.dart';
 
 class CompilerPage extends StatefulWidget {
@@ -46,38 +47,25 @@ int main() {
       ),
       body: Center(
         child: CodeTheme(
-          data: CodeThemeData(styles: monokaiSublimeTheme),
+          data: CodeThemeData(styles: androidstudioTheme),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                TextField(
-                  controller: _inputController,
-                  decoration: const InputDecoration(
-                    hintText: 'Input (1 or 1, 2 or 1 2)',
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    var response = await CodexApiService.compileCode(
-                      controller.text,
-                      _inputController.text,
-                    );
-                    output = response['output'];
-                    error = response['error'];
-                    setState(() {
-                      if (output == '') {
-                        output = error;
-                      }
-                    });
-                  },
-                  child: const Text('Run'),
-                ),
                 CodeField(
                   controller: controller,
                   minLines: 22,
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 16,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(18, 0, 18, 12),
+                  child: TextField(
+                    controller: _inputController,
+                    decoration: const InputDecoration(
+                      hintText: 'Input arguments (leave blank if none)',
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -90,6 +78,22 @@ int main() {
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          var response = await CodexApiService.compileCode(
+            controller.text,
+            _inputController.text,
+          );
+          output = response['output'];
+          error = response['error'];
+          setState(() {
+            if (output == '') {
+              output = error;
+            }
+          });
+        },
+        child: const Icon(Icons.play_arrow_rounded),
       ),
     );
   }
