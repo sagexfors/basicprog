@@ -1,7 +1,8 @@
 {
   "exercises": [
     {
-      "exercise": "Multiple Choice Exercise: Introduction to C Programming",
+      "id": 1,
+      "exercise": "Introduction to C Programming",
       "questions": [
         {
           "question": "Who created the C programming language?",
@@ -51,7 +52,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Syntax",
+      "id": 2,
+      "exercise": "C Syntax",
       "questions": [
         {
           "question": "What is the purpose of #include <stdio.h> in a C program?",
@@ -116,7 +118,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Output (Print Text)",
+      "id": 3,
+      "exercise": "C Output (Print Text)",
       "questions": [
         {
           "question": "What is the function used to output or print text in C?",
@@ -166,7 +169,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C New Lines",
+      "id": 4,
+      "exercise": "C New Lines",
       "questions": [
         {
           "question": "How do you insert a new line in C using printf()?",
@@ -231,7 +235,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Comments",
+      "id": 5,
+      "exercise": "C Comments",
       "questions": [
         {
           "question": "How do you write a single-line comment in C?",
@@ -296,7 +301,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Variables",
+      "id": 6,
+      "exercise": "C Variables",
       "questions": [
         {
           "question": "What does an int type variable store in C?",
@@ -356,7 +362,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Data Types",
+      "id": 7,
+      "exercise": "C Data Types",
       "questions": [
         {
           "question": "What type of data does the float data type store in C?",
@@ -401,7 +408,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Type Conversion",
+      "id": 8,
+      "exercise": "C Type Conversion",
       "questions": [
         {
           "question": "What is type conversion in C programming?",
@@ -461,7 +469,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Constants",
+      "id": 9,
+      "exercise": "C Constants",
       "questions": [
         {
           "question": "What is the purpose of the const keyword in C?",
@@ -516,7 +525,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Operators",
+      "id": 10,
+      "exercise": "C Operators",
       "questions": [
         {
           "question": "What is the function of the + operator in C?",
@@ -571,7 +581,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Booleans",
+      "id": 11,
+      "exercise": "C Booleans",
       "questions": [
         {
           "question": "What is the primary use of the bool data type in C?",
@@ -626,7 +637,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C If ... Else",
+      "id": 12,
+      "exercise": "C If ... Else",
       "questions": [
         {
           "question": "What is the purpose of the if statement in C?",
@@ -691,7 +703,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Switch Statement",
+      "id": 13,
+      "exercise": "C Switch Statement",
       "questions": [
         {
           "question": "What is the primary purpose of the switch statement in C?",
@@ -751,7 +764,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C While Loop",
+      "id": 14,
+      "exercise": "C While Loop",
       "questions": [
         {
           "question": "What is the main purpose of a loop in programming?",
@@ -816,7 +830,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C For Loop",
+      "id": 15,
+      "exercise": "C For Loop",
       "questions": [
         {
           "question": "When is it most appropriate to use a for loop in C?",
@@ -881,7 +896,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Break and Continue",
+      "id": 16,
+      "exercise": "C Break and Continue",
       "questions": [
         {
           "question": "What is the purpose of the break statement in C?",
@@ -946,7 +962,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Arrays",
+      "id": 17,
+      "exercise": "C Arrays",
       "questions": [
         {
           "question": "What is an array in C programming?",
@@ -1006,7 +1023,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Multidimensional Arrays",
+      "id": 18,
+      "exercise": "C Multidimensional Arrays",
       "questions": [
         {
           "question": "What is a multidimensional array in C?",
@@ -1061,7 +1079,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Strings",
+      "id": 19,
+      "exercise": "C Strings",
       "questions": [
         {
           "question": "How are strings represented in C?",
@@ -1121,7 +1140,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Special Characters and String Functions",
+      "id": 20,
+      "exercise": "C Special Characters and String Functions",
       "questions": [
         {
           "question": "How do you include a double quote inside a string in C?",
@@ -1181,7 +1201,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C User Input",
+      "id": 21,
+      "exercise": "C User Input",
       "questions": [
         {
           "question": "What function is used to get user input in C?",
@@ -1241,7 +1262,8 @@
       ]
     },
     {
-      "exercise": "Multiple Choice Exercise: C Functions",
+      "id": 22,
+      "exercise": "C Functions",
       "questions": [
         {
           "question": "What is the role of a function in C programming?",
