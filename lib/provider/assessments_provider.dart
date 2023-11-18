@@ -32,8 +32,8 @@ class AssessmentsProvider with ChangeNotifier {
     // Create a list to hold the assessments
     final List<Quiz> assessments = [];
 
-    // Loop to create 5 assessments
-    for (int assessmentIndex = 1; assessmentIndex <= 5; assessmentIndex++) {
+    // Loop to create 3 assessments
+    for (int assessmentIndex = 1; assessmentIndex <= 3; assessmentIndex++) {
       // Shuffle the questions randomly for this assessment
       questionsData.shuffle();
 
