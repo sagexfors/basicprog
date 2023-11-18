@@ -143,7 +143,7 @@ class HomePage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.ondemand_video,
+              Icons.computer,
             ),
             label: 'Code Editor',
           ),
@@ -202,7 +202,7 @@ class NavigationDrawer extends StatelessWidget {
             },
           ),
           DrawerItemWidget(
-            icon: Icons.ondemand_video,
+            icon: Icons.assessment,
             title: 'Assessment',
             onTap: () async {
               await Navigator.of(context).pushNamed(assessmentsRoute);

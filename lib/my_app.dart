@@ -5,6 +5,7 @@ import 'package:basicprog/pages/activities_page.dart';
 import 'package:basicprog/pages/change_password_page.dart';
 import 'package:basicprog/pages/compiler_page.dart';
 import 'package:basicprog/pages/forgot_password_page.dart';
+import 'package:basicprog/pages/lessons/assessments_page.dart';
 import 'package:basicprog/pages/lessons/lessons_page.dart';
 import 'package:basicprog/pages/profile_page.dart';
 import 'package:basicprog/pages/quizzes_page.dart';
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
               ),
           assessmentsRoute: (context) => Consumer<AssessmentsProvider>(
                 builder: (context, value, child) {
-                  return QuizzesPage(
+                  return AssessmentsPage(
                     quizzes: value.assessments,
                   );
                 },

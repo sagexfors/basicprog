@@ -87,6 +87,7 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    final currentQuestionDisplay = currentQuestionIndex + 1;
 
     return Scaffold(
       appBar: AppBar(
@@ -104,6 +105,15 @@ class _QuizPageState extends State<QuizPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          '$currentQuestionDisplay of ${quiz.questions.length} questions',
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
                     Text(
                       quiz.questions[currentQuestionIndex].question,
                       style: theme.textTheme.headlineSmall!.copyWith(

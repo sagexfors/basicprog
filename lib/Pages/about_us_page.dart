@@ -57,7 +57,7 @@ class AboutUsPage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(36.0),
               child: Text(
-                'Basic; is an application that contains activities,quizzes,lessons in learning programming languages. the user will learn and develop their logical skills in answering the questions on the system. The purpose of this application is to improve their comprehension in coding and programming.',
+                'Basic; is an application that contains lessons, quizzes, and assessments in learning C programming language. The user will learn and develop their logical skills in answering the questions on the system. The purpose of this application is to improve their comprehension in coding and programming.',
                 style: TextStyle(fontSize: 18),
                 textAlign: TextAlign.center,
               ),
