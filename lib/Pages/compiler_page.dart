@@ -2,7 +2,7 @@ import 'package:basicprog/provider/compiler_provider.dart';
 import 'package:basicprog/services/codexapi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
-import 'package:flutter_highlight/themes/androidstudio.dart';
+import 'package:flutter_highlight/themes/default.dart';
 import 'package:highlight/languages/cpp.dart';
 import 'package:provider/provider.dart';
 
@@ -14,8 +14,10 @@ class CompilerPage extends StatefulWidget {
   State<CompilerPage> createState() => _CompilerPageState();
 }
 
-class _CompilerPageState extends State<CompilerPage> {
+class _CompilerPageState extends State<CompilerPage>
+    with SingleTickerProviderStateMixin {
   late CodeController controller;
+  late TabController _tabController;
   var output = '';
   var error = '';
   final TextEditingController _inputController = TextEditingController();
@@ -30,88 +32,136 @@ class _CompilerPageState extends State<CompilerPage> {
       language: cpp,
     );
 
-    // Adding a listener to the CodeController
     controller.addListener(() {
-      // This function gets called every time the text changes
       String currentCode = controller.text;
       context.read<CompilerProvider>().code = currentCode;
     });
+
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
   void dispose() {
-    // Don't forget to dispose the controller
     controller.dispose();
+    _tabController.dispose();
     super.dispose();
+  }
+
+  Future<void> compileAndRun() async {
+    var response = await CodexApiService.compileCode(
+      controller.text,
+      _inputController.text,
+    );
+    output = response['output'];
+    error = response['error'];
+    setState(() {
+      if (output.isEmpty) {
+        output = error;
+        RegExp regex = RegExp(r"/app/codes/[0-9a-fA-F-]+.c:");
+        output = output.replaceAll(regex, "");
+      }
+      _tabController.animateTo(2); // Switch to the output tab
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    bool hasError = error.isNotEmpty;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Code Editor'),
-      ),
-      body: Center(
-        child: CodeTheme(
-          data: CodeThemeData(styles: androidstudioTheme),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                CodeField(
-                  controller: controller,
-                  minLines: 22,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(18, 0, 18, 12),
-                  child: TextField(
-                    controller: _inputController,
-                    decoration: const InputDecoration(
-                      hintText: 'Input arguments (leave blank if none)',
-                    ),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(12.0),
-                  child: Text('Output:'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Text(
-                    output,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
-          ),
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: const [
+            Tab(icon: Icon(Icons.code), text: "Code"),
+            Tab(icon: Icon(Icons.input), text: "Input"),
+            Tab(icon: Icon(Icons.output), text: "Output"),
+          ],
         ),
       ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          _buildCodeEditorTab(),
+          _buildInputTab(),
+          _buildOutputTab(hasError),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          var response = await CodexApiService.compileCode(
-            controller.text,
-            _inputController.text,
-          );
-          output = response['output'];
-          error = response['error'];
-          setState(() {
-            if (output == '') {
-              output = error;
-              RegExp regex = RegExp(r"/app/codes/[0-9a-fA-F-]+.c:");
-              output = output.replaceAll(regex, "");
-            }
-          });
-        },
+        onPressed: compileAndRun,
         child: const Icon(Icons.play_arrow_rounded),
       ),
     );
   }
+
+  Widget _buildCodeEditorTab() {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: CodeTheme(
+          data: CodeThemeData(styles: defaultTheme),
+          child: CodeField(
+            controller: controller,
+            minLines: 22,
+            maxLines: 30,
+            decoration: BoxDecoration(
+              border: Border.all(color: Theme.of(context).primaryColor),
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInputTab() {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: TextField(
+          controller: _inputController,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Input arguments (leave blank if none)',
+          ),
+          minLines: 5,
+          maxLines: 15,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildOutputTab(bool hasError) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Output:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            if (output.isNotEmpty)
+              Container(
+                padding: const EdgeInsets.all(8),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: hasError ? Colors.red.shade100 : Colors.grey.shade200,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  output,
+                  style: TextStyle(
+                    color: hasError ? Colors.red : Colors.black,
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
 }
-
-
-//TODO: ADD TAB WITH OUTPUT  RESULT and proper error display
