@@ -42,11 +42,8 @@ class _QuizPageState extends State<QuizPage> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text("Quiz Completed"),
-            content: Column(
-              children: [
-                Text("Your score: ${result['score']}"),
-                Text("Result: ${result['result']}"),
-              ],
+            content: Text(
+              "Your score: ${result['score']}\nResult: ${result['result']}",
             ),
             actions: [
               TextButton(
@@ -89,67 +86,75 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).primaryColor;
+    var theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(quiz.title),
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        foregroundColor: theme.appBarTheme.foregroundColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              quiz.questions[currentQuestionIndex].question,
-              style:
-                  const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20.0),
-            Column(
-              children: List<Widget>.generate(
-                quiz.questions[currentQuestionIndex].choices.length,
-                (index) => GestureDetector(
-                  onTap: () {
-                    _handleAnswerSelected(index);
-                  },
-                  child: Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.only(bottom: 12.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color:
-                            color, // Change the color to your desired border color
-                        width: 2.0, // Adjust the border width as needed
-                      ),
-                      borderRadius: BorderRadius.circular(
-                        8,
-                      ), // Adjust the border radius as needed
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12.0,
-                      horizontal: 16.0,
-                    ),
-                    child: Text(
-                      quiz.questions[currentQuestionIndex].choices[index],
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Color.fromARGB(
-                          255,
-                          82,
-                          82,
-                          82,
-                        ), // Change the text color to your desired color
-                        fontSize: 16, // Adjust the font size as needed
-                        fontWeight:
-                            FontWeight.bold, // Adjust the font weight as needed
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      quiz.questions[currentQuestionIndex].question,
+                      style: theme.textTheme.headlineSmall!.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
+                    const SizedBox(height: 20.0),
+                    _buildAnswerChoices(),
+                  ],
                 ),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildAnswerChoices() {
+    var theme = Theme.of(context);
+    return Column(
+      children: quiz.questions[currentQuestionIndex].choices
+          .map(
+            (choice) => GestureDetector(
+              onTap: () => _handleAnswerSelected(
+                quiz.questions[currentQuestionIndex].choices.indexOf(choice),
+              ),
+              child: Container(
+                width: double.infinity,
+                margin: const EdgeInsets.only(bottom: 12.0),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12.0,
+                  horizontal: 16.0,
+                ),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  choice,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: theme.textTheme.bodyLarge?.color,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }
