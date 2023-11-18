@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 6),
                   TextButton(
                     onPressed: () async {
-                      await Navigator.of(context).pushNamed(activitiesRoute);
+                      await Navigator.of(context).pushNamed(quizzesRoute);
                     },
                     child: const Text(
                       'Quizzes',
@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 6),
                   TextButton(
                     onPressed: () async {
-                      await Navigator.of(context).pushNamed(activitiesRoute);
+                      await Navigator.of(context).pushNamed(assessmentsRoute);
                     },
                     child: const Text(
                       'Assessment',
@@ -205,7 +205,7 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.ondemand_video,
             title: 'Assessment',
             onTap: () async {
-              await Navigator.of(context).pushNamed(activitiesRoute);
+              await Navigator.of(context).pushNamed(assessmentsRoute);
             },
           ),
           DrawerItemWidget(

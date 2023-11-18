@@ -8,3 +8,4 @@ const activitiesRoute = '/activities';
 const compilerRoute = '/compiler';
 const changePasswordRoute = '/change-password';
 const forgotPasswordRoute = '/forgot-password';
+const assessmentsRoute = '/assessments';
