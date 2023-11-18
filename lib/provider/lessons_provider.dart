@@ -21,8 +21,7 @@ class LessonsProvider with ChangeNotifier {
 
   Future<List<Lesson>> parseLessonsFromJsonFile() async {
     // Read the JSON file into a String
-    final jsonString =
-        await rootBundle.loadString('assets/temp_repo_lessons.json');
+    final jsonString = await rootBundle.loadString('assets/lessons.json');
 
     // Parse the JSON data
     final jsonData = json.decode(jsonString);

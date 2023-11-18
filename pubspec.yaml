@@ -81,7 +81,7 @@ flutter:
     - assets/images/about_us_extra.png
     - assets/images/about_us.png
     - assets/default_avatar.png
-    - assets/temp_repo_lessons.json
+    - assets/lessons.json
     - assets/exercises.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
