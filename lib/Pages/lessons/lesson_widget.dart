@@ -17,59 +17,69 @@ class LessonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final title = lesson.title;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        foregroundColor: theme.appBarTheme.foregroundColor,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 16),
-            const SizedBox(height: 8),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: lesson.content.length,
-              itemBuilder: (context, index) {
-                final contentItem = lesson.content[index];
-                final contentType = contentItem.type;
-                final contentItemText = contentItem.text ?? '';
-                final contentItemCode = contentItem.code ?? '';
-
-                if (contentType == "text") {
-                  return ParagraphWidget(contentItemText: contentItemText);
-                } else if (contentType == "code") {
-                  final controller = CodeController(
-                    text: contentItemCode, // Initial co
-                    language: cpp,
-                  );
-                  return StaticCodeEditor(controller: controller);
-                } else if (contentType == "table") {
-                  var tableData = contentItem.table ?? [];
-                  return LessonTable(tableData: tableData);
-                } else {
-                  return const SizedBox();
-                }
-              },
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var contentItem in lesson.content) ...[
+                    _buildContentItem(contentItem, context),
+                    const SizedBox(height: 16),
+                  ],
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+
+  Widget _buildContentItem(
+    var contentItem,
+    BuildContext context,
+  ) {
+    final contentType = contentItem.type;
+    final contentItemText = contentItem.text ?? '';
+    final contentItemCode = contentItem.code ?? '';
+
+    switch (contentType) {
+      case "text":
+        return _ParagraphWidget(contentItemText: contentItemText);
+      case "code":
+        final controller = CodeController(
+          text: contentItemCode,
+          language: cpp,
+        );
+        return _StaticCodeEditor(controller: controller);
+      case "table":
+        var tableData = contentItem.table ?? [];
+        return _LessonTable(tableData: tableData);
+      default:
+        return const SizedBox();
+    }
+  }
 }
 
-class LessonTable extends StatelessWidget {
-  const LessonTable({
-    super.key,
+class _LessonTable extends StatelessWidget {
+  final List<dynamic> tableData;
+
+  const _LessonTable({
     required this.tableData,
   });
-
-  final List<dynamic> tableData;
 
   @override
   Widget build(BuildContext context) {
@@ -82,46 +92,42 @@ class LessonTable extends StatelessWidget {
   }
 }
 
-class StaticCodeEditor extends StatelessWidget {
-  const StaticCodeEditor({
-    super.key,
+class _StaticCodeEditor extends StatelessWidget {
+  final CodeController controller;
+
+  const _StaticCodeEditor({
     required this.controller,
   });
-
-  final CodeController controller;
 
   @override
   Widget build(BuildContext context) {
     return CodeTheme(
       data: CodeThemeData(styles: defaultTheme),
-      child: Column(
-        children: [
-          CodeField(
-            controller: controller,
-            // enabled: false,
-            readOnly: true,
-          ),
-        ],
+      child: CodeField(
+        controller: controller,
+        readOnly: true,
+        decoration: BoxDecoration(
+          border: Border.all(color: Theme.of(context).dividerColor),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        padding: const EdgeInsets.all(12),
       ),
     );
   }
 }
 
-class ParagraphWidget extends StatelessWidget {
-  const ParagraphWidget({
-    super.key,
+class _ParagraphWidget extends StatelessWidget {
+  final String contentItemText;
+
+  const _ParagraphWidget({
     required this.contentItemText,
   });
 
-  final String contentItemText;
-
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        contentItemText,
-        style: const TextStyle(fontSize: 18),
-      ),
+    return Text(
+      contentItemText,
+      style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 18),
     );
   }
 }
