@@ -21,6 +21,7 @@ class _CompilerPageState extends State<CompilerPage>
   var output = '';
   var error = '';
   final TextEditingController _inputController = TextEditingController();
+  bool isLoading = false; // Added loading indicator state
 
   @override
   void initState() {
@@ -48,13 +49,20 @@ class _CompilerPageState extends State<CompilerPage>
   }
 
   Future<void> compileAndRun() async {
+    setState(() {
+      isLoading = true; // Set loading state to true
+    });
+
     var response = await CodexApiService.compileCode(
       controller.text,
       _inputController.text,
     );
-    output = response['output'];
-    error = response['error'];
+
     setState(() {
+      isLoading = false; // Set loading state to false
+      output = response['output'];
+      error = response['error'];
+
       if (output.isEmpty) {
         output = error;
         RegExp regex = RegExp(r"/app/codes/[0-9a-fA-F-]+.c:");
@@ -80,14 +88,18 @@ class _CompilerPageState extends State<CompilerPage>
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          _buildCodeEditorTab(),
-          _buildInputTab(),
-          _buildOutputTab(hasError),
-        ],
-      ),
+      body: isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            ) // Loading indicator
+          : TabBarView(
+              controller: _tabController,
+              children: [
+                _buildCodeEditorTab(),
+                _buildInputTab(),
+                _buildOutputTab(hasError),
+              ],
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: compileAndRun,
         child: const Icon(Icons.play_arrow_rounded),
