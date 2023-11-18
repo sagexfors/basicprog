@@ -89,6 +89,7 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).primaryColor;
     return Scaffold(
       appBar: AppBar(
         title: Text(quiz.title),
@@ -115,8 +116,8 @@ class _QuizPageState extends State<QuizPage> {
                     margin: const EdgeInsets.only(bottom: 12.0),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors
-                            .blue, // Change the color to your desired border color
+                        color:
+                            color, // Change the color to your desired border color
                         width: 2.0, // Adjust the border width as needed
                       ),
                       borderRadius: BorderRadius.circular(
