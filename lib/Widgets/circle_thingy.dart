@@ -7,6 +7,7 @@ class CircleThing extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).primaryColor;
     return Opacity(
       opacity: 0.5, // Set the opacity to 50%
       child: Container(
@@ -14,12 +15,10 @@ class CircleThing extends StatelessWidget {
         height: 200,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color:
-              Colors.blue.withOpacity(opacity), // Change the color with opacity
+          color: color.withOpacity(opacity), // Change the color with opacity
           boxShadow: [
             BoxShadow(
-              color: Colors.grey
-                  .withOpacity(0.5), // Add a shadow for a modern look
+              color: color.withOpacity(0.5), // Add a shadow for a modern look
               spreadRadius: 2,
               blurRadius: 5,
               offset: const Offset(0, 3), // Set the shadow offset

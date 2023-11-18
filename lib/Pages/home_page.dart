@@ -288,9 +288,10 @@ class DrawerHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).primaryColor;
     return DrawerHeader(
-      decoration: const BoxDecoration(
-        color: Colors.blue,
+      decoration: BoxDecoration(
+        color: color,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
