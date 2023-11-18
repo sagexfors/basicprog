@@ -5,7 +5,6 @@ import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_highlight/themes/default.dart';
 import 'package:highlight/languages/cpp.dart';
 
-
 class LessonWidget extends StatelessWidget {
   final int lessonNumber;
   final Lesson lesson;
@@ -39,17 +38,18 @@ class LessonWidget extends StatelessWidget {
                 final contentItem = lesson.content[index];
                 final contentType = contentItem.type;
                 final contentItemText = contentItem.text ?? '';
+                final contentItemCode = contentItem.code ?? '';
 
                 if (contentType == "text") {
                   return ParagraphWidget(contentItemText: contentItemText);
                 } else if (contentType == "code") {
                   final controller = CodeController(
-                    text: contentItemText, // Initial co
+                    text: contentItemCode, // Initial co
                     language: cpp,
                   );
                   return StaticCodeEditor(controller: controller);
                 } else if (contentType == "table") {
-                  List<dynamic> tableData = contentItem.table ?? [];
+                  var tableData = contentItem.table ?? [];
                   return LessonTable(tableData: tableData);
                 } else {
                   return const SizedBox();
@@ -69,13 +69,15 @@ class LessonTable extends StatelessWidget {
     required this.tableData,
   });
 
-  final List tableData;
+  final List<dynamic> tableData;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: JsonTableWidget(data: tableData),
+      child: JsonTableWidget(
+        tableData: tableData,
+      ),
     );
   }
 }

@@ -10,4 +10,16 @@ class Lesson {
     required this.description,
     required this.content,
   });
+
+  factory Lesson.fromJson(Map<String, dynamic> json) {
+    var contentList = json['content'] as List;
+    List<Content> content =
+        contentList.map((i) => Content.fromJson(i)).toList();
+
+    return Lesson(
+      title: json['title'],
+      description: json['description'],
+      content: content,
+    );
+  }
 }
