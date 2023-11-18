@@ -12,7 +12,10 @@ void main() async {
   runApp(const MyApp());
 }
 
-
-
-//TODO: COMPILER, ADD ERROR POP UP AND OUTPUT POP UP OR SCREEN?
-//TODO: QUIZZES STILL NEED DATA AND FIX THE QUIZ PAGE
+//TODO: store lesson completions in users collections (user id, lesson id, completed)
+//TODO: store quiz scores in users collections (user id, quiz id, score)
+//TODO: store assessment scores in users collections (user id, assessment id, score)
+//TODO:
+//TODO:
+//TODO:
+//TODO:
