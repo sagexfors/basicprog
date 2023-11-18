@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class LessonTile extends StatelessWidget {
   final int lessonNumber;
-
   final Lesson lesson;
 
   const LessonTile({
@@ -15,34 +14,80 @@ class LessonTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var title = lesson.title;
-    var description = lesson.description;
-    return Card(
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: Theme.of(context).primaryColor,
-          child: Text(
-            lessonNumber.toString(),
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+    var theme = Theme.of(context);
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 3,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(15),
+          onTap: () async {
+            await Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => LessonWidget(
+                  lessonNumber: lessonNumber,
+                  lesson: lesson,
+                ),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildLeading(theme),
+                const SizedBox(width: 16),
+                Expanded(child: _buildLessonInfo(theme)),
+              ],
             ),
           ),
         ),
-        title: Text(title),
-        subtitle: Text(description),
-        trailing: const Icon(Icons.arrow_forward),
-        onTap: () async {
-          await Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => LessonWidget(
-                lessonNumber: lessonNumber,
-                lesson: lesson,
-              ),
-            ),
-          );
-        },
       ),
+    );
+  }
+
+  Widget _buildLeading(ThemeData theme) {
+    return Container(
+      height: 60,
+      width: 60,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.primary,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: const Center(
+        child: Icon(
+          Icons.menu_book, // Education-related icon
+          size: 30,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLessonInfo(ThemeData theme) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          lesson.title,
+          style: theme.textTheme.titleLarge,
+          maxLines: 3,
+          overflow: TextOverflow.visible,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          lesson.description,
+          style: theme.textTheme.titleSmall,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
+        ),
+      ],
     );
   }
 }
