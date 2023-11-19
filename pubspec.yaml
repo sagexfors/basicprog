@@ -81,7 +81,6 @@ flutter:
     - assets/images/about_us_extra.png
     - assets/images/about_us.png
     - assets/default_avatar.png
-    - assets/lessons.json
     - assets/exercises.json
     - assets/questions.json
 

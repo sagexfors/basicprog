@@ -1,3 +1,4 @@
+import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreService {
@@ -19,6 +20,21 @@ class FirestoreService {
       }
     } catch (e) {
       // Handle any errors that occur during the update
+    }
+  }
+
+  // Method to retrieve all lessons
+  Future<List<Lesson>> getLessons() async {
+    try {
+      final lessonsCollection = _firestore.collection('lessons').orderBy('id');
+      final querySnapshot = await lessonsCollection.get();
+      print("firestore lessons get");
+      return querySnapshot.docs
+          .map((doc) => Lesson.fromJson(doc.data()))
+          .toList();
+    } catch (e) {
+      // Handle any errors that occur during fetching lessons
+      throw Exception("Error fetching lessons from Firestore: $e");
     }
   }
   // Add more Firestore operations as needed...
