@@ -1,4 +1,4 @@
-import 'package:basicprog/auth/firestore_service.dart';
+import 'package:basicprog/services/firestore_service.dart';
 import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

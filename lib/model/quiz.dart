@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:basicprog/model/question.dart';
 
 class Quiz {
@@ -18,6 +20,11 @@ class Quiz {
     final title = json['title'] as String;
     final description = json['description'] ?? '';
     final questionsData = json['questions'] as List<dynamic>;
+
+    // Shuffle the questionsData list
+    final random = Random();
+    questionsData.shuffle(random);
+
     final questions = questionsData.map((questionData) {
       final questionText = questionData['question'] as String;
       final optionsData = questionData['options'] as List<dynamic>;

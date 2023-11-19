@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:basicprog/auth/firebase_storage_service.dart';
-import 'package:basicprog/auth/firestore_service.dart';
+import 'package:basicprog/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
