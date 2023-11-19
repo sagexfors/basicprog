@@ -1,5 +1,6 @@
 import 'package:basicprog/fuzzy_logic.dart';
 import 'package:basicprog/model/quiz.dart';
+import 'package:basicprog/provider/progress_provider.dart';
 import 'package:basicprog/provider/quizzes_provider.dart';
 import 'package:basicprog/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -57,6 +58,8 @@ class _QuizPageState extends State<QuizPage> {
           result['score'].toDouble(),
         );
       }
+      final progressProvider = context.read<ProgressProvider>();
+      progressProvider.fetchQuizzesProgress();
       showDialog(
         context: context,
         builder: (BuildContext context) {

@@ -58,6 +58,44 @@ class ProgressProvider with ChangeNotifier {
     }
   }
 
+  Future<void> fetchQuizzesProgress() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        throw ("User is not logged in");
+      }
+      final userDoc = await FirestoreService().getUserDocument(user.uid);
+      Map<String, dynamic> userQuizzes = userDoc.data()?['quizzes'] ?? {};
+      int completedCount =
+          userQuizzes.values.where((quiz) => quiz['score'] == 100).length;
+      int totalQuizzes = 22;
+      final progress = completedCount / totalQuizzes;
+      updateQuizzesProgress(progress);
+    } catch (e) {
+      throw ("Error fetching quizzes progress: $e");
+    }
+  }
+
+  Future<void> fetcAssessmentsProgress() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        throw ("User is not logged in");
+      }
+      final userDoc = await FirestoreService().getUserDocument(user.uid);
+      Map<String, dynamic> userAssessments =
+          userDoc.data()?['assessments'] ?? {};
+      int completedCount = userAssessments.values
+          .where((assesment) => assesment['score'] == 100)
+          .length;
+      int totalQuizzes = 3;
+      final progress = completedCount / totalQuizzes;
+      updateAssessmentsProgress(progress);
+    } catch (e) {
+      throw ("Error fetching assesments progress: $e");
+    }
+  }
+
   void clear() {
     _lessonsProgress = 0.0;
     _quizzesProgress = 0.0;
