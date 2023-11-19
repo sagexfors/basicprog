@@ -12,17 +12,5 @@ void main() async {
   runApp(const MyApp());
 }
 
-//TODO: store assessment scores in users collections (user id, assessment id, score)
-//TODO: which means i have to fetch the quizzes and assessment again with the score and then build them again with the score if it exists.
-// in other words
-// 1. fetch the quizzes/assessment
-// 2. fetch the scores from users collection
-// 3. build the quizzes/assessment with the scores if they exist
-// structure for storing scores in users collection
-
-  // users
-  //   - user id
-
-  //     - assessments
-  //       - assessment id
-  //         - score
+//TODO: ADD VIDEO TUTORIALS
+//TODO: ADD PROGRESS BAR

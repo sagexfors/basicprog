@@ -9,3 +9,5 @@ const compilerRoute = '/compiler';
 const changePasswordRoute = '/change-password';
 const forgotPasswordRoute = '/forgot-password';
 const assessmentsRoute = '/assessments';
+const loginRoute = '/login';
+const registerRoute = '/register';

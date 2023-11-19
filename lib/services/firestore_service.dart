@@ -127,7 +127,7 @@ class FirestoreService {
       // Return the list of assessments
       return assessments;
     } catch (e) {
-      throw Exception("Error fetching quizzes from Firestore: $e");
+      throw Exception("Error fetching questions from Firestore: $e");
     }
   }
 

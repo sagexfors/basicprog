@@ -47,4 +47,9 @@ class QuizzesProvider with ChangeNotifier {
     _quizzesScore[quizId] = score;
     notifyListeners();
   }
+
+  void clear() {
+    _quizzesScore.clear();
+    notifyListeners();
+  }
 }

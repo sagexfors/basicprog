@@ -21,4 +21,9 @@ int main() {
     _code = code;
     notifyListeners();
   }
+
+  void clear() {
+    _code = '';
+    notifyListeners();
+  }
 }

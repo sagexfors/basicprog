@@ -1,9 +1,15 @@
 import 'package:basicprog/constants/routes.dart';
+import 'package:basicprog/provider/assessments_provider.dart';
+import 'package:basicprog/provider/compiler_provider.dart';
+import 'package:basicprog/provider/lessons_provider.dart';
+import 'package:basicprog/provider/quizzes_provider.dart';
+import 'package:basicprog/provider/user_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:provider/provider.dart';
 
 import '../Widgets/circle_thingy.dart';
 
@@ -226,8 +232,14 @@ class NavigationDrawer extends StatelessWidget {
           DrawerItemWidget(
             icon: Icons.logout,
             title: 'Logout',
-            onTap: () {
-              FirebaseAuth.instance.signOut();
+            onTap: () async {
+              await FirebaseAuth.instance.signOut();
+              if (!context.mounted) return;
+              Provider.of<UserProvider>(context, listen: false).clear();
+              Provider.of<AssessmentsProvider>(context, listen: false).clear();
+              Provider.of<QuizzesProvider>(context, listen: false).clear();
+              Provider.of<CompilerProvider>(context, listen: false).clear();
+              Provider.of<LessonsProvider>(context, listen: false).clear();
               SnackBar snackBar = const SnackBar(
                 content: Text('Logged out successfully!'),
                 duration: Duration(seconds: 2),

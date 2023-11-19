@@ -48,4 +48,9 @@ class AssessmentsProvider with ChangeNotifier {
     _assessmentsScore[assessmentId] = score;
     notifyListeners();
   }
+
+  void clear() {
+    _assessmentsScore.clear();
+    notifyListeners();
+  }
 }

@@ -99,4 +99,8 @@ class UserProvider extends ChangeNotifier {
       });
     }
   }
+
+  void clear() {
+    _image = null;
+  }
 }

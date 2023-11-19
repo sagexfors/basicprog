@@ -49,4 +49,9 @@ class LessonsProvider with ChangeNotifier {
     _completedLessons[lessonId] = isCompleted;
     notifyListeners();
   }
+
+  void clear() {
+    _completedLessons.clear();
+    notifyListeners();
+  }
 }
