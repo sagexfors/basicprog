@@ -1,7 +1,9 @@
 import 'package:basicprog/Widgets/table_widget.dart';
 import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:basicprog/provider/lessons_provider.dart';
+import 'package:basicprog/provider/progress_provider.dart';
 import 'package:basicprog/provider/user_provider.dart';
+import 'package:basicprog/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_highlight/themes/default.dart';
@@ -31,6 +33,7 @@ class _LessonWidgetState extends State<LessonWidget> {
     final lessonsProvider = context.watch<LessonsProvider>();
     final completed =
         lessonsProvider.completedLessons[widget.lesson.id.toString()] ?? false;
+    final progressProvider = context.read<ProgressProvider>();
 
     return Scaffold(
       appBar: AppBar(
@@ -52,6 +55,8 @@ class _LessonWidgetState extends State<LessonWidget> {
                   widget.lesson.id.toString(),
                   newValue,
                 );
+
+                progressProvider.fetchLessonsProgress();
               }
             },
             // Material 3 style

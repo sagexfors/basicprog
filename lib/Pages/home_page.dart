@@ -2,6 +2,7 @@ import 'package:basicprog/constants/routes.dart';
 import 'package:basicprog/provider/assessments_provider.dart';
 import 'package:basicprog/provider/compiler_provider.dart';
 import 'package:basicprog/provider/lessons_provider.dart';
+import 'package:basicprog/provider/progress_provider.dart';
 import 'package:basicprog/provider/quizzes_provider.dart';
 import 'package:basicprog/provider/user_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,11 +15,20 @@ import 'package:provider/provider.dart';
 import '../Widgets/circle_thingy.dart';
 
 ///
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
+    final progressProvider = context.watch<ProgressProvider>();
+    final lessonsProgress = progressProvider.lessonsProgress;
+    final quizzesProgress = progressProvider.quizzesProgress;
+    final assessmentsProgress = progressProvider.assessmentsProgress;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
@@ -65,8 +75,9 @@ class HomePage extends StatelessWidget {
                   LinearPercentIndicator(
                     width: 390,
                     lineHeight: 30.0,
-                    percent: 1,
-                    center: const Text('100.0%'),
+                    percent: lessonsProgress,
+                    center:
+                        Text("${(lessonsProgress * 100).toInt().toString()} %"),
                     backgroundColor: Colors.grey,
                     progressColor: Colors.blue,
                   ),
@@ -87,8 +98,9 @@ class HomePage extends StatelessWidget {
                   LinearPercentIndicator(
                     width: 390,
                     lineHeight: 30.0,
-                    percent: 0.3,
-                    center: const Text('30.0%'),
+                    percent: quizzesProgress,
+                    center:
+                        Text("${(quizzesProgress * 100).toInt().toString()} %"),
                     backgroundColor: Colors.grey,
                     progressColor: Colors.blue,
                   ),
@@ -109,8 +121,10 @@ class HomePage extends StatelessWidget {
                   LinearPercentIndicator(
                     width: 390,
                     lineHeight: 30.0,
-                    percent: 0.1,
-                    center: const Text('10.0%'),
+                    percent: assessmentsProgress,
+                    center: Text(
+                      "${(assessmentsProgress * 100).toInt().toString()} %",
+                    ),
                     backgroundColor: Colors.grey,
                     progressColor: Colors.blue,
                   ),

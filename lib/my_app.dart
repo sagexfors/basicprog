@@ -13,6 +13,7 @@ import 'package:basicprog/pages/quizzes/quizzes_page.dart';
 import 'package:basicprog/provider/assessments_provider.dart';
 import 'package:basicprog/provider/compiler_provider.dart';
 import 'package:basicprog/provider/lessons_provider.dart';
+import 'package:basicprog/provider/progress_provider.dart';
 import 'package:basicprog/provider/quizzes_provider.dart';
 import 'package:basicprog/provider/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => AssessmentsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProgressProvider(),
         ),
       ],
       child: MaterialApp(

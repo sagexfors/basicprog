@@ -14,6 +14,10 @@ class UserProvider extends ChangeNotifier {
 
   File? _image;
 
+  final double _progress = 0.0;
+
+  double get progress => _progress;
+
   Future<void> uploadImage() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
