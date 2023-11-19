@@ -12,7 +12,6 @@ class ProgressProvider with ChangeNotifier {
   double get assessmentsProgress => _assessmentsProgress;
 
   void initialize() async {
-    print("progress provider is running!");
     try {
       await fetchLessonsProgress();
       // await fetchQuizzesProgress('userId');

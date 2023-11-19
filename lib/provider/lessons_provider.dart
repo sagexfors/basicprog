@@ -11,7 +11,6 @@ class LessonsProvider with ChangeNotifier {
   Map<String, bool> get completedLessons => _completedLessons;
 
   void initialize() async {
-    print("lessons provider is running!");
     final currentUser = FirebaseAuth.instance.currentUser;
     if (currentUser != null) {
       // Fetch the current user's lessons from Firestore

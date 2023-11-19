@@ -11,7 +11,6 @@ class AssessmentsProvider with ChangeNotifier {
   Map<String, double> get assessmentsScore => _assessmentsScore;
 
   Future<void> initialize() async {
-    print("assessment provider is running!");
     final currentUser = FirebaseAuth.instance.currentUser;
 
     if (currentUser != null) {
