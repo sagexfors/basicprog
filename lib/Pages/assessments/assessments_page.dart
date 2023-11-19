@@ -10,7 +10,7 @@ class AssessmentsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final assessmentProvider = context.watch<AssessmentsProvider>();
     final quizzes = assessmentProvider.assessments;
-
+    final assessmentsScore = assessmentProvider.assessmentsScore;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Assessments'),
@@ -20,9 +20,11 @@ class AssessmentsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final quiz = quizzes[index];
           final quizNumber = index + 1;
+          final assessmentScore = assessmentsScore[quiz.id.toString()];
           return AssessmentCard(
             quiz: quiz,
             quizNumber: quizNumber,
+            score: assessmentScore,
           );
         },
       ),

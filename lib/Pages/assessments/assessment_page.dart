@@ -1,6 +1,10 @@
 import 'package:basicprog/fuzzy_logic.dart';
 import 'package:basicprog/model/quiz.dart';
+import 'package:basicprog/provider/assessments_provider.dart';
+import 'package:basicprog/services/firestore_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AssessmentPage extends StatefulWidget {
   final Quiz quiz;
@@ -37,8 +41,22 @@ class _AssessmentPageState extends State<AssessmentPage> {
       });
     } else {
       // Quiz is completed, show the result
-      // TODO: store assessment scores in users collections (user id, assessment id, score)
+
       Map<String, dynamic> result = quizPassFailAlgorithm(userResponses);
+      final assessmentsProvider = context.read<AssessmentsProvider>();
+      assessmentsProvider.updateAssessmentScore(
+        quiz.id.toString(),
+        result['score'].toDouble(),
+      );
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final userId = user.uid;
+        FirestoreService().updateUserAssessmentScore(
+          userId,
+          quiz.id.toString(),
+          result['score'].toDouble(),
+        );
+      }
       showDialog(
         context: context,
         builder: (BuildContext context) {

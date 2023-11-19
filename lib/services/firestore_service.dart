@@ -158,4 +158,19 @@ class FirestoreService {
       SetOptions(merge: true),
     );
   }
+
+  Future<void> updateUserAssessmentScore(
+    String userId,
+    String assessmentId,
+    double score,
+  ) async {
+    await _firestore.collection('users').doc(userId).set(
+      {
+        'assessments': {
+          assessmentId: {'score': score},
+        },
+      },
+      SetOptions(merge: true),
+    );
+  }
 }
