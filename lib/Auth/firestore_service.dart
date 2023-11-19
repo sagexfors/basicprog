@@ -1,4 +1,5 @@
 import 'package:basicprog/model/lesson/lesson.dart';
+import 'package:basicprog/model/quiz.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -35,7 +36,6 @@ class FirestoreService {
       // Retrieve the user's completed lessons
       final userDoc = await getUserDocument(user.uid);
       Map<String, dynamic> userLessons = userDoc.data()?['lessons'] ?? {};
-      print(userLessons);
 
       // Retrieve all lessons from Firestore
       final lessonsCollection = _firestore.collection('lessons').orderBy('id');
@@ -55,20 +55,34 @@ class FirestoreService {
     }
   }
 
-  // Method to get a user document
-  // Method to get a user document
+  Future<List<Quiz>> getQuizzes() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        throw Exception("User not logged in");
+      }
+      final quizzesCollection = _firestore.collection('quizzes').orderBy('id');
+      final querySnapshot = await quizzesCollection.get();
+
+      return querySnapshot.docs.map((doc) {
+        var quizData = doc.data();
+        return Quiz.fromJson(quizData);
+      }).toList();
+    } catch (e) {
+      throw Exception("Error fetching quizzes from Firestore: $e");
+    }
+  }
+
   Future<DocumentSnapshot<Map<String, dynamic>>> getUserDocument(
     String userId,
   ) async {
     return await _firestore.collection('users').doc(userId).get();
   }
 
-  // Method to update a user document
   Future<void> updateUserDocument(
     String userId,
     Map<String, dynamic> updates,
   ) async {
     await _firestore.collection('users').doc(userId).update(updates);
   }
-  // Add more Firestore operations as needed...
 }

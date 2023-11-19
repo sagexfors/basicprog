@@ -1,14 +1,16 @@
 import 'package:basicprog/Pages/quiz_page.dart';
+import 'package:basicprog/provider/quizzes_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../model/quiz.dart';
 
 class QuizzesPage extends StatelessWidget {
-  final List<Quiz> quizzes;
-
-  const QuizzesPage({Key? key, required this.quizzes}) : super(key: key);
+  const QuizzesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final quizzesProvider = context.watch<QuizzesProvider>();
+    final quizzes = quizzesProvider.quizzes;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quizzes'),

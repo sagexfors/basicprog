@@ -58,6 +58,7 @@ class AssessmentsProvider with ChangeNotifier {
         title: 'Assessment $assessmentIndex',
         description: 'This is a 20-question assessment.',
         questions: assessmentQuestions,
+        id: assessmentIndex,
       );
 
       assessments.add(assessment);
