@@ -90,7 +90,7 @@ class AssessmentCard extends StatelessWidget {
               Icon(Icons.score, color: theme.colorScheme.secondary),
               const SizedBox(width: 4),
               Text(
-                'Score: $score',
+                'Score: ${score.toInt().toString()} %',
                 style: TextStyle(color: theme.colorScheme.secondary),
               ),
             ],

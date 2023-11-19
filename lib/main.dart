@@ -13,4 +13,3 @@ void main() async {
 }
 
 //TODO: ADD VIDEO TUTORIALS
-//TODO: ADD PROGRESS BAR
