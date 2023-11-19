@@ -12,10 +12,5 @@ void main() async {
   runApp(const MyApp());
 }
 
-//TODO: store lesson completions in users collections (user id, lesson id, completed)
 //TODO: store quiz scores in users collections (user id, quiz id, score)
 //TODO: store assessment scores in users collections (user id, assessment id, score)
-//TODO:
-//TODO:
-//TODO:
-//TODO:

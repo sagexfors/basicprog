@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import '../fuzzy_logic.dart';
 import '../model/quiz.dart';
 
-class QuizPage extends StatefulWidget {
+class AssessmentPage extends StatefulWidget {
   final Quiz quiz;
 
-  const QuizPage({Key? key, required this.quiz}) : super(key: key);
+  const AssessmentPage({Key? key, required this.quiz}) : super(key: key);
 
   @override
-  State<QuizPage> createState() => _QuizPageState();
+  State<AssessmentPage> createState() => _AssessmentPageState();
 }
 
-class _QuizPageState extends State<QuizPage> {
+class _AssessmentPageState extends State<AssessmentPage> {
   int currentQuestionIndex = 0;
   int score = 0;
   List<Map<String, dynamic>> userResponses = [];
@@ -37,13 +37,13 @@ class _QuizPageState extends State<QuizPage> {
       });
     } else {
       // Quiz is completed, show the result
-      // TODO: store quiz scores in users collections (user id, quiz id, score)
+      // TODO: store assessment scores in users collections (user id, assessment id, score)
       Map<String, dynamic> result = quizPassFailAlgorithm(userResponses);
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text("Quiz Completed"),
+            title: const Text("Assessment Completed"),
             content: Text(
               "Your score: ${result['score']}\nResult: ${result['result']}",
             ),
