@@ -10,8 +10,8 @@ class AssessmentsProvider with ChangeNotifier {
   }
 
   void initialize() {
-    FirestoreService().getQuizzes().then((quizzes) {
-      assessments = assessments;
+    FirestoreService().getQuestions().then((assessments) {
+      this.assessments = assessments;
       notifyListeners();
     });
   }
