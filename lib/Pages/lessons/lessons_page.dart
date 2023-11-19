@@ -3,8 +3,19 @@ import 'package:provider/provider.dart';
 import 'package:basicprog/provider/lessons_provider.dart'; // Import your LessonsProvider
 import 'package:basicprog/pages/lessons/lesson_tile.dart';
 
-class LessonsPage extends StatelessWidget {
+class LessonsPage extends StatefulWidget {
   const LessonsPage({super.key});
+
+  @override
+  State<LessonsPage> createState() => _LessonsPageState();
+}
+
+class _LessonsPageState extends State<LessonsPage> {
+  @override
+  void initState() {
+    context.read<LessonsProvider>().initialize(); // Initialize the provider
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

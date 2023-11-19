@@ -4,17 +4,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LessonsProvider with ChangeNotifier {
-  List<Lesson> lessons;
+  List<Lesson> lessons = [];
 
   final Map<String, bool> _completedLessons = {};
 
   Map<String, bool> get completedLessons => _completedLessons;
 
-  LessonsProvider() : lessons = [] {
-    initialize();
-  }
-
   void initialize() async {
+    print("lessons provider is running!");
     final currentUser = FirebaseAuth.instance.currentUser;
     if (currentUser != null) {
       // Fetch the current user's lessons from Firestore

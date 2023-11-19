@@ -4,17 +4,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AssessmentsProvider with ChangeNotifier {
-  List<Quiz> assessments;
+  List<Quiz> assessments = [];
 
   final Map<String, double> _assessmentsScore = {};
 
   Map<String, double> get assessmentsScore => _assessmentsScore;
 
-  AssessmentsProvider() : assessments = [] {
-    initialize();
-  }
-
   Future<void> initialize() async {
+    print("assessment provider is running!");
     final currentUser = FirebaseAuth.instance.currentUser;
 
     if (currentUser != null) {

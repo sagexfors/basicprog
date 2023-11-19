@@ -3,8 +3,19 @@ import 'package:basicprog/provider/assessments_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class AssessmentsPage extends StatelessWidget {
+class AssessmentsPage extends StatefulWidget {
   const AssessmentsPage({super.key});
+
+  @override
+  State<AssessmentsPage> createState() => _AssessmentsPageState();
+}
+
+class _AssessmentsPageState extends State<AssessmentsPage> {
+  @override
+  void initState() {
+    context.read<AssessmentsProvider>().initialize();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

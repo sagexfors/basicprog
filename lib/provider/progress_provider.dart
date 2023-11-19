@@ -11,11 +11,8 @@ class ProgressProvider with ChangeNotifier {
   double get quizzesProgress => _quizzesProgress;
   double get assessmentsProgress => _assessmentsProgress;
 
-  ProgressProvider() {
-    initialize();
-  }
-
   void initialize() async {
+    print("progress provider is running!");
     try {
       await fetchLessonsProgress();
       // await fetchQuizzesProgress('userId');
@@ -60,5 +57,12 @@ class ProgressProvider with ChangeNotifier {
     } catch (e) {
       throw ("Error fetching lessons progress: $e");
     }
+  }
+
+  void clear() {
+    _lessonsProgress = 0.0;
+    _quizzesProgress = 0.0;
+    _assessmentsProgress = 0.0;
+    notifyListeners();
   }
 }

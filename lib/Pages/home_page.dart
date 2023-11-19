@@ -24,6 +24,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  void initState() {
+    context.read<ProgressProvider>().initialize();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final progressProvider = context.watch<ProgressProvider>();
     final lessonsProgress = progressProvider.lessonsProgress;
@@ -247,13 +253,14 @@ class NavigationDrawer extends StatelessWidget {
             icon: Icons.logout,
             title: 'Logout',
             onTap: () async {
-              await FirebaseAuth.instance.signOut();
               if (!context.mounted) return;
               Provider.of<UserProvider>(context, listen: false).clear();
               Provider.of<AssessmentsProvider>(context, listen: false).clear();
               Provider.of<QuizzesProvider>(context, listen: false).clear();
               Provider.of<CompilerProvider>(context, listen: false).clear();
               Provider.of<LessonsProvider>(context, listen: false).clear();
+              Provider.of<ProgressProvider>(context, listen: false).clear();
+              await FirebaseAuth.instance.signOut();
               SnackBar snackBar = const SnackBar(
                 content: Text('Logged out successfully!'),
                 duration: Duration(seconds: 2),
