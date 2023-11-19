@@ -1,30 +1,68 @@
 import 'package:basicprog/Widgets/table_widget.dart';
 import 'package:basicprog/model/lesson/lesson.dart';
+import 'package:basicprog/provider/lessons_provider.dart';
+import 'package:basicprog/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_highlight/themes/default.dart';
 import 'package:highlight/languages/cpp.dart';
+import 'package:provider/provider.dart';
 
-class LessonWidget extends StatelessWidget {
+class LessonWidget extends StatefulWidget {
   final int lessonNumber;
   final Lesson lesson;
+  final bool completed;
 
   const LessonWidget({
     super.key,
     required this.lessonNumber,
     required this.lesson,
+    required this.completed,
   });
 
   @override
+  State<LessonWidget> createState() => _LessonWidgetState();
+}
+
+class _LessonWidgetState extends State<LessonWidget> {
+  @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final title = lesson.title;
+    final title = widget.lesson.title;
+    final lessonsProvider = context.watch<LessonsProvider>();
+    final completed =
+        lessonsProvider.completedLessons[widget.lesson.id.toString()] ?? false;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: theme.appBarTheme.backgroundColor,
-        foregroundColor: theme.appBarTheme.foregroundColor,
+        actions: [
+          Checkbox(
+            value: completed,
+            onChanged: (bool? newValue) async {
+              if (newValue != null) {
+                lessonsProvider.toggleLessonCompletion(
+                  widget.lesson.id.toString(),
+                  newValue,
+                );
+
+                // Update the lesson's read status in Firestore
+                final userProvider =
+                    Provider.of<UserProvider>(context, listen: false);
+                await userProvider.markLessonReadOrUnread(
+                  widget.lesson.id.toString(),
+                  newValue,
+                );
+              }
+            },
+            // Material 3 style
+            fillColor: MaterialStateProperty.resolveWith(
+              (states) => states.contains(MaterialState.selected)
+                  ? Theme.of(context).colorScheme.secondary
+                  : null,
+            ),
+            checkColor: Theme.of(context).colorScheme.onSecondary,
+          ),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -35,7 +73,7 @@ class LessonWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  for (var contentItem in lesson.content) ...[
+                  for (var contentItem in widget.lesson.content) ...[
                     _buildContentItem(contentItem, context),
                     const SizedBox(height: 16),
                   ],

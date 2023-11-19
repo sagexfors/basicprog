@@ -52,13 +52,7 @@ class MyApp extends StatelessWidget {
           aboutUsRoute: (context) => const AboutUsPage(),
           mainRoute: (context) => const MainPage(),
           profileRoute: (context) => const ProfilePage(),
-          lessonsRoute: (context) => Consumer<LessonsProvider>(
-                builder: (context, value, child) {
-                  return LessonsPage(
-                    lessons: value.lessons,
-                  );
-                },
-              ),
+          lessonsRoute: (context) => const LessonsPage(),
           quizzesRoute: (context) => Consumer<QuizzesProvider>(
                 builder: (context, value, child) {
                   return QuizzesPage(

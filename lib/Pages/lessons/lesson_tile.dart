@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class LessonTile extends StatelessWidget {
   final int lessonNumber;
   final Lesson lesson;
+  final bool completed;
 
   const LessonTile({
     super.key,
     required this.lessonNumber,
     required this.lesson,
+    required this.completed, // Add the completed parameter
   });
 
   @override
@@ -31,6 +33,7 @@ class LessonTile extends StatelessWidget {
                 builder: (context) => LessonWidget(
                   lessonNumber: lessonNumber,
                   lesson: lesson,
+                  completed: completed, // Pass the completed parameter
                 ),
               ),
             );
@@ -43,6 +46,7 @@ class LessonTile extends StatelessWidget {
                 _buildLeading(theme),
                 const SizedBox(width: 16),
                 Expanded(child: _buildLessonInfo(theme)),
+                _buildCompletionIndicator(theme), // Add completion indicator
               ],
             ),
           ),
@@ -88,6 +92,15 @@ class LessonTile extends StatelessWidget {
           maxLines: 2,
         ),
       ],
+    );
+  }
+
+  Widget _buildCompletionIndicator(ThemeData theme) {
+    return Icon(
+      completed ? Icons.check_circle : Icons.radio_button_unchecked,
+      color:
+          completed ? theme.colorScheme.primary : theme.colorScheme.onSurface,
+      size: 24,
     );
   }
 }

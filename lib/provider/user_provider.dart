@@ -1,14 +1,11 @@
 import 'dart:io';
 
+import 'package:basicprog/auth/firebase_storage_service.dart';
+import 'package:basicprog/auth/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../Auth/firebase_storage_service.dart';
-import '../Auth/firestore_service.dart';
-
-// TODO: ADD NOTIFICATION IF SUCCESFUL UPDATE/ERROR, CATCH ERROR THINGS PLEASE CHECK IT
 
 class UserProvider extends ChangeNotifier {
   final FirebaseStorageService _firebaseStorageService =
@@ -74,6 +71,32 @@ class UserProvider extends ChangeNotifier {
       await _firestoreService.updateUserName(user.uid, name);
 
       // Show a success message or perform any other actions after successful update
+    }
+  }
+
+  String? getCurrentUserId() {
+    final user = FirebaseAuth.instance.currentUser;
+    return user
+        ?.uid; // This will return the user's UID or null if no user is logged in
+  }
+
+  Future<void> markLessonReadOrUnread(String lessonId, bool isRead) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final userId = user.uid;
+
+      // Retrieve the user document
+      final userDoc = await _firestoreService.getUserDocument(userId);
+      Map<String, dynamic> userData = userDoc.data() ?? {};
+
+      // Update or create the lessons field
+      Map<String, dynamic> lessons = userData['lessons'] ?? {};
+      lessons[lessonId] = {'completed': isRead};
+
+      // Update the user document
+      await _firestoreService.updateUserDocument(userId, {
+        'lessons': lessons,
+      });
     }
   }
 }
