@@ -7,15 +7,17 @@ class Quiz {
   String title;
   String description;
   List<Question> questions;
+  final double? score;
 
   Quiz({
     required this.id,
     required this.title,
     required this.description,
     required this.questions,
+    required this.score,
   });
 
-  factory Quiz.fromJson(Map<String, dynamic> json) {
+  factory Quiz.fromJson(Map<String, dynamic> json, {double? score}) {
     final id = json['id'] as int;
     final title = json['title'] as String;
     final description = json['description'] ?? '';
@@ -44,6 +46,7 @@ class Quiz {
       title: title,
       description: description,
       questions: questions,
+      score: score,
     );
   }
 }

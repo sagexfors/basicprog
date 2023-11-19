@@ -26,7 +26,6 @@ class FirestoreService {
     }
   }
 
-  // Method to retrieve all lessons
   Future<List<Lesson>> getLessons() async {
     try {
       final user = FirebaseAuth.instance.currentUser;
@@ -46,7 +45,8 @@ class FirestoreService {
       return querySnapshot.docs.map((doc) {
         var lessonData = doc.data();
         String lessonId = doc.id;
-        bool isCompleted = userLessons[lessonId]?['completed'] ?? false;
+        bool isCompleted = userLessons[lessonId]?['completed'] ??
+            false; ////////////////////////////
 
         // Assuming your Lesson model can take a 'completed' parameter
         return Lesson.fromJson(lessonData, completed: isCompleted);
@@ -62,13 +62,20 @@ class FirestoreService {
       if (user == null) {
         throw Exception("User not logged in");
       }
+
+      // Retrieve the user's quizzes scores
+      final userDoc = await getUserDocument(user.uid);
+      Map<String, dynamic> userQuizzesScores = userDoc.data()?['quizzes'] ?? {};
+
       final questionsCollection =
           _firestore.collection('quizzes').orderBy('id');
       final querySnapshot = await questionsCollection.get();
 
       return querySnapshot.docs.map((doc) {
         var quizData = doc.data();
-        return Quiz.fromJson(quizData);
+        String quizId = doc.id;
+        double? score = userQuizzesScores[quizId]?['score'];
+        return Quiz.fromJson(quizData, score: score);
       }).toList();
     } catch (e) {
       throw Exception("Error fetching quizzes from Firestore: $e");
@@ -111,6 +118,7 @@ class FirestoreService {
           description: 'This is a 20-question assessment.',
           questions: assessmentQuestions,
           id: assessmentIndex, // Or assign a unique ID based on your requirements
+          score: null,
         );
 
         assessments.add(assessment);
@@ -134,5 +142,20 @@ class FirestoreService {
     Map<String, dynamic> updates,
   ) async {
     await _firestore.collection('users').doc(userId).update(updates);
+  }
+
+  Future<void> updateUserQuizScore(
+    String userId,
+    String quizId,
+    double score,
+  ) async {
+    await _firestore.collection('users').doc(userId).set(
+      {
+        'quizzes': {
+          quizId: {'score': score},
+        },
+      },
+      SetOptions(merge: true),
+    );
   }
 }

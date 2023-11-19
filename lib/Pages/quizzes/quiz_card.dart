@@ -5,8 +5,14 @@ import 'package:flutter/material.dart';
 class QuizCard extends StatelessWidget {
   final int quizNumber;
   final Quiz quiz;
+  final double? score;
 
-  const QuizCard({super.key, required this.quizNumber, required this.quiz});
+  const QuizCard({
+    super.key,
+    required this.quizNumber,
+    required this.quiz,
+    required this.score,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +65,7 @@ class QuizCard extends StatelessWidget {
           quiz.title,
           style: theme.textTheme.titleLarge,
           overflow: TextOverflow.visible,
-          softWrap: true, // Allows long titles to wrap
+          softWrap: true,
         ),
         const SizedBox(height: 4),
         quiz.description == ''
@@ -70,7 +76,28 @@ class QuizCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
+        // Score Display
+        const SizedBox(height: 8),
+        _buildScoreIndicator(theme, score),
       ],
     );
+  }
+
+  Widget _buildScoreIndicator(ThemeData theme, double? score) {
+    return score != null
+        ? Row(
+            children: [
+              Icon(Icons.score, color: theme.colorScheme.secondary),
+              const SizedBox(width: 4),
+              Text(
+                'Score: $score',
+                style: TextStyle(color: theme.colorScheme.secondary),
+              ),
+            ],
+          )
+        : Text(
+            'No score',
+            style: TextStyle(color: theme.colorScheme.onSurface.withAlpha(150)),
+          );
   }
 }
