@@ -41,7 +41,7 @@ class _QuizPageState extends State<QuizPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text("Quiz Completed"),
+            title: const Text("Completed"),
             content: Text(
               "Your score: ${result['score']}\nResult: ${result['result']}",
             ),

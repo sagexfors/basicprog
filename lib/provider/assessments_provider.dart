@@ -47,6 +47,7 @@ class AssessmentsProvider with ChangeNotifier {
         final correctAnswerIndex = questionData['answer'] as int;
 
         return Question(
+          id: questionData['id'] ?? 0,
           question: questionText,
           choices: options,
           correctAnswerIndex: correctAnswerIndex,
