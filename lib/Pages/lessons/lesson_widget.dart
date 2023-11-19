@@ -3,7 +3,6 @@ import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:basicprog/provider/lessons_provider.dart';
 import 'package:basicprog/provider/progress_provider.dart';
 import 'package:basicprog/provider/user_provider.dart';
-import 'package:basicprog/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_highlight/themes/default.dart';
