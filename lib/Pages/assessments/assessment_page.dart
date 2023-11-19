@@ -1,6 +1,6 @@
+import 'package:basicprog/fuzzy_logic.dart';
+import 'package:basicprog/model/quiz.dart';
 import 'package:flutter/material.dart';
-import '../fuzzy_logic.dart';
-import '../model/quiz.dart';
 
 class AssessmentPage extends StatefulWidget {
   final Quiz quiz;

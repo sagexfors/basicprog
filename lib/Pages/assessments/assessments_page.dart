@@ -1,19 +1,20 @@
-import 'package:basicprog/Pages/quiz_page.dart';
-import 'package:basicprog/provider/quizzes_provider.dart';
+import 'package:basicprog/model/quiz.dart';
+import 'package:basicprog/pages/assessments/assessment_page.dart';
+import 'package:basicprog/provider/assessments_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../model/quiz.dart';
 
-class QuizzesPage extends StatelessWidget {
-  const QuizzesPage({super.key});
+class AssessmentsPage extends StatelessWidget {
+  const AssessmentsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final quizzesProvider = context.watch<QuizzesProvider>();
-    final quizzes = quizzesProvider.quizzes;
+    final assessmentProvider = context.watch<AssessmentsProvider>();
+    final quizzes = assessmentProvider.assessments;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quizzes'),
+        title: const Text('Assessments'),
       ),
       body: ListView.builder(
         itemCount: quizzes.length,
@@ -56,7 +57,7 @@ class QuizCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => QuizPage(quiz: quiz),
+              builder: (context) => AssessmentPage(quiz: quiz),
             ),
           );
         },
