@@ -1,4 +1,4 @@
-import 'package:basicprog/pages/assessments/assessments_page.dart';
+import 'package:basicprog/pages/quizzes/quiz_card.dart';
 import 'package:basicprog/provider/quizzes_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +19,7 @@ class QuizzesPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final quiz = quizzes[index];
           final quizNumber = index + 1;
+
           return QuizCard(
             quiz: quiz,
             quizNumber: quizNumber,
