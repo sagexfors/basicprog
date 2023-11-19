@@ -41,14 +41,12 @@ class LessonsProvider with ChangeNotifier {
     // Fetch all lessons
     FirestoreService().getLessons().then((lessons) {
       this.lessons = lessons;
-      notifyListeners(); // Notify any listeners that the lessons have been updated.
+      notifyListeners();
     });
   }
 
   void toggleLessonCompletion(String lessonId, bool isCompleted) {
     _completedLessons[lessonId] = isCompleted;
-    notifyListeners(); // Notify UI components of the change
+    notifyListeners();
   }
-
-  // ... other methods ...
 }
