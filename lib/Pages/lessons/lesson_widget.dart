@@ -37,36 +37,6 @@ class _LessonWidgetState extends State<LessonWidget> {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        actions: [
-          Checkbox(
-            value: completed,
-            onChanged: (bool? newValue) async {
-              if (newValue != null) {
-                lessonsProvider.toggleLessonCompletion(
-                  widget.lesson.id.toString(),
-                  newValue,
-                );
-
-                // Update the lesson's read status in Firestore
-                final userProvider =
-                    Provider.of<UserProvider>(context, listen: false);
-                await userProvider.markLessonReadOrUnread(
-                  widget.lesson.id.toString(),
-                  newValue,
-                );
-
-                progressProvider.fetchLessonsProgress();
-              }
-            },
-            // Material 3 style
-            fillColor: MaterialStateProperty.resolveWith(
-              (states) => states.contains(MaterialState.selected)
-                  ? Theme.of(context).colorScheme.secondary
-                  : null,
-            ),
-            checkColor: Theme.of(context).colorScheme.onSecondary,
-          ),
-        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -81,6 +51,42 @@ class _LessonWidgetState extends State<LessonWidget> {
                     _buildContentItem(contentItem, context),
                     const SizedBox(height: 16),
                   ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      const Text('Mark as completed'),
+                      Checkbox(
+                        value: completed,
+                        onChanged: (bool? newValue) async {
+                          if (newValue != null) {
+                            lessonsProvider.toggleLessonCompletion(
+                              widget.lesson.id.toString(),
+                              newValue,
+                            );
+
+                            // Update the lesson's read status in Firestore
+                            final userProvider = Provider.of<UserProvider>(
+                              context,
+                              listen: false,
+                            );
+                            await userProvider.markLessonReadOrUnread(
+                              widget.lesson.id.toString(),
+                              newValue,
+                            );
+
+                            progressProvider.fetchLessonsProgress();
+                          }
+                        },
+                        // Material 3 style
+                        fillColor: MaterialStateProperty.resolveWith(
+                          (states) => states.contains(MaterialState.selected)
+                              ? Theme.of(context).colorScheme.secondary
+                              : null,
+                        ),
+                        checkColor: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
