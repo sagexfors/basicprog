@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:basicprog/provider/compiler_provider.dart';
 import 'package:basicprog/services/codexapi.dart';
 import 'package:flutter/material.dart';
@@ -53,23 +55,43 @@ class _CompilerPageState extends State<CompilerPage>
       isLoading = true; // Set loading state to true
     });
 
-    var response = await CodexApiService.compileCode(
-      controller.text,
-      _inputController.text,
-    );
+    try {
+      var response = await CodexApiService.compileCode(
+        controller.text,
+        _inputController.text,
+      ).timeout(const Duration(seconds: 20)); // Set a 30-second timeout
 
-    setState(() {
-      isLoading = false; // Set loading state to false
-      output = response['output'];
-      error = response['error'];
+      setState(() {
+        isLoading = false; // Set loading state to false
+        output = response['output'];
+        error = response['error'];
 
-      if (output.isEmpty) {
-        output = error;
-        RegExp regex = RegExp(r"/app/codes/[0-9a-fA-F-]+.c:");
-        output = output.replaceAll(regex, "");
-      }
-      _tabController.animateTo(2); // Switch to the output tab
-    });
+        if (output.isEmpty) {
+          output = error;
+          RegExp regex = RegExp(r"/app/codes/[0-9a-fA-F-]+.c:");
+          output = output.replaceAll(regex, "");
+        }
+        _tabController.animateTo(2); // Switch to the output tab
+      });
+    } on TimeoutException catch (_) {
+      setState(() {
+        isLoading = false; // Set loading state to false
+        // output = '';
+        output =
+            'The operation timed out. Please try again.'; // Set the error message
+        _tabController.animateTo(2); // Switch to the output tab
+      });
+    } catch (e) {
+      // Handle other exceptions, including API connection failure
+      setState(() {
+        isLoading = false;
+        output = '';
+        error = e.toString().contains('Failed to connect to the API')
+            ? 'Failed to connect to the API. Please check your internet connection and try again.'
+            : e.toString();
+        _tabController.animateTo(2);
+      });
+    }
   }
 
   @override
