@@ -3,8 +3,6 @@ import 'package:basicprog/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// TODO: ADD NOTIFICATION IF SUCCESFUL UPDATE/ERROR
-
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 

@@ -12,8 +12,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-//TODO: ADD VIDEO TUTORIALS
-//TODO:  get started shared preference
-//todo: add sidebar for video tutorials.
+//TODO: fix the youtube player fullscreen
 // COMPILER, THERE SHOULD BE A CANCEL BUTTON
 // ALSO IF RESPONSE 400, IF TAKES TOO LONG, CANCEL

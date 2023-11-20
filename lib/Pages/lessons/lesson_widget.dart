@@ -1,4 +1,5 @@
 import 'package:basicprog/Widgets/table_widget.dart';
+import 'package:basicprog/Widgets/youtube_player_widget.dart';
 import 'package:basicprog/model/lesson/lesson.dart';
 import 'package:basicprog/provider/lessons_provider.dart';
 import 'package:basicprog/provider/progress_provider.dart';
@@ -33,6 +34,7 @@ class _LessonWidgetState extends State<LessonWidget> {
     final completed =
         lessonsProvider.completedLessons[widget.lesson.id.toString()] ?? false;
     final progressProvider = context.read<ProgressProvider>();
+    final videoId = widget.lesson.videoId;
 
     return Scaffold(
       appBar: AppBar(
@@ -51,6 +53,13 @@ class _LessonWidgetState extends State<LessonWidget> {
                     _buildContentItem(contentItem, context),
                     const SizedBox(height: 16),
                   ],
+                  if (videoId != null)
+                    SizedBox(
+                      height: 300,
+                      child: Center(
+                        child: YoutubePlayerWidget(videoId: videoId),
+                      ),
+                    ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [

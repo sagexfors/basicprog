@@ -5,6 +5,7 @@ class Lesson {
   final String title;
   final String description;
   final List<Content> content;
+  final String? videoId;
   bool completed;
 
   Lesson({
@@ -13,6 +14,7 @@ class Lesson {
     required this.description,
     required this.content,
     required this.completed,
+    this.videoId,
   });
 
   factory Lesson.fromJson(Map<String, dynamic> json, {bool completed = false}) {
@@ -26,6 +28,7 @@ class Lesson {
       description: json['description'],
       content: content,
       completed: completed,
+      videoId: json['videoId'],
     );
   }
 
