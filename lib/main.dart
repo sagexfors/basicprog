@@ -14,6 +14,6 @@ void main() async {
 
 //TODO: ADD VIDEO TUTORIALS
 //TODO:  get started shared preference
-//TODO: fix compiler linting shit
-//TODO; put checkbox at the bottom of lessons
 //todo: add sidebar for video tutorials.
+// COMPILER, THERE SHOULD BE A CANCEL BUTTON
+// ALSO IF RESPONSE 400, IF TAKES TOO LONG, CANCEL
