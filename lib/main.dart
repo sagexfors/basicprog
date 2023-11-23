@@ -13,5 +13,3 @@ void main() async {
 }
 
 //TODO: fix the youtube player fullscreen
-// COMPILER, THERE SHOULD BE A CANCEL BUTTON
-// ALSO IF RESPONSE 400, IF TAKES TOO LONG, CANCEL
