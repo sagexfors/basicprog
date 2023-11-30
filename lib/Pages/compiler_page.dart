@@ -59,7 +59,7 @@ class _CompilerPageState extends State<CompilerPage>
       var response = await CodexApiService.compileCode(
         controller.text,
         _inputController.text,
-      ).timeout(const Duration(seconds: 20)); // Set a 30-second timeout
+      ).timeout(const Duration(seconds: 60)); // Set a 30-second timeout
 
       setState(() {
         isLoading = false; // Set loading state to false

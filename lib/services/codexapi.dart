@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class CodexApiService {
-  static const String apiUrl = 'https://api.codex.jaagrav.in';
+  // static const String apiUrl = 'https://api.codex.jaagrav.in';
+  static const String apiUrl = 'https://codex-api.fly.dev';
 
   static Future<Map<String, dynamic>> compileCode(
     String code,
@@ -24,6 +25,7 @@ class CodexApiService {
           'error': jsonResponse['error'] ?? '',
         };
       } else {
+        print(response.body);
         throw Exception('Request failed with status: ${response.statusCode}');
       }
     } catch (e) {

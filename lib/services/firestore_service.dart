@@ -97,15 +97,26 @@ class FirestoreService {
       List<dynamic> questionsData =
           querySnapshot.docs.map((doc) => doc.data()).toList();
 
+      // Shuffle the questions once
+      questionsData.shuffle();
+
+      // Take the first 100 questions (or all questions if there are fewer than 100)
+      List<dynamic> selectedQuestionsData = questionsData.take(100).toList();
+
       final List<Quiz> assessments = [];
 
-      // Loop to create 3 assessments
-      for (int assessmentIndex = 1; assessmentIndex <= 3; assessmentIndex++) {
-        // Shuffle the questions randomly for this assessment
-        questionsData.shuffle();
+      // Loop to create 5 assessments
+      for (int assessmentIndex = 1; assessmentIndex <= 5; assessmentIndex++) {
+        // Calculate start and end index for slicing the questions for each assessment
+        int startIndex = (assessmentIndex - 1) * 20;
+        int endIndex = startIndex + 20;
 
-        // Take the first 20 questions for the assessment
-        final assessmentQuestionsData = questionsData.take(20).toList();
+        // Take 20 questions for the assessment, handling cases where there are fewer than 100 questions
+        final assessmentQuestionsData = selectedQuestionsData.sublist(
+            startIndex,
+            endIndex > selectedQuestionsData.length
+                ? selectedQuestionsData.length
+                : endIndex);
 
         final assessmentQuestions = assessmentQuestionsData.map((questionData) {
           // Assuming Question has a fromJson method
