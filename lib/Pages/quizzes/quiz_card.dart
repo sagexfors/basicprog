@@ -90,7 +90,8 @@ class QuizCard extends StatelessWidget {
               Icon(Icons.score, color: theme.colorScheme.secondary),
               const SizedBox(width: 4),
               Text(
-                'Score: ${score.toInt().toString()} %',
+                // Multiply by 100 and convert to integer for percentage display
+                'Score: ${(score).toInt()}%',
                 style: TextStyle(color: theme.colorScheme.secondary),
               ),
             ],

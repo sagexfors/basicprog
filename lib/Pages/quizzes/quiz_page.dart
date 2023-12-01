@@ -60,13 +60,15 @@ class _QuizPageState extends State<QuizPage> {
       }
       final progressProvider = context.read<ProgressProvider>();
       progressProvider.fetchQuizzesProgress();
+      final score = result['score'].toDouble();
+      final resultPassFail = result['result'];
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text("Quiz Completed"),
             content: Text(
-              "Your score: ${result['score']}\nResult: ${result['result']}",
+              "Your score: ${score.toInt().toString()}%\nResult: $resultPassFail",
             ),
             actions: [
               TextButton(

@@ -32,10 +32,14 @@ class _AssessmentsPageState extends State<AssessmentsPage> {
           final quiz = quizzes[index];
           final quizNumber = index + 1;
           final assessmentScore = assessmentsScore[quiz.id.toString()];
+          final formattedScore = assessmentScore != null
+              ? double.parse(assessmentScore.toStringAsFixed(2))
+              : null;
+
           return AssessmentCard(
             quiz: quiz,
             quizNumber: quizNumber,
-            score: assessmentScore,
+            score: formattedScore,
           );
         },
       ),

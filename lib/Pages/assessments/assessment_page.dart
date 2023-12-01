@@ -60,13 +60,15 @@ class _AssessmentPageState extends State<AssessmentPage> {
       }
       final progressProvider = context.read<ProgressProvider>();
       progressProvider.fetcAssessmentsProgress();
+      final score = result['score'].toDouble();
+      final resultPassFail = result['result'];
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text("Assessment Completed"),
             content: Text(
-              "Your score: ${result['score']}\nResult: ${result['result']}",
+              "Your score: ${score.toInt().toString()}%\nResult: $resultPassFail",
             ),
             actions: [
               TextButton(
