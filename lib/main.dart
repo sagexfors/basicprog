@@ -11,5 +11,3 @@ void main() async {
   );
   runApp(const MyApp());
 }
-
-//TODO: fix the youtube player fullscreen

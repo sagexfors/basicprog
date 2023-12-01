@@ -93,6 +93,11 @@ class _ProfilePageState extends State<ProfilePage> {
               ElevatedButton(
                 onPressed: () async {
                   await userState.updateProfileData(_nameController.text);
+                  SnackBar snackBar = const SnackBar(
+                    content: Text('Profile updated successfully'),
+                  );
+                  if (!context.mounted) return;
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 },
                 child: const Text('Update Profile'),
               ),

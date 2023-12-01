@@ -17,7 +17,7 @@ class _YoutubePlayerWidgetState extends State<YoutubePlayerWidget> {
     controller = YoutubePlayerController(
       initialVideoId: widget.videoId!, // Replace with actual video ID.
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         forceHD: true,
         mute: false,
       ),
@@ -31,6 +31,7 @@ class _YoutubePlayerWidgetState extends State<YoutubePlayerWidget> {
       player: YoutubePlayer(
         controller: controller,
         showVideoProgressIndicator: true,
+        // thumbnail: const Text('Loading...'),
         onReady: () {
           // print('Player is ready.');
         },
