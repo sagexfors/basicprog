@@ -14,8 +14,8 @@ class ProgressProvider with ChangeNotifier {
   void initialize() async {
     try {
       await fetchLessonsProgress();
-      // await fetchQuizzesProgress('userId');
-      // await fetchAssessmentsProgress('userId');
+      await fetchQuizzesProgress();
+      await fetcAssessmentsProgress();
     } catch (e) {
       throw ("Error initializing progress provider: $e");
     }
