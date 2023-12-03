@@ -88,7 +88,7 @@ class ProgressProvider with ChangeNotifier {
       int completedCount = userAssessments.values
           .where((assesment) => assesment['score'] == 100)
           .length;
-      int totalQuizzes = 3;
+      int totalQuizzes = 5;
       final progress = completedCount / totalQuizzes;
       updateAssessmentsProgress(progress);
     } catch (e) {
