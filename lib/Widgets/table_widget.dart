@@ -19,7 +19,6 @@ class _JsonTableWidgetState extends State<JsonTableWidget> {
       return const Center(child: Text("No data available"));
     }
 
-    // Assuming all maps have the same keys
     List<String> columns =
         (widget.tableData.first as Map).keys.cast<String>().toList();
 

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'dart:developer' as developer;
 
 class CodexApiService {
   // static const String apiUrl = 'https://api.codex.jaagrav.in';
@@ -25,7 +26,7 @@ class CodexApiService {
           'error': jsonResponse['error'] ?? '',
         };
       } else {
-        print(response.body);
+        developer.log(response.body);
         throw Exception('Request failed with status: ${response.statusCode}');
       }
     } catch (e) {

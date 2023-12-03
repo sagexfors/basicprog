@@ -41,8 +41,6 @@ class _QuizPageState extends State<QuizPage> {
         currentQuestionIndex++;
       });
     } else {
-      // Quiz is completed, show the result
-
       Map<String, dynamic> result = quizPassFailAlgorithm(userResponses);
       final quizzesProvider = context.read<QuizzesProvider>();
       quizzesProvider.updateQuizScore(

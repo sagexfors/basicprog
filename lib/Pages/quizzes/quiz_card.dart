@@ -76,7 +76,6 @@ class QuizCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
-        // Score Display
         const SizedBox(height: 8),
         _buildScoreIndicator(theme, score),
       ],
@@ -90,7 +89,6 @@ class QuizCard extends StatelessWidget {
               Icon(Icons.score, color: theme.colorScheme.secondary),
               const SizedBox(width: 4),
               Text(
-                // Multiply by 100 and convert to integer for percentage display
                 'Score: ${(score).toInt()}%',
                 style: TextStyle(color: theme.colorScheme.secondary),
               ),

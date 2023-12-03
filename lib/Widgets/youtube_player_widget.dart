@@ -15,7 +15,7 @@ class _YoutubePlayerWidgetState extends State<YoutubePlayerWidget> {
   @override
   void initState() {
     controller = YoutubePlayerController(
-      initialVideoId: widget.videoId!, // Replace with actual video ID.
+      initialVideoId: widget.videoId!,
       flags: const YoutubePlayerFlags(
         autoPlay: false,
         forceHD: true,

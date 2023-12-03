@@ -15,14 +15,13 @@ class AuthButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SizedBox(
-        width: double.infinity, // Make the button as wide as possible
-        height: 50, // Adjust the desired height
+        width: double.infinity,
+        height: 50,
         child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(10), // Adjust the desired border radius
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
           child: Text(
